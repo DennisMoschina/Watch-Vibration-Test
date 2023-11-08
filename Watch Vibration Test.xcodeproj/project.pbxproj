@@ -13,9 +13,13 @@
 		95FC5D4D2AFA4DC7002854EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D4C2AFA4DC7002854EF /* Preview Assets.xcassets */; };
 		95FC5D532AFA4DC7002854EF /* Watch Vibration Test Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 95FC5D522AFA4DC7002854EF /* Watch Vibration Test Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		95FC5D582AFA4DC7002854EF /* Watch_Vibration_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D572AFA4DC7002854EF /* Watch_Vibration_TestApp.swift */; };
-		95FC5D5A2AFA4DC7002854EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D592AFA4DC7002854EF /* ContentView.swift */; };
+		95FC5D5A2AFA4DC7002854EF /* PlaySingularHapticListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D592AFA4DC7002854EF /* PlaySingularHapticListView.swift */; };
 		95FC5D5C2AFA4DC8002854EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D5B2AFA4DC8002854EF /* Assets.xcassets */; };
 		95FC5D5F2AFA4DC8002854EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D5E2AFA4DC8002854EF /* Preview Assets.xcassets */; };
+		95FC5D6B2AFA4DFF002854EF /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D6A2AFA4DFF002854EF /* HapticManager.swift */; };
+		95FC5D6E2AFA57E0002854EF /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D6D2AFA57E0002854EF /* Haptic.swift */; };
+		95FC5D712AFAF490002854EF /* HapticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D702AFAF490002854EF /* HapticViewModel.swift */; };
+		95FC5D732AFB90F8002854EF /* HapticPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D722AFB90F8002854EF /* HapticPattern.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +54,13 @@
 		95FC5D4C2AFA4DC7002854EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95FC5D522AFA4DC7002854EF /* Watch Vibration Test Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Vibration Test Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FC5D572AFA4DC7002854EF /* Watch_Vibration_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Vibration_TestApp.swift; sourceTree = "<group>"; };
-		95FC5D592AFA4DC7002854EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		95FC5D592AFA4DC7002854EF /* PlaySingularHapticListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySingularHapticListView.swift; sourceTree = "<group>"; };
 		95FC5D5B2AFA4DC8002854EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95FC5D5E2AFA4DC8002854EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		95FC5D6A2AFA4DFF002854EF /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		95FC5D6D2AFA57E0002854EF /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
+		95FC5D702AFAF490002854EF /* HapticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticViewModel.swift; sourceTree = "<group>"; };
+		95FC5D722AFB90F8002854EF /* HapticPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPattern.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +121,10 @@
 		95FC5D562AFA4DC7002854EF /* Watch Vibration Test Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				95FC5D692AFA4DE7002854EF /* Model */,
+				95FC5D6F2AFAF483002854EF /* ViewModel */,
+				95FC5D6C2AFA5649002854EF /* View */,
 				95FC5D572AFA4DC7002854EF /* Watch_Vibration_TestApp.swift */,
-				95FC5D592AFA4DC7002854EF /* ContentView.swift */,
 				95FC5D5B2AFA4DC8002854EF /* Assets.xcassets */,
 				95FC5D5D2AFA4DC8002854EF /* Preview Content */,
 			);
@@ -127,6 +137,32 @@
 				95FC5D5E2AFA4DC8002854EF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		95FC5D692AFA4DE7002854EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95FC5D6A2AFA4DFF002854EF /* HapticManager.swift */,
+				95FC5D6D2AFA57E0002854EF /* Haptic.swift */,
+				95FC5D722AFB90F8002854EF /* HapticPattern.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		95FC5D6C2AFA5649002854EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95FC5D592AFA4DC7002854EF /* PlaySingularHapticListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		95FC5D6F2AFAF483002854EF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				95FC5D702AFAF490002854EF /* HapticViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95FC5D5A2AFA4DC7002854EF /* ContentView.swift in Sources */,
+				95FC5D712AFAF490002854EF /* HapticViewModel.swift in Sources */,
+				95FC5D732AFB90F8002854EF /* HapticPattern.swift in Sources */,
+				95FC5D6E2AFA57E0002854EF /* Haptic.swift in Sources */,
+				95FC5D5A2AFA4DC7002854EF /* PlaySingularHapticListView.swift in Sources */,
+				95FC5D6B2AFA4DFF002854EF /* HapticManager.swift in Sources */,
 				95FC5D582AFA4DC7002854EF /* Watch_Vibration_TestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,8 @@ import SwiftUI
 struct Watch_Vibration_Test_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PlaySingularHapticListView()
+                .environmentObject(HapticViewModel(hapticManager: HapticManager()))
         }
     }
 }
