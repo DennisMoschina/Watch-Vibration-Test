@@ -7,13 +7,22 @@
 
 import Foundation
 
-struct HapticPattern: IteratorProtocol {
+struct HapticPattern: IteratorProtocol, Identifiable {
     typealias Element = Haptic
     
+    let id: UUID = UUID()
+    
+    var name: String
     var haptics: [Haptic]
-    var frequency: Double
+    var frequency: Int
     
     private var hapticIndex: Int = 0
+    
+    init(name: String, haptics: [Haptic], frequency: Int) {
+        self.name = name
+        self.haptics = haptics
+        self.frequency = frequency
+    }
     
     mutating func next() -> Haptic? {
         guard self.haptics.count > 0 else { return nil }

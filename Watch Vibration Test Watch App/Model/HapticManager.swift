@@ -12,13 +12,15 @@ import OSLog
 class HapticManager {
     private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.WatchVibrationTest-Watch", category: "HapticManager")
     
+    @Published var playing: Bool = false
+    
     private let device: WKInterfaceDevice = WKInterfaceDevice.current()
     
     private var playTimer: Timer?
-    
-    private var timerFirings: Int = 0
+    private var turnOffTimer: Timer?
     
     private(set) var availableHaptics: [Haptic] = Haptic.defaults
+    private(set) var availablePatterns: [HapticPattern] = []
     
     func play(haptic: Haptic) {
         if let type = haptic.hapticType {
@@ -26,26 +28,26 @@ class HapticManager {
         }
     }
     
-    func playRepeated(haptics: [Haptic], frequency: Double) {
-        self.playTimer?.invalidate()
-        guard frequency > 0 else {
-            Self.logger.warning("frequency must be greater than 0")
-            return
-        }
-        self.playTimer = Timer.scheduledTimer(withTimeInterval: 1 / frequency, repeats: true, block: { _ in
-            guard self.timerFirings < haptics.count else {
-                Self.logger.error("failed to play haptic: index \(self.timerFirings) is out of range \(haptics.count - 1)")
+    func play(pattern: HapticPattern, for time: TimeInterval? = nil) {
+        var patternCopy = pattern
+        self.playTimer = Timer.scheduledTimer(withTimeInterval: 1.0 / Double(pattern.frequency), repeats: true, block: { _ in
+            guard let haptic = patternCopy.next() else {
+                Self.logger.error("failed to get haptic from pattern")
                 return
             }
-            self.play(haptic: haptics[self.timerFirings])
-            self.timerFirings += 1
-            self.timerFirings %= haptics.count
+            self.play(haptic: haptic)
         })
-        self.timerFirings = 0
+        if let time {
+            self.turnOffTimer = Timer.scheduledTimer(withTimeInterval: time, repeats: false, block: { _ in
+                self.playTimer?.invalidate()
+                self.playing = false
+            })
+        }
+        self.playing = true
     }
     
     func stop() {
         self.playTimer?.invalidate()
-        self.timerFirings = 0
+        self.playing = false
     }
 }

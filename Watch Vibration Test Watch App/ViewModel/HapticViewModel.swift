@@ -6,18 +6,25 @@
 //
 
 import Foundation
+import Combine
 
 class HapticViewModel: ObservableObject {
     @Published var playing: Bool = false
     @Published var frequency: Double = 60
     @Published var availableHaptics: [Haptic]
-    @Published var scheduledHaptics: [Haptic] = []
+    
+    @Published var availablePatterns: [HapticPattern] = []
     
     private let hapticManager: HapticManager
+    
+    private var cancellables: [AnyCancellable] = []
     
     init(hapticManager: HapticManager) {
         self.hapticManager = hapticManager
         self.availableHaptics = hapticManager.availableHaptics
+        self.cancellables.append(self.hapticManager.$playing.sink(receiveValue: { playing in
+            self.playing = playing
+        }))
     }
     
     func play(haptic: Haptic) {
@@ -25,13 +32,15 @@ class HapticViewModel: ObservableObject {
         self.playing = false
     }
     
-    func startPlaying() {
-        self.hapticManager.playRepeated(haptics: self.scheduledHaptics, frequency: self.frequency)
-        self.playing = true
+    func play(pattern: HapticPattern, for time: TimeInterval? = nil) {
+        self.hapticManager.play(pattern: pattern, for: time)
     }
     
     func stop() {
         self.hapticManager.stop()
-        self.playing = false
+    }
+    
+    func addPattern() {
+        
     }
 }

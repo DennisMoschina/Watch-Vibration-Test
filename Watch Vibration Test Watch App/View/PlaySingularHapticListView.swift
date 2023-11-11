@@ -15,9 +15,10 @@ struct PlaySingularHapticListView: View {
             Button {
                 self.hapticViewModel.play(haptic: haptic)
             } label: {
-                Text(haptic.name)
+                Label(haptic.name, systemImage: haptic.icon)
             }
         }
+        .navigationTitle("Haptic")
     }
 }
 
