@@ -23,7 +23,7 @@ struct HapticPatternButton: View {
                         .foregroundStyle(.white)
                     Spacer()
                     NavigationLink {
-                        Text("test")
+                        EditPatternView(pattern: self.pattern)
                     } label: {
                         Image(systemName: "ellipsis.circle.fill")
                             .symbolRenderingMode(.hierarchical)

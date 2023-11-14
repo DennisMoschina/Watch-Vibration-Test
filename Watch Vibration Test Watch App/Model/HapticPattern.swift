@@ -6,25 +6,23 @@
 //
 
 import Foundation
+import SwiftData
 
-struct HapticPattern: IteratorProtocol, Identifiable {
-    typealias Element = Haptic
-    
-    let id: UUID = UUID()
-    
+@Model
+class HapticPattern: IteratorProtocol, Identifiable {
     var name: String
     var haptics: [Haptic]
     var frequency: Int
     
     private var hapticIndex: Int = 0
     
-    init(name: String, haptics: [Haptic], frequency: Int) {
+    init(name: String = "", haptics: [Haptic] = [], frequency: Int = 60) {
         self.name = name
         self.haptics = haptics
         self.frequency = frequency
     }
     
-    mutating func next() -> Haptic? {
+    func next() -> Haptic? {
         guard self.haptics.count > 0 else { return nil }
         let next = haptics[self.hapticIndex]
         self.hapticIndex = (self.hapticIndex + 1) % self.haptics.count

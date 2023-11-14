@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Watch_Vibration_Test_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environmentObject(HapticViewModel(hapticManager: HapticManager()))
+                .modelContainer(for: HapticPattern.self)
         }
     }
 }

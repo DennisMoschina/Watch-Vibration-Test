@@ -8,13 +8,44 @@
 import Foundation
 import WatchKit
 
-struct Haptic: Identifiable {
+struct Haptic: Identifiable, Codable {
     var id: String { self.name }
     
     let name: String
     let hapticType: WKHapticType?
     
-    var icon: String = ""
+    var icon: String
+    
+    init(name: String, hapticType: WKHapticType?, icon: String) {
+        self.name = name
+        self.hapticType = hapticType
+        self.icon = icon
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.icon = try container.decode(String.self, forKey: .icon)
+        // Decode the raw value of the hapticType enum
+        let rawValue = try container.decode(Int.self, forKey: .hapticType)
+        // Convert the raw value to the enum case, or nil if not found
+        self.hapticType = WKHapticType(rawValue: rawValue)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(icon, forKey: .icon)
+        // Encode the raw value of the hapticType enum, or nil if not present
+        try container.encode(hapticType?.rawValue, forKey: .hapticType)
+    }
+    
+    // Coding keys for the properties
+    enum CodingKeys: String, CodingKey {
+        case name
+        case hapticType
+        case icon
+    }
     
     static let defaults: [Haptic] = [
         Haptic(name: "None", hapticType: nil, icon: "speaker"),

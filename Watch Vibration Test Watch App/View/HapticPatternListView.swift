@@ -6,29 +6,47 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HapticPatternListView: View {
+    @Environment(\.modelContext) var modelContext
     @EnvironmentObject var hapticViewModel: HapticViewModel
+    @Query var patterns: [HapticPattern]
     
     var body: some View {
-        ScrollView {
-            ForEach(self.hapticViewModel.availablePatterns) { pattern in
+        List {
+            ForEach(self.patterns) { pattern in
                 HapticPatternButton(pattern: pattern)
             }
+            .onDelete(perform: self.deletePatterns)
+            
             Button {
-                
+                self.modelContext.insert(HapticPattern())
             } label: {
                 Text("Create Pattern")
             }
-
+            .buttonStyle(.plain)
         }
+        .listStyle(.carousel)
         .navigationTitle("Patterns")
+    }
+    
+    func deletePatterns(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let pattern = self.patterns[index]
+            self.modelContext.delete(pattern)
+        }
     }
 }
 
 #Preview {
-    NavigationStack {
-        HapticPatternListView()
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: HapticPattern.self, configurations: config)
+        return HapticPatternListView()
             .environmentObject(HapticViewModel(hapticManager: HapticManager()))
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container.")
     }
 }

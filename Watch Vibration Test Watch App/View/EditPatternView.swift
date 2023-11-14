@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct EditPatternView: View {
-    @EnvironmentObject var hapticViewModel: HapticViewModel
-    
-    @State var pattern: HapticPattern
+    @Bindable var pattern: HapticPattern
     
     var body: some View {
         VStack {
@@ -57,9 +56,13 @@ struct EditPatternView: View {
 }
 
 #Preview {
-    EditPatternView(pattern: HapticPattern(name: "Test", haptics: Haptic.defaults, frequency: 60))
-        .previewDevice("Apple Watch Series 9 (45mm)")
-    
-    EditPatternView(pattern: HapticPattern(name: "Test", haptics: Haptic.defaults, frequency: 60))
-        .previewDevice("Apple Watch Series 9 (41mm)")
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: HapticPattern.self, configurations: config)
+        let example = HapticPattern(name: "Test", haptics: Haptic.defaults, frequency: 60)
+        return EditPatternView(pattern: example)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
 }

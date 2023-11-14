@@ -7,13 +7,26 @@
 
 import Foundation
 import Combine
+import SwiftUI
+
+enum AppNavigation: Hashable {
+    case playSingleList
+    case patternList
+    case playPattern(pattern: HapticPattern)
+    case editPattern(pattern: HapticPattern)
+}
 
 class HapticViewModel: ObservableObject {
-    @Published var playing: Bool = false
     @Published var frequency: Double = 60
     @Published var availableHaptics: [Haptic]
     
-    @Published var availablePatterns: [HapticPattern] = []
+    @Published var playingPattern: [HapticPattern] = [] {
+        didSet {
+            print(self.playingPattern)
+        }
+    }
+    
+    @Published var navigation: NavigationPath = NavigationPath()
     
     private let hapticManager: HapticManager
     
@@ -22,25 +35,25 @@ class HapticViewModel: ObservableObject {
     init(hapticManager: HapticManager) {
         self.hapticManager = hapticManager
         self.availableHaptics = hapticManager.availableHaptics
-        self.cancellables.append(self.hapticManager.$playing.sink(receiveValue: { playing in
-            self.playing = playing
+        self.cancellables.append(self.hapticManager.$playingPattern.sink(receiveValue: { pattern in
+            self.playingPattern.removeAll()
+            if let pattern {
+                self.playingPattern.append(pattern)
+            }
         }))
     }
     
     func play(haptic: Haptic) {
         self.hapticManager.play(haptic: haptic)
-        self.playing = false
     }
     
     func play(pattern: HapticPattern, for time: TimeInterval? = nil) {
         self.hapticManager.play(pattern: pattern, for: time)
+        self.navigation.append(AppNavigation.playPattern(pattern: pattern))
     }
     
     func stop() {
         self.hapticManager.stop()
-    }
-    
-    func addPattern() {
-        
+        self.navigation.removeLast()
     }
 }

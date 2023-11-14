@@ -12,7 +12,7 @@ import OSLog
 class HapticManager {
     private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.WatchVibrationTest-Watch", category: "HapticManager")
     
-    @Published var playing: Bool = false
+    @Published var playingPattern: HapticPattern?
     
     private let device: WKInterfaceDevice = WKInterfaceDevice.current()
     
@@ -40,14 +40,14 @@ class HapticManager {
         if let time {
             self.turnOffTimer = Timer.scheduledTimer(withTimeInterval: time, repeats: false, block: { _ in
                 self.playTimer?.invalidate()
-                self.playing = false
+                self.playingPattern = nil
             })
         }
-        self.playing = true
+        self.playingPattern = pattern
     }
     
     func stop() {
         self.playTimer?.invalidate()
-        self.playing = false
+        self.playingPattern = nil
     }
 }

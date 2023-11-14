@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95F7F1942B0243DF001B5ABF /* PlayingPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */; };
 		95FC5D462AFA4DC5002854EF /* Watch_Vibration_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */; };
 		95FC5D482AFA4DC5002854EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D472AFA4DC5002854EF /* ContentView.swift */; };
 		95FC5D4A2AFA4DC7002854EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D492AFA4DC7002854EF /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingPatternView.swift; sourceTree = "<group>"; };
 		95FC5D422AFA4DC5002854EF /* Watch Vibration Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Vibration Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Vibration_TestApp.swift; sourceTree = "<group>"; };
 		95FC5D472AFA4DC5002854EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				95FC5D762AFBB537002854EF /* HapticPatternButton.swift */,
 				95FC5D782AFBC4BA002854EF /* HomeView.swift */,
 				95FC5D7A2AFBC899002854EF /* EditPatternView.swift */,
+				95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			files = (
 				95FC5D792AFBC4BB002854EF /* HomeView.swift in Sources */,
 				95FC5D712AFAF490002854EF /* HapticViewModel.swift in Sources */,
+				95F7F1942B0243DF001B5ABF /* PlayingPatternView.swift in Sources */,
 				95FC5D732AFB90F8002854EF /* HapticPattern.swift in Sources */,
 				95FC5D6E2AFA57E0002854EF /* Haptic.swift in Sources */,
 				95FC5D5A2AFA4DC7002854EF /* PlaySingularHapticListView.swift in Sources */,
