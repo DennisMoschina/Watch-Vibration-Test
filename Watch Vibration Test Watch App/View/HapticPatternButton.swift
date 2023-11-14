@@ -22,14 +22,13 @@ struct HapticPatternButton: View {
                         .font(.headline)
                         .foregroundStyle(.white)
                     Spacer()
-                    NavigationLink {
-                        EditPatternView(pattern: self.pattern)
-                    } label: {
-                        Image(systemName: "ellipsis.circle.fill")
-                            .symbolRenderingMode(.hierarchical)
-                            .font(.title2)
-                    }
-                    .buttonStyle(.plain)
+                    
+                    Image(systemName: "ellipsis.circle.fill")
+                        .symbolRenderingMode(.hierarchical)
+                        .font(.title2)
+                        .onTapGesture {
+                            self.hapticViewModel.navigation.append(AppNavigation.editPattern(pattern: self.pattern))
+                        }
 
                 }
                 ScrollView(.horizontal) {
@@ -43,7 +42,7 @@ struct HapticPatternButton: View {
                     .foregroundStyle(.secondary)
             }
         })
-        .buttonBorderShape(.roundedRectangle)
+        .buttonStyle(.plain)
     }
 }
 

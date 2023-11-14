@@ -21,7 +21,9 @@ struct HapticPatternListView: View {
             .onDelete(perform: self.deletePatterns)
             
             Button {
-                self.modelContext.insert(HapticPattern())
+                let pattern = HapticPattern()
+                self.modelContext.insert(pattern)
+                self.hapticViewModel.navigation.append(AppNavigation.editPattern(pattern: pattern))
             } label: {
                 Text("Create Pattern")
             }

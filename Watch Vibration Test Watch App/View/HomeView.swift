@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
     @EnvironmentObject var hapticViewModel: HapticViewModel
@@ -38,6 +39,13 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
-        .environmentObject(HapticViewModel(hapticManager: HapticManager()))
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: HapticPattern.self, configurations: config)
+        return HomeView()
+            .environmentObject(HapticViewModel(hapticManager: HapticManager()))
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
 }

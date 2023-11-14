@@ -20,12 +20,6 @@ class HapticViewModel: ObservableObject {
     @Published var frequency: Double = 60
     @Published var availableHaptics: [Haptic]
     
-    @Published var playingPattern: [HapticPattern] = [] {
-        didSet {
-            print(self.playingPattern)
-        }
-    }
-    
     @Published var navigation: NavigationPath = NavigationPath()
     
     private let hapticManager: HapticManager
@@ -35,12 +29,6 @@ class HapticViewModel: ObservableObject {
     init(hapticManager: HapticManager) {
         self.hapticManager = hapticManager
         self.availableHaptics = hapticManager.availableHaptics
-        self.cancellables.append(self.hapticManager.$playingPattern.sink(receiveValue: { pattern in
-            self.playingPattern.removeAll()
-            if let pattern {
-                self.playingPattern.append(pattern)
-            }
-        }))
     }
     
     func play(haptic: Haptic) {
