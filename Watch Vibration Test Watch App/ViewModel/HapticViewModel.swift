@@ -9,13 +9,6 @@ import Foundation
 import Combine
 import SwiftUI
 
-enum AppNavigation: Hashable {
-    case playSingleList
-    case patternList
-    case playPattern(pattern: HapticPattern)
-    case editPattern(pattern: HapticPattern)
-}
-
 class HapticViewModel: ObservableObject {
     @Published var frequency: Double = 60
     @Published var availableHaptics: [Haptic]
@@ -37,7 +30,7 @@ class HapticViewModel: ObservableObject {
     
     func play(pattern: HapticPattern, for time: TimeInterval? = nil) {
         self.hapticManager.play(pattern: pattern, for: time)
-        self.navigation.append(AppNavigation.playPattern(pattern: pattern))
+        self.navigation.append(PatternNavigation.play(pattern: pattern))
     }
     
     func stop() {

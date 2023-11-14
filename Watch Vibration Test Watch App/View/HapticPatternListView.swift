@@ -8,6 +8,11 @@
 import SwiftUI
 import SwiftData
 
+enum PatternNavigation: Hashable {
+    case play(pattern: HapticPattern)
+    case edit(pattern: HapticPattern)
+}
+
 struct HapticPatternListView: View {
     @Environment(\.modelContext) var modelContext
     @EnvironmentObject var hapticViewModel: HapticViewModel
@@ -23,7 +28,7 @@ struct HapticPatternListView: View {
             Button {
                 let pattern = HapticPattern()
                 self.modelContext.insert(pattern)
-                self.hapticViewModel.navigation.append(AppNavigation.editPattern(pattern: pattern))
+                self.hapticViewModel.navigation.append(PatternNavigation.edit(pattern: pattern))
             } label: {
                 Text("Create Pattern")
             }
@@ -31,6 +36,14 @@ struct HapticPatternListView: View {
         }
         .listStyle(.carousel)
         .navigationTitle("Patterns")
+        .navigationDestination(for: PatternNavigation.self) { navigation in
+            switch navigation {
+            case .play(pattern: let pattern):
+                PlayingPatternView(pattern: pattern)
+            case .edit(pattern: let pattern):
+                EditPatternView(pattern: pattern)
+            }
+        }
     }
     
     func deletePatterns(_ indexSet: IndexSet) {

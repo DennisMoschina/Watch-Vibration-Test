@@ -8,29 +8,30 @@
 import SwiftUI
 import SwiftData
 
+enum MainNavigation: Hashable {
+    case singularHapticList
+    case patternList
+}
+
 struct HomeView: View {
     @EnvironmentObject var hapticViewModel: HapticViewModel
     
     var body: some View {
         NavigationStack(path: self.$hapticViewModel.navigation) {
             VStack {
-                NavigationLink(value: AppNavigation.playSingleList) {
+                NavigationLink(value: MainNavigation.singularHapticList) {
                     Text("Play Single Haptic")
                 }
-                NavigationLink(value: AppNavigation.patternList) {
+                NavigationLink(value: MainNavigation.patternList) {
                     Text("Play Pattern")
                 }
             }
-            .navigationDestination(for: AppNavigation.self, destination: { navigation in
+            .navigationDestination(for: MainNavigation.self, destination: { navigation in
                 switch navigation {
-                case .playSingleList:
+                case .singularHapticList:
                     PlaySingularHapticListView()
                 case .patternList:
                     HapticPatternListView()
-                case .playPattern(let pattern):
-                    PlayingPatternView(pattern: pattern)
-                case .editPattern(pattern: let pattern):
-                    EditPatternView(pattern: pattern)
                 }
             })
             .navigationTitle("Haptic Test")

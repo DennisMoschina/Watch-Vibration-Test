@@ -27,7 +27,7 @@ struct HapticPatternButton: View {
                         .symbolRenderingMode(.hierarchical)
                         .font(.title2)
                         .onTapGesture {
-                            self.hapticViewModel.navigation.append(AppNavigation.editPattern(pattern: self.pattern))
+                            self.hapticViewModel.navigation.append(PatternNavigation.edit(pattern: self.pattern))
                         }
 
                 }
