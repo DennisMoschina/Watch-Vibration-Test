@@ -51,6 +51,7 @@ struct EditPatternView: View {
             
             Stepper(value: self.$pattern.frequency) {
                 Text("\(self.pattern.frequency)Hz")
+                    .font(.body)
             }
             
         }
