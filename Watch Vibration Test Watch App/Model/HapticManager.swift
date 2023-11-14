@@ -29,9 +29,8 @@ class HapticManager {
     }
     
     func play(pattern: HapticPattern, for time: TimeInterval? = nil) {
-        var patternCopy = pattern
-        self.playTimer = Timer.scheduledTimer(withTimeInterval: 1.0 / Double(pattern.frequency), repeats: true, block: { _ in
-            guard let haptic = patternCopy.next() else {
+        self.playTimer = Timer.scheduledTimer(withTimeInterval: 60.0 / Double(pattern.frequency), repeats: true, block: { _ in
+            guard let haptic = pattern.next() else {
                 Self.logger.error("failed to get haptic from pattern")
                 return
             }

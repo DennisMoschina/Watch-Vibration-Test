@@ -38,7 +38,7 @@ struct HapticPatternButton: View {
                         }
                     }
                 }
-                Text("\(self.pattern.frequency, specifier: "%.0f")Hz")
+                Text("\(self.pattern.frequency)Hz")
                     .foregroundStyle(.secondary)
             }
         })

@@ -1,22 +1,17 @@
 //
-//  EditPatternView.swift
+//  EditPatternHapticsView.swift
 //  Watch Vibration Test Watch App
 //
-//  Created by Dennis Moschina on 08.11.23.
+//  Created by Dennis Moschina on 14.11.23.
 //
 
 import SwiftUI
-import SwiftData
 
-struct EditPatternView: View {
+struct EditPatternHapticsView: View {
     @Bindable var pattern: HapticPattern
     
     var body: some View {
         VStack {
-            TextField(text: .constant("")) {
-                Text("Name")
-            }
-            
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(self.pattern.haptics) { haptic in
@@ -31,10 +26,9 @@ struct EditPatternView: View {
                     Button {
                         self.pattern.haptics.removeLast()
                     } label: {
-                        Image(systemName: "delete.left")
+                        Image(systemName: "delete.backward.fill")
                     }
                     .tint(.red)
-
                 }
             }
             
@@ -56,13 +50,5 @@ struct EditPatternView: View {
 }
 
 #Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: HapticPattern.self, configurations: config)
-        let example = HapticPattern(name: "Test", haptics: Haptic.defaults, frequency: 60)
-        return EditPatternView(pattern: example)
-            .modelContainer(container)
-    } catch {
-        fatalError("Failed to create model container.")
-    }
+    EditPatternHapticsView(pattern: HapticPattern(name: "Test", haptics: [], frequency: 60))
 }

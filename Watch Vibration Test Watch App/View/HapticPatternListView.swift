@@ -51,6 +51,10 @@ struct HapticPatternListView: View {
             let pattern = self.patterns[index]
             self.modelContext.delete(pattern)
         }
+        
+        if self.patterns.isEmpty {
+            HapticPattern.patternCount = 0
+        }
     }
 }
 

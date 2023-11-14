@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		95F7F1942B0243DF001B5ABF /* PlayingPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */; };
+		95F7F1972B03942B001B5ABF /* EditPatternHapticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F7F1962B03942B001B5ABF /* EditPatternHapticsView.swift */; };
 		95FC5D462AFA4DC5002854EF /* Watch_Vibration_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */; };
 		95FC5D482AFA4DC5002854EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D472AFA4DC5002854EF /* ContentView.swift */; };
 		95FC5D4A2AFA4DC7002854EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D492AFA4DC7002854EF /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingPatternView.swift; sourceTree = "<group>"; };
+		95F7F1962B03942B001B5ABF /* EditPatternHapticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPatternHapticsView.swift; sourceTree = "<group>"; };
 		95FC5D422AFA4DC5002854EF /* Watch Vibration Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Vibration Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Vibration_TestApp.swift; sourceTree = "<group>"; };
 		95FC5D472AFA4DC5002854EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95F7F1952B039410001B5ABF /* EditPattern */ = {
+			isa = PBXGroup;
+			children = (
+				95FC5D7A2AFBC899002854EF /* EditPatternView.swift */,
+				95F7F1962B03942B001B5ABF /* EditPatternHapticsView.swift */,
+			);
+			path = EditPattern;
+			sourceTree = "<group>";
+		};
 		95FC5D392AFA4DC5002854EF = {
 			isa = PBXGroup;
 			children = (
@@ -162,11 +173,11 @@
 		95FC5D6C2AFA5649002854EF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				95F7F1952B039410001B5ABF /* EditPattern */,
 				95FC5D592AFA4DC7002854EF /* PlaySingularHapticListView.swift */,
 				95FC5D742AFBB204002854EF /* HapticPatternListView.swift */,
 				95FC5D762AFBB537002854EF /* HapticPatternButton.swift */,
 				95FC5D782AFBC4BA002854EF /* HomeView.swift */,
-				95FC5D7A2AFBC899002854EF /* EditPatternView.swift */,
 				95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */,
 			);
 			path = View;
@@ -301,6 +312,7 @@
 				95FC5D6B2AFA4DFF002854EF /* HapticManager.swift in Sources */,
 				95FC5D752AFBB204002854EF /* HapticPatternListView.swift in Sources */,
 				95FC5D582AFA4DC7002854EF /* Watch_Vibration_TestApp.swift in Sources */,
+				95F7F1972B03942B001B5ABF /* EditPatternHapticsView.swift in Sources */,
 				95FC5D772AFBB537002854EF /* HapticPatternButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
