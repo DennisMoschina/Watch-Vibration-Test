@@ -16,6 +16,10 @@ enum MainNavigation: Hashable {
 struct HomeView: View {
     @EnvironmentObject var hapticViewModel: HapticViewModel
     
+    init() {
+        PhoneCommunicator.shared.hapticManager = HapticManager()
+    }
+    
     var body: some View {
         NavigationStack(path: self.$hapticViewModel.navigation) {
             VStack {

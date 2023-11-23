@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95A917B12B06635C000166F4 /* WatchCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B02B06635C000166F4 /* WatchCommunicator.swift */; };
+		95A917B42B0683C2000166F4 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B32B0683C2000166F4 /* Haptic.swift */; };
+		95A917B52B0683C2000166F4 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B32B0683C2000166F4 /* Haptic.swift */; };
+		95A917B72B068787000166F4 /* HapticPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B62B068787000166F4 /* HapticPattern.swift */; };
+		95A917B82B068787000166F4 /* HapticPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B62B068787000166F4 /* HapticPattern.swift */; };
+		95A917BF2B0A9441000166F4 /* HapticList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917BE2B0A9441000166F4 /* HapticList.swift */; };
+		95A917C12B0A9542000166F4 /* PhoneCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917C02B0A9542000166F4 /* PhoneCommunicator.swift */; };
+		95A917CA2B0BA410000166F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917C92B0BA410000166F4 /* HomeView.swift */; };
 		95F7F1942B0243DF001B5ABF /* PlayingPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */; };
 		95F7F1972B03942B001B5ABF /* EditPatternHapticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F7F1962B03942B001B5ABF /* EditPatternHapticsView.swift */; };
 		95FC5D462AFA4DC5002854EF /* Watch_Vibration_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */; };
-		95FC5D482AFA4DC5002854EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D472AFA4DC5002854EF /* ContentView.swift */; };
+		95FC5D482AFA4DC5002854EF /* PatternList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D472AFA4DC5002854EF /* PatternList.swift */; };
 		95FC5D4A2AFA4DC7002854EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D492AFA4DC7002854EF /* Assets.xcassets */; };
 		95FC5D4D2AFA4DC7002854EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D4C2AFA4DC7002854EF /* Preview Assets.xcassets */; };
 		95FC5D532AFA4DC7002854EF /* Watch Vibration Test Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 95FC5D522AFA4DC7002854EF /* Watch Vibration Test Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -19,9 +27,7 @@
 		95FC5D5C2AFA4DC8002854EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D5B2AFA4DC8002854EF /* Assets.xcassets */; };
 		95FC5D5F2AFA4DC8002854EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D5E2AFA4DC8002854EF /* Preview Assets.xcassets */; };
 		95FC5D6B2AFA4DFF002854EF /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D6A2AFA4DFF002854EF /* HapticManager.swift */; };
-		95FC5D6E2AFA57E0002854EF /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D6D2AFA57E0002854EF /* Haptic.swift */; };
 		95FC5D712AFAF490002854EF /* HapticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D702AFAF490002854EF /* HapticViewModel.swift */; };
-		95FC5D732AFB90F8002854EF /* HapticPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D722AFB90F8002854EF /* HapticPattern.swift */; };
 		95FC5D752AFBB204002854EF /* HapticPatternListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D742AFBB204002854EF /* HapticPatternListView.swift */; };
 		95FC5D772AFBB537002854EF /* HapticPatternButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D762AFBB537002854EF /* HapticPatternButton.swift */; };
 		95FC5D792AFBC4BB002854EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D782AFBC4BA002854EF /* HomeView.swift */; };
@@ -53,11 +59,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		95A917B02B06635C000166F4 /* WatchCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCommunicator.swift; sourceTree = "<group>"; };
+		95A917B32B0683C2000166F4 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
+		95A917B62B068787000166F4 /* HapticPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPattern.swift; sourceTree = "<group>"; };
+		95A917B92B068CCA000166F4 /* Watch Vibration Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Watch Vibration Test.entitlements"; sourceTree = "<group>"; };
+		95A917BA2B068D0D000166F4 /* Watch-Vibration-Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Watch-Vibration-Test-Info.plist"; sourceTree = SOURCE_ROOT; };
+		95A917BB2B068E1D000166F4 /* Watch Vibration Test Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Watch Vibration Test Watch App.entitlements"; sourceTree = "<group>"; };
+		95A917BC2B068E3E000166F4 /* Watch-Vibration-Test-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Watch-Vibration-Test-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		95A917BE2B0A9441000166F4 /* HapticList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticList.swift; sourceTree = "<group>"; };
+		95A917C02B0A9542000166F4 /* PhoneCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCommunicator.swift; sourceTree = "<group>"; };
+		95A917C52B0BA3DD000166F4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		95A917C72B0BA3EB000166F4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		95A917C92B0BA410000166F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingPatternView.swift; sourceTree = "<group>"; };
 		95F7F1962B03942B001B5ABF /* EditPatternHapticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPatternHapticsView.swift; sourceTree = "<group>"; };
 		95FC5D422AFA4DC5002854EF /* Watch Vibration Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Vibration Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Vibration_TestApp.swift; sourceTree = "<group>"; };
-		95FC5D472AFA4DC5002854EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		95FC5D472AFA4DC5002854EF /* PatternList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternList.swift; sourceTree = "<group>"; };
 		95FC5D492AFA4DC7002854EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95FC5D4C2AFA4DC7002854EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95FC5D522AFA4DC7002854EF /* Watch Vibration Test Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Vibration Test Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,9 +84,7 @@
 		95FC5D5B2AFA4DC8002854EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95FC5D5E2AFA4DC8002854EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95FC5D6A2AFA4DFF002854EF /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
-		95FC5D6D2AFA57E0002854EF /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		95FC5D702AFAF490002854EF /* HapticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticViewModel.swift; sourceTree = "<group>"; };
-		95FC5D722AFB90F8002854EF /* HapticPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPattern.swift; sourceTree = "<group>"; };
 		95FC5D742AFBB204002854EF /* HapticPatternListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPatternListView.swift; sourceTree = "<group>"; };
 		95FC5D762AFBB537002854EF /* HapticPatternButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPatternButton.swift; sourceTree = "<group>"; };
 		95FC5D782AFBC4BA002854EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -93,6 +109,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95A917AD2B0662A5000166F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95FC5D472AFA4DC5002854EF /* PatternList.swift */,
+				95A917BE2B0A9441000166F4 /* HapticList.swift */,
+				95A917C92B0BA410000166F4 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		95A917AE2B0662AF000166F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95A917B02B06635C000166F4 /* WatchCommunicator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		95A917AF2B0662B9000166F4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		95A917B22B068275000166F4 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				95A917B32B0683C2000166F4 /* Haptic.swift */,
+				95A917B62B068787000166F4 /* HapticPattern.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		95A917C42B0BA3DC000166F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95A917C72B0BA3EB000166F4 /* CloudKit.framework */,
+				95A917C52B0BA3DD000166F4 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		95F7F1952B039410001B5ABF /* EditPattern */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,9 +164,11 @@
 		95FC5D392AFA4DC5002854EF = {
 			isa = PBXGroup;
 			children = (
+				95A917B22B068275000166F4 /* Shared */,
 				95FC5D442AFA4DC5002854EF /* Watch Vibration Test */,
 				95FC5D562AFA4DC7002854EF /* Watch Vibration Test Watch App */,
 				95FC5D432AFA4DC5002854EF /* Products */,
+				95A917C42B0BA3DC000166F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,8 +184,12 @@
 		95FC5D442AFA4DC5002854EF /* Watch Vibration Test */ = {
 			isa = PBXGroup;
 			children = (
+				95A917BA2B068D0D000166F4 /* Watch-Vibration-Test-Info.plist */,
+				95A917B92B068CCA000166F4 /* Watch Vibration Test.entitlements */,
+				95A917AF2B0662B9000166F4 /* ViewModel */,
+				95A917AE2B0662AF000166F4 /* Model */,
+				95A917AD2B0662A5000166F4 /* View */,
 				95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */,
-				95FC5D472AFA4DC5002854EF /* ContentView.swift */,
 				95FC5D492AFA4DC7002854EF /* Assets.xcassets */,
 				95FC5D4B2AFA4DC7002854EF /* Preview Content */,
 			);
@@ -142,6 +207,8 @@
 		95FC5D562AFA4DC7002854EF /* Watch Vibration Test Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				95A917BC2B068E3E000166F4 /* Watch-Vibration-Test-Watch-App-Info.plist */,
+				95A917BB2B068E1D000166F4 /* Watch Vibration Test Watch App.entitlements */,
 				95FC5D692AFA4DE7002854EF /* Model */,
 				95FC5D6F2AFAF483002854EF /* ViewModel */,
 				95FC5D6C2AFA5649002854EF /* View */,
@@ -164,8 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				95FC5D6A2AFA4DFF002854EF /* HapticManager.swift */,
-				95FC5D6D2AFA57E0002854EF /* Haptic.swift */,
-				95FC5D722AFB90F8002854EF /* HapticPattern.swift */,
+				95A917C02B0A9542000166F4 /* PhoneCommunicator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,7 +359,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95FC5D482AFA4DC5002854EF /* ContentView.swift in Sources */,
+				95A917B42B0683C2000166F4 /* Haptic.swift in Sources */,
+				95A917CA2B0BA410000166F4 /* HomeView.swift in Sources */,
+				95A917B12B06635C000166F4 /* WatchCommunicator.swift in Sources */,
+				95A917BF2B0A9441000166F4 /* HapticList.swift in Sources */,
+				95A917B72B068787000166F4 /* HapticPattern.swift in Sources */,
+				95FC5D482AFA4DC5002854EF /* PatternList.swift in Sources */,
 				95FC5D462AFA4DC5002854EF /* Watch_Vibration_TestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,11 +373,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95A917B82B068787000166F4 /* HapticPattern.swift in Sources */,
 				95FC5D792AFBC4BB002854EF /* HomeView.swift in Sources */,
 				95FC5D712AFAF490002854EF /* HapticViewModel.swift in Sources */,
+				95A917C12B0A9542000166F4 /* PhoneCommunicator.swift in Sources */,
 				95F7F1942B0243DF001B5ABF /* PlayingPatternView.swift in Sources */,
-				95FC5D732AFB90F8002854EF /* HapticPattern.swift in Sources */,
-				95FC5D6E2AFA57E0002854EF /* Haptic.swift in Sources */,
 				95FC5D5A2AFA4DC7002854EF /* PlaySingularHapticListView.swift in Sources */,
 				95FC5D7B2AFBC899002854EF /* EditPatternView.swift in Sources */,
 				95FC5D6B2AFA4DFF002854EF /* HapticManager.swift in Sources */,
@@ -314,6 +385,7 @@
 				95FC5D582AFA4DC7002854EF /* Watch_Vibration_TestApp.swift in Sources */,
 				95F7F1972B03942B001B5ABF /* EditPatternHapticsView.swift in Sources */,
 				95FC5D772AFBB537002854EF /* HapticPatternButton.swift in Sources */,
+				95A917B52B0683C2000166F4 /* Haptic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,12 +519,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Watch Vibration Test Watch App/Watch Vibration Test Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Watch Vibration Test Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 6DCQ69GP5G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Watch-Vibration-Test-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Watch Vibration Test";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "edu.teco.moschina.Watch-Vibration-Test";
@@ -477,12 +551,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Watch Vibration Test Watch App/Watch Vibration Test Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Watch Vibration Test Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 6DCQ69GP5G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Watch-Vibration-Test-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Watch Vibration Test";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "edu.teco.moschina.Watch-Vibration-Test";
@@ -509,18 +585,21 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Watch Vibration Test/Watch Vibration Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Watch Vibration Test/Preview Content\"";
 				DEVELOPMENT_TEAM = 6DCQ69GP5G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Watch-Vibration-Test-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Watch Vibration Test";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -530,9 +609,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.teco.moschina.Watch-Vibration-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -542,18 +624,21 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Watch Vibration Test/Watch Vibration Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Watch Vibration Test/Preview Content\"";
 				DEVELOPMENT_TEAM = 6DCQ69GP5G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Watch-Vibration-Test-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Watch Vibration Test";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -563,9 +648,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.teco.moschina.Watch-Vibration-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

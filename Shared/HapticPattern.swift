@@ -12,9 +12,9 @@ import SwiftData
 class HapticPattern: IteratorProtocol, Identifiable {
     static var patternCount: UInt = 0
     
-    var name: String
-    var haptics: [Haptic]
-    var frequency: Int
+    var name: String = ""
+    var haptics: [Haptic] = []
+    var frequency: Int = 60
     
     private var hapticIndex: Int = 0
     
