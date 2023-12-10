@@ -24,6 +24,7 @@ struct EditPatternHapticsView: View {
                     }
                     
                     Button {
+                        guard !self.pattern.haptics.isEmpty else { return }
                         self.pattern.haptics.removeLast()
                     } label: {
                         Image(systemName: "delete.backward.fill")

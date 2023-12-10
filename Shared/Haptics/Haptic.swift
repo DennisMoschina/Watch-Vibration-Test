@@ -37,13 +37,16 @@ struct Haptic: Identifiable, Codable {
         self.name = try container.decode(String.self, forKey: .name)
         self.icon = try container.decode(String.self, forKey: .icon)
         // Decode the raw value of the hapticType enum
-        let rawValue = try container.decode(Int.self, forKey: .hapticType)
-        // Convert the raw value to the enum case, or nil if not found
-        #if os(watchOS)
-        self.hapticType = WKHapticType(rawValue: rawValue)
-        #else
-        self.hapticType = rawValue
-        #endif
+        if let rawValue = try container.decodeIfPresent(Int.self, forKey: .hapticType) {
+            // Convert the raw value to the enum case, or nil if not found
+#if os(watchOS)
+            self.hapticType = WKHapticType(rawValue: rawValue)
+#else
+            self.hapticType = rawValue
+#endif
+        } else {
+            self.hapticType = nil
+        }
     }
     
     func encode(to encoder: Encoder) throws {
@@ -51,11 +54,11 @@ struct Haptic: Identifiable, Codable {
         try container.encode(name, forKey: .name)
         try container.encode(icon, forKey: .icon)
         // Encode the raw value of the hapticType enum, or nil if not present
-        #if os(watchOS)
+#if os(watchOS)
         try container.encode(hapticType?.rawValue, forKey: .hapticType)
-        #else
+#else
         try container.encode(hapticType, forKey: .hapticType)
-        #endif
+#endif
     }
     
     // Coding keys for the properties

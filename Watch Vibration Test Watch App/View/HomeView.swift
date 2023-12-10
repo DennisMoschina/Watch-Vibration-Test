@@ -14,6 +14,7 @@ enum MainNavigation: Hashable {
 }
 
 struct HomeView: View {
+    @Environment(\.modelContext) var modelContext
     @EnvironmentObject var hapticViewModel: HapticViewModel
     
     init() {

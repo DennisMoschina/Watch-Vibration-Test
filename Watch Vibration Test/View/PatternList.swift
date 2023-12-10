@@ -9,11 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct PatternList: View {
-    var patterns: [HapticPattern] = []
+    @ObservedObject var communicator: WatchCommunicator = WatchCommunicator.shared
     
     var body: some View {
         List {
-            ForEach(self.patterns) { pattern in
+            ForEach(self.communicator.availablePatterns) { pattern in
                 VStack {
                     Text(pattern.name)
                     

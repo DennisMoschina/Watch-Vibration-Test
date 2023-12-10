@@ -10,13 +10,12 @@ import WatchKit
 import OSLog
 
 class HapticManager {
-    private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.WatchVibrationTest-Watch", category: "HapticManager")
+    private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.Watch-Vibration-Test.watchkitapp", category: "HapticManager")
     
-    @Published var playingPattern: HapticPattern?
+    @Published var patternPlayer: PatternPlayer?
     
     private let device: WKInterfaceDevice = WKInterfaceDevice.current()
     
-    private var playTimer: Timer?
     private var turnOffTimer: Timer?
     
     private(set) var availableHaptics: [Haptic] = Haptic.defaults
@@ -29,24 +28,11 @@ class HapticManager {
     }
     
     func play(pattern: HapticPattern, for time: TimeInterval? = nil) {
-        self.playTimer = Timer.scheduledTimer(withTimeInterval: 60.0 / Double(pattern.frequency), repeats: true, block: { _ in
-            guard let haptic = pattern.next() else {
-                Self.logger.error("failed to get haptic from pattern")
-                return
-            }
-            self.play(haptic: haptic)
-        })
-        if let time {
-            self.turnOffTimer = Timer.scheduledTimer(withTimeInterval: time, repeats: false, block: { _ in
-                self.playTimer?.invalidate()
-                self.playingPattern = nil
-            })
-        }
-        self.playingPattern = pattern
+        self.patternPlayer = PatternPlayer(pattern: pattern)
+        self.patternPlayer?.play(for: time)
     }
     
     func stop() {
-        self.playTimer?.invalidate()
-        self.playingPattern = nil
+        self.patternPlayer?.stop()
     }
 }

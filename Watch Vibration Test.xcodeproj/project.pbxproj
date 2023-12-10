@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9552870A2B261DDB00F15521 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955287092B261DDB00F15521 /* SessionManager.swift */; };
+		9573760B2B0FC2B3006359C7 /* Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9573760A2B0FC2B3006359C7 /* Communication.swift */; };
+		9573760C2B0FC2B3006359C7 /* Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9573760A2B0FC2B3006359C7 /* Communication.swift */; };
+		957376112B10CDF0006359C7 /* PatternPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957376102B10CDF0006359C7 /* PatternPlayer.swift */; };
 		95A917B12B06635C000166F4 /* WatchCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B02B06635C000166F4 /* WatchCommunicator.swift */; };
 		95A917B42B0683C2000166F4 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B32B0683C2000166F4 /* Haptic.swift */; };
 		95A917B52B0683C2000166F4 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B32B0683C2000166F4 /* Haptic.swift */; };
@@ -59,6 +63,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		955287092B261DDB00F15521 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		9573760A2B0FC2B3006359C7 /* Communication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communication.swift; sourceTree = "<group>"; };
+		957376102B10CDF0006359C7 /* PatternPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternPlayer.swift; sourceTree = "<group>"; };
 		95A917B02B06635C000166F4 /* WatchCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCommunicator.swift; sourceTree = "<group>"; };
 		95A917B32B0683C2000166F4 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		95A917B62B068787000166F4 /* HapticPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPattern.swift; sourceTree = "<group>"; };
@@ -109,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		957376092B0FC291006359C7 /* Haptics */ = {
+			isa = PBXGroup;
+			children = (
+				95A917B32B0683C2000166F4 /* Haptic.swift */,
+				95A917B62B068787000166F4 /* HapticPattern.swift */,
+			);
+			path = Haptics;
+			sourceTree = "<group>";
+		};
 		95A917AD2B0662A5000166F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,8 +153,8 @@
 		95A917B22B068275000166F4 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				95A917B32B0683C2000166F4 /* Haptic.swift */,
-				95A917B62B068787000166F4 /* HapticPattern.swift */,
+				957376092B0FC291006359C7 /* Haptics */,
+				9573760A2B0FC2B3006359C7 /* Communication.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -232,6 +248,8 @@
 			children = (
 				95FC5D6A2AFA4DFF002854EF /* HapticManager.swift */,
 				95A917C02B0A9542000166F4 /* PhoneCommunicator.swift */,
+				957376102B10CDF0006359C7 /* PatternPlayer.swift */,
+				955287092B261DDB00F15521 /* SessionManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,6 +381,7 @@
 				95A917CA2B0BA410000166F4 /* HomeView.swift in Sources */,
 				95A917B12B06635C000166F4 /* WatchCommunicator.swift in Sources */,
 				95A917BF2B0A9441000166F4 /* HapticList.swift in Sources */,
+				9573760B2B0FC2B3006359C7 /* Communication.swift in Sources */,
 				95A917B72B068787000166F4 /* HapticPattern.swift in Sources */,
 				95FC5D482AFA4DC5002854EF /* PatternList.swift in Sources */,
 				95FC5D462AFA4DC5002854EF /* Watch_Vibration_TestApp.swift in Sources */,
@@ -375,9 +394,11 @@
 			files = (
 				95A917B82B068787000166F4 /* HapticPattern.swift in Sources */,
 				95FC5D792AFBC4BB002854EF /* HomeView.swift in Sources */,
+				9573760C2B0FC2B3006359C7 /* Communication.swift in Sources */,
 				95FC5D712AFAF490002854EF /* HapticViewModel.swift in Sources */,
 				95A917C12B0A9542000166F4 /* PhoneCommunicator.swift in Sources */,
 				95F7F1942B0243DF001B5ABF /* PlayingPatternView.swift in Sources */,
+				957376112B10CDF0006359C7 /* PatternPlayer.swift in Sources */,
 				95FC5D5A2AFA4DC7002854EF /* PlaySingularHapticListView.swift in Sources */,
 				95FC5D7B2AFBC899002854EF /* EditPatternView.swift in Sources */,
 				95FC5D6B2AFA4DFF002854EF /* HapticManager.swift in Sources */,
@@ -385,6 +406,7 @@
 				95FC5D582AFA4DC7002854EF /* Watch_Vibration_TestApp.swift in Sources */,
 				95F7F1972B03942B001B5ABF /* EditPatternHapticsView.swift in Sources */,
 				95FC5D772AFBB537002854EF /* HapticPatternButton.swift in Sources */,
+				9552870A2B261DDB00F15521 /* SessionManager.swift in Sources */,
 				95A917B52B0683C2000166F4 /* Haptic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,20 +8,17 @@
 import Foundation
 import WatchConnectivity
 import OSLog
+import SwiftData
 
 
 class PhoneCommunicator: NSObject, WCSessionDelegate {
-    private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.WatchVibrationTest-Watch", category: "WatchCommunicator")
+    private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.Watch-Vibration-Test.watchkitapp", category: "WatchCommunicator")
 
     static let shared: PhoneCommunicator = PhoneCommunicator()
     
     private let wcSession: WCSession
     
-    var hapticManager: HapticManager? {
-        didSet {
-            Self.logger.debug("did set hapticManager")
-        }
-    }
+    var hapticManager: HapticManager?
     
     private override init() {
         self.wcSession = WCSession.default
@@ -30,14 +27,24 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
         self.wcSession.activate()
     }
 
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    func send(patterns: [HapticPattern]) {
+        do {
+            try self.wcSession.updateApplicationContext([MessageKeys.patterns.rawValue : patterns])
+        } catch {
+            Self.logger.error("failed to send patterns with error \(error)")
+        }
+    }
+
+    //MARK: Delegate Methods
+    
+    internal func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         Self.logger.info("activation completed: \(activationState.rawValue)")
         return
     }
     
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+    internal func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         Self.logger.debug("received: \(message)")
-        if let hapticData = message["play_haptic"] as? Data {
+        if let hapticData = message[MessageKeys.playHaptic.rawValue] as? Data {
             let decoder = JSONDecoder()
             if let haptic: Haptic = try? decoder.decode(Haptic.self, from: hapticData) {
                 self.hapticManager?.play(haptic: haptic)

@@ -9,7 +9,7 @@ import Foundation
 import WatchConnectivity
 import OSLog
 
-class WatchCommunicator: NSObject, WCSessionDelegate {
+class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
     private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.WatchVibrationTest-Watch", category: "WatchCommunicator")
     static let shared: WatchCommunicator = WatchCommunicator()
     
@@ -37,19 +37,30 @@ class WatchCommunicator: NSObject, WCSessionDelegate {
             return
         }
         Self.logger.debug("encoded: \(encodedHaptic)")
-        self.wcSession.sendMessage(["play_haptic" : encodedHaptic], replyHandler: nil)
+        self.wcSession.sendMessage([MessageKeys.playHaptic.rawValue : encodedHaptic], replyHandler: nil)
     }
     
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    // MARK: Delegate methods
+    
+    internal func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         Self.logger.info("activation completed: \(activationState.rawValue)")
         return
     }
     
-    func sessionDidBecomeInactive(_ session: WCSession) {
+    internal func sessionDidBecomeInactive(_ session: WCSession) {
         return
     }
     
-    func sessionDidDeactivate(_ session: WCSession) {
+    internal func sessionDidDeactivate(_ session: WCSession) {
         return
+    }
+    
+    internal func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        Self.logger.debug("received application context: \(applicationContext)")
+        
+        if let patterns: [HapticPattern] = applicationContext[MessageKeys.patterns.rawValue] as? [HapticPattern] {
+            Self.logger.debug("got patterns: \(patterns)")
+            self.availablePatterns = patterns
+        }
     }
 }
