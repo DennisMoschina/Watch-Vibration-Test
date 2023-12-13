@@ -21,10 +21,13 @@ class SessionManager: NSObject, WKExtendedRuntimeSessionDelegate {
         self.session?.delegate = self
         
         self.session?.start()
+        HeartRateSensor.shared.start()
+        HealthKitManager.shared.startWorkout()
     }
     
     func stopSession() {
         self.session?.invalidate()
+        HeartRateSensor.shared.stop()
     }
 
     func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession, didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason, error: Error?) {
