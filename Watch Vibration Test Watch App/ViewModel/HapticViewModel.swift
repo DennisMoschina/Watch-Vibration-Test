@@ -28,8 +28,10 @@ class HapticViewModel: ObservableObject {
         self.hapticManager.play(haptic: haptic)
     }
     
-    func play(pattern: HapticPattern, for time: TimeInterval? = nil) {
-        self.hapticManager.play(pattern: pattern, for: time)
+    func play(pattern: HapticPattern) {
+        self.hapticManager.play(pattern: pattern) { pattern in
+            self.navigation.removeLast()
+        }
         self.navigation.append(PatternNavigation.play(pattern: pattern))
     }
     

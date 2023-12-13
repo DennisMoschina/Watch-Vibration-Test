@@ -15,8 +15,10 @@ final class HapticPattern: Identifiable {
     var name: String = ""
     var haptics: [Haptic] = []
     var frequency: Int = 60
+    var duration: TimeInterval = 300
+    var automaticStop: Bool = false
     
-    init(name: String? = nil, haptics: [Haptic] = [], frequency: Int = 60) {
+    init(name: String? = nil, haptics: [Haptic] = [], frequency: Int = 60, duration: TimeInterval = 300, automaticStop: Bool = false) {
         if let name { self.name = name }
         else {
             self.name = "Pattern \(Self.patternCount)"
@@ -24,5 +26,7 @@ final class HapticPattern: Identifiable {
         }
         self.haptics = haptics
         self.frequency = frequency
+        self.duration = duration
+        self.automaticStop = automaticStop
     }
 }

@@ -50,10 +50,22 @@ struct EditPatternView: View {
             }
             
             Stepper(value: self.$pattern.frequency) {
-                Text("\(self.pattern.frequency)Hz")
+                Text("\(self.pattern.frequency)BPM")
                     .font(.body)
             }
             
+            
+            Toggle(isOn: self.$pattern.automaticStop, label: {
+                Text("Stop automatically")
+            })
+            
+            if self.pattern.automaticStop {
+                //TODO: use better UI than stepper
+                Stepper(value: self.$pattern.duration) {
+                    Text("\(self.pattern.duration, specifier: "%.0f") Sekunden")
+                        .font(.body)
+                }
+            }
         }
         .navigationDestination(for: EditPatternNavigation.self) { navigation in
             switch navigation {

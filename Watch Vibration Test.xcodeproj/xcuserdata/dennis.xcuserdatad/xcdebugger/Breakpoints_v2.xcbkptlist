@@ -14,9 +14,9 @@
             filePath = "Watch Vibration Test Watch App/Model/HapticManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "play(pattern:for:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "play(pattern:onEnd:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -192,6 +192,70 @@
                   offsetFromSymbolStart = "196">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F46ECF52-3049-4D8E-B7CA-4334517B2EE1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Vibration Test Watch App/ViewModel/HapticViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "play(pattern:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F46ECF52-3049-4D8E-B7CA-4334517B2EE1 - 982a68e0cb6ad426"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Watch_Vibration_Test_Watch_App.HapticPattern) -&gt; () in Watch_Vibration_Test_Watch_App.HapticViewModel.play(pattern: Watch_Vibration_Test_Watch_App.HapticPattern) -&gt; ()"
+                  moduleName = "Watch Vibration Test Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/ViewModel/HapticViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "F46ECF52-3049-4D8E-B7CA-4334517B2EE1 - 982a68e0cb6ad405"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Watch_Vibration_Test_Watch_App.HapticPattern) -&gt; () in Watch_Vibration_Test_Watch_App.HapticViewModel.play(pattern: Watch_Vibration_Test_Watch_App.HapticPattern) -&gt; ()"
+                  moduleName = "Watch Vibration Test Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/ViewModel/HapticViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "46E37DBE-00CE-452A-A5B8-E0A91922B06F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Vibration Test Watch App/Model/HapticManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "play(pattern:onEnd:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

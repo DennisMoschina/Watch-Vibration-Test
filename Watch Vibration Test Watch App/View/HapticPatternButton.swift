@@ -38,8 +38,17 @@ struct HapticPatternButton: View {
                         }
                     }
                 }
-                Text("\(self.pattern.frequency)Hz")
-                    .foregroundStyle(.secondary)
+                HStack {
+                    Text("\(self.pattern.frequency)BPM")
+                    
+                    Spacer()
+                    
+                    Text(self.pattern.automaticStop
+                         ? "\(self.pattern.duration, specifier: "%.0f")s"
+                         : "Offen"
+                    )
+                }
+                .foregroundStyle(.secondary)
             }
         })
         .buttonStyle(.plain)

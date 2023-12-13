@@ -19,15 +19,18 @@ class PatternPlayer {
     
     private var hapticIndex: Int = 0
     
+    @Published var playing: Bool = false
+    
     init(pattern: HapticPattern) {
         self.pattern = pattern
     }
     
-    func play(for time: TimeInterval? = nil) {
+    func play() {
         guard !self.pattern.haptics.isEmpty else {
             Self.logger.info("pattern is empty")
             return
         }
+        SessionManager.shared.startSession()
         self.timer = Timer.scheduledTimer(withTimeInterval: 60.0 / Double(pattern.frequency), repeats: true, block: { _ in
             self.hapticIndex %= self.pattern.haptics.count
             let haptic = self.pattern.haptics[self.hapticIndex]
@@ -36,14 +39,17 @@ class PatternPlayer {
             }
             self.hapticIndex += 1
         })
-        if let time {
-            self.turnOffTimer = Timer.scheduledTimer(withTimeInterval: time, repeats: false, block: { _ in
-                self.timer?.invalidate()
+        if self.pattern.automaticStop {
+            self.turnOffTimer = Timer.scheduledTimer(withTimeInterval: self.pattern.duration, repeats: false, block: { _ in
+                self.stop()
             })
         }
+        self.playing = true
     }
     
     func stop() {
         self.timer?.invalidate()
+        SessionManager.shared.stopSession()
+        self.playing = false
     }
 }
