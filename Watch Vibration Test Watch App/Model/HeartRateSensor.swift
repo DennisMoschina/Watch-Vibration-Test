@@ -19,6 +19,8 @@ class HeartRateSensor: ObservableObject {
     
     private var heartRateQuery: HKAnchoredObjectQuery?
     
+    private init() { }
+    
     func start() {
         guard let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate) else {
             Self.logger.error("failed to get `HKObjectType` for heartRate")

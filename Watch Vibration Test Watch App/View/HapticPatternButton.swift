@@ -22,14 +22,6 @@ struct HapticPatternButton: View {
                         .font(.headline)
                         .foregroundStyle(.white)
                     Spacer()
-                    
-                    Image(systemName: "ellipsis.circle.fill")
-                        .symbolRenderingMode(.hierarchical)
-                        .font(.title2)
-                        .onTapGesture {
-                            self.hapticViewModel.navigation.append(PatternNavigation.edit(pattern: self.pattern))
-                        }
-
                 }
                 ScrollView(.horizontal) {
                     HStack {

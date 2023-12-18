@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var studiesNavigationViewModel = NavigationViewModel()
+    
     var body: some View {
         TabView {
             NavigationStack {
@@ -22,6 +24,14 @@ struct HomeView: View {
             }
             .tabItem {
                 Label("Haptic", systemImage: "cursorarrow.rays")
+            }
+            
+            NavigationStack(path: self.$studiesNavigationViewModel.navigation){
+                StudiesListView()
+                    .environmentObject(self.studiesNavigationViewModel)
+            }
+            .tabItem {
+                Label("Study", systemImage: "waveform.path.ecg.rectangle")
             }
         }
     }

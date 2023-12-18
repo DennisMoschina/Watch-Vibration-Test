@@ -45,13 +45,6 @@ struct HomeView: View {
 }
 
 #Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: HapticPattern.self, configurations: config)
-        return HomeView()
-            .environmentObject(HapticViewModel(hapticManager: HapticManager()))
-            .modelContainer(container)
-    } catch {
-        fatalError("Failed to create model container.")
-    }
+    HomeView()
+        .environmentObject(HapticViewModel(hapticManager: HapticManager()))
 }

@@ -8,8 +8,11 @@
 import Foundation
 import SwiftData
 
-@Model
-final class HapticPattern: Identifiable {
+final class HapticPattern: Identifiable, Equatable {
+    static func == (lhs: HapticPattern, rhs: HapticPattern) -> Bool {
+        lhs.name == rhs.name
+    }
+    
     static var patternCount: UInt = 0
     
     var name: String = ""
@@ -29,4 +32,12 @@ final class HapticPattern: Identifiable {
         self.duration = duration
         self.automaticStop = automaticStop
     }
+    
+    static var defaults: [HapticPattern] = [
+        HapticPattern(name: "Tap", haptics: [Haptic.defaults.first(where: { $0.name == "Start" })!]),
+        HapticPattern(name: "Vibration", haptics: [Haptic.defaults.first(where: { $0.name == "Failure" })!]),
+        HapticPattern(name: "Alteration", haptics: [Haptic.defaults.first(where: { $0.name == "Start" })!, Haptic.defaults.first(where: { $0.name == "Failure" })!]),
+        HapticPattern(name: "6/8 Alteration", haptics: [Haptic.defaults.first(where: { $0.name == "Start" })!, Haptic.defaults.first(where: { $0.name == "Start" })!, Haptic.defaults.first(where: { $0.name == "Failure" })!]),
+        HapticPattern(name: "6/8 Alteration 2", haptics: [Haptic.defaults.first(where: { $0.name == "Start" })!, Haptic.defaults.first(where: { $0.name == "Failure" })!, Haptic.defaults.first(where: { $0.name == "Failure" })!])
+    ]
 }

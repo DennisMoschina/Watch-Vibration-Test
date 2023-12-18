@@ -12,6 +12,7 @@ struct Watch_Vibration_TestApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .modelContainer(SwiftDataStack.shared.modelContainer)
         }
     }
 }

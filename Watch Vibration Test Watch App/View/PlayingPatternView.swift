@@ -32,15 +32,6 @@ struct PlayingPatternView: View {
 }
 
 #Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: HapticPattern.self, configurations: config)
-        let example = HapticPattern(name: "Test", haptics: Haptic.defaults, frequency: 60)
-
-        return PlayingPatternView(pattern: example)
-            .environmentObject(HapticViewModel(hapticManager: HapticManager()))
-            .modelContainer(container)
-    } catch {
-        fatalError("Failed to create model container.")
-    }
+    PlayingPatternView(pattern: HapticPattern.defaults.first!)
+        .environmentObject(HapticViewModel(hapticManager: HapticManager()))
 }

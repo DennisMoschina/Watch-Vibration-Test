@@ -13,7 +13,7 @@ struct PatternList: View {
     
     var body: some View {
         List {
-            ForEach(self.communicator.availablePatterns) { pattern in
+            ForEach(HapticPattern.defaults) { pattern in
                 VStack {
                     Text(pattern.name)
                     
@@ -26,15 +26,6 @@ struct PatternList: View {
             }
         }
         .navigationTitle("Patterns")
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    
-                } label: {
-                    Image(systemName: "plus")
-                }
-            }
-        }
     }
 }
 

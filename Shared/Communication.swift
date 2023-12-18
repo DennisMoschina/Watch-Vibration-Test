@@ -10,6 +10,10 @@ import Foundation
 enum MessageKeys: String {
     case playHaptic = "play_haptic"
     case playPattern = "play_pattern"
+    case startStudy = "start_study"
+    case stopStudy = "stop_study"
     
     case patterns = "haptic_patterns"
+    
+    case sessionDirName = "session_dir"
 }

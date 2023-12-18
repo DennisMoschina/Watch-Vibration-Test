@@ -8,6 +8,7 @@
 import Foundation
 import WatchConnectivity
 import OSLog
+import HealthKit
 
 class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
     private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.WatchVibrationTest-Watch", category: "WatchCommunicator")
@@ -15,8 +16,12 @@ class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
     
     private let wcSession: WCSession
     
+    var onFileReceive: [(WCSessionFile) -> ()] = []
+    
     @Published var availablePatterns: [HapticPattern] = []
     @Published var availableHaptics: [Haptic] = []
+    
+    private var reachabilityContinuation: CheckedContinuation<Bool, Never>?
     
     private override init() {
         self.wcSession = WCSession.default
@@ -40,6 +45,72 @@ class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
         self.wcSession.sendMessage([MessageKeys.playHaptic.rawValue : encodedHaptic], replyHandler: nil)
     }
     
+    func startStudy() async -> UUID? {
+        let configuration = HKWorkoutConfiguration()
+        configuration.activityType = .mindAndBody
+        configuration.locationType = .indoor
+        
+        let hkStore = HKHealthStore()
+        do {
+            try await hkStore.startWatchApp(toHandle: configuration)
+        } catch {
+            Self.logger.error("failed to start Watch App \(error)")
+            return nil
+        }
+        
+        if !self.wcSession.isReachable {
+            guard await withCheckedContinuation({ continuation in
+                self.reachabilityContinuation = continuation
+            }) else {
+                Self.logger.info("session not reachable")
+                return nil
+            }
+        }
+        
+        return await withCheckedContinuation { continuation in
+            self.wcSession.sendMessage([MessageKeys.startStudy.rawValue : true], replyHandler: { replyMessage in
+                Self.logger.debug("received \(replyMessage) as a reply from `startStudy`")
+                
+                if let idString = replyMessage[MessageKeys.startStudy.rawValue] as? String {
+                    guard let id = UUID(uuidString: idString) else {
+                        Self.logger.error("failed to create UUID from \(idString)")
+                        continuation.resume(returning: nil)
+                        return
+                    }
+                    continuation.resume(returning: id)
+                } else if let success = replyMessage[MessageKeys.startStudy.rawValue] as? Bool, !success {
+                    Self.logger.error("failed to start study session")
+                    continuation.resume(returning: nil)
+                } else {
+                    continuation.resume(returning: nil)
+                }
+            }) { error in
+                Self.logger.error("failed to send start study signal \(error)")
+                continuation.resume(returning: nil)
+            }
+        }
+    }
+    
+    func stopStudy() async -> Bool {
+        if !self.wcSession.isReachable {
+            guard await withCheckedContinuation({ continuation in
+                self.reachabilityContinuation = continuation
+            }) else {
+                return false
+            }
+        }
+        
+        return await withCheckedContinuation { continuation in
+            self.wcSession.sendMessage([MessageKeys.stopStudy.rawValue : true], replyHandler: { replyMessage in
+                let stop = replyMessage[MessageKeys.stopStudy.rawValue] as? Bool ?? false
+                continuation.resume(returning: stop)
+            }) { error in
+                Self.logger.error("Failed to send stop signal \(error)")
+                continuation.resume(returning: false)
+            }
+        }
+    }
+    
     // MARK: Delegate methods
     
     internal func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -55,6 +126,13 @@ class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
         return
     }
     
+    internal func sessionReachabilityDidChange(_ session: WCSession) {
+        Self.logger.debug("reachability changed to \(session.isReachable)")
+        
+        self.reachabilityContinuation?.resume(returning: session.isReachable)
+        self.reachabilityContinuation = nil
+    }
+    
     internal func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         Self.logger.debug("received application context: \(applicationContext)")
         
@@ -62,5 +140,11 @@ class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
             Self.logger.debug("got patterns: \(patterns)")
             self.availablePatterns = patterns
         }
+    }
+    
+    internal func session(_ session: WCSession, didReceive file: WCSessionFile) {
+        Self.logger.info("received file \(file)")
+        
+        self.onFileReceive.forEach { $0(file) }
     }
 }

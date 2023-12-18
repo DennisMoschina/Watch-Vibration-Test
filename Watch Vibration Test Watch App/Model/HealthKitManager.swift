@@ -19,7 +19,7 @@ class HealthKitManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilder
     
     private var workoutBuilder: HKLiveWorkoutBuilder?
     
-    override init() {
+    private override init() {
         guard HKHealthStore.isHealthDataAvailable() else {
             fatalError("HealthKit is not available")
         }
@@ -73,6 +73,7 @@ class HealthKitManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilder
     
     func stopWorkout() {
         self.workoutSession?.stopActivity(with: Date())
+        self.workoutSession?.end()
     }
     
     func execute(_ query: HKQuery) {

@@ -21,8 +21,18 @@
 		95A917CA2B0BA410000166F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917C92B0BA410000166F4 /* HomeView.swift */; };
 		95DAD3912B2A00C5006F15F4 /* HeartRateSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3902B2A00C5006F15F4 /* HeartRateSensor.swift */; };
 		95DAD3932B2A00F7006F15F4 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3922B2A00F7006F15F4 /* HealthKitManager.swift */; };
+		95DAD3952B2B24BA006F15F4 /* CSVLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3942B2B24BA006F15F4 /* CSVLogger.swift */; };
+		95DAD3962B2B24BA006F15F4 /* CSVLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3942B2B24BA006F15F4 /* CSVLogger.swift */; };
+		95DAD3982B2B38C1006F15F4 /* StudyActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3972B2B38C1006F15F4 /* StudyActivityManager.swift */; };
+		95DAD3992B2B38C1006F15F4 /* StudyActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3972B2B38C1006F15F4 /* StudyActivityManager.swift */; };
+		95DAD39B2B2B40AE006F15F4 /* StudiesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD39A2B2B40AE006F15F4 /* StudiesListView.swift */; };
+		95DAD3A22B2B53A6006F15F4 /* StudyEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A12B2B53A6006F15F4 /* StudyEntry.swift */; };
+		95DAD3A42B2B542D006F15F4 /* StudyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A32B2B542D006F15F4 /* StudyManager.swift */; };
+		95DAD3A62B2B6DE3006F15F4 /* SwiftDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A52B2B6DE3006F15F4 /* SwiftDataStack.swift */; };
+		95DAD3A82B2F39E1006F15F4 /* CurrentStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A72B2F39E1006F15F4 /* CurrentStudyView.swift */; };
+		95DAD3AA2B2F3B37006F15F4 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A92B2F3B37006F15F4 /* NavigationViewModel.swift */; };
+		95DAD3AC2B305DB1006F15F4 /* StudyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3AB2B305DB1006F15F4 /* StudyStateView.swift */; };
 		95F7F1942B0243DF001B5ABF /* PlayingPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */; };
-		95F7F1972B03942B001B5ABF /* EditPatternHapticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F7F1962B03942B001B5ABF /* EditPatternHapticsView.swift */; };
 		95FC5D462AFA4DC5002854EF /* Watch_Vibration_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */; };
 		95FC5D482AFA4DC5002854EF /* PatternList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D472AFA4DC5002854EF /* PatternList.swift */; };
 		95FC5D4A2AFA4DC7002854EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D492AFA4DC7002854EF /* Assets.xcassets */; };
@@ -37,7 +47,6 @@
 		95FC5D752AFBB204002854EF /* HapticPatternListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D742AFBB204002854EF /* HapticPatternListView.swift */; };
 		95FC5D772AFBB537002854EF /* HapticPatternButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D762AFBB537002854EF /* HapticPatternButton.swift */; };
 		95FC5D792AFBC4BB002854EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D782AFBC4BA002854EF /* HomeView.swift */; };
-		95FC5D7B2AFBC899002854EF /* EditPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D7A2AFBC899002854EF /* EditPatternView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +91,16 @@
 		95A917C92B0BA410000166F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		95DAD3902B2A00C5006F15F4 /* HeartRateSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateSensor.swift; sourceTree = "<group>"; };
 		95DAD3922B2A00F7006F15F4 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		95DAD3942B2B24BA006F15F4 /* CSVLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVLogger.swift; sourceTree = "<group>"; };
+		95DAD3972B2B38C1006F15F4 /* StudyActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyActivityManager.swift; sourceTree = "<group>"; };
+		95DAD39A2B2B40AE006F15F4 /* StudiesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesListView.swift; sourceTree = "<group>"; };
+		95DAD3A12B2B53A6006F15F4 /* StudyEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyEntry.swift; sourceTree = "<group>"; };
+		95DAD3A32B2B542D006F15F4 /* StudyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyManager.swift; sourceTree = "<group>"; };
+		95DAD3A52B2B6DE3006F15F4 /* SwiftDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataStack.swift; sourceTree = "<group>"; };
+		95DAD3A72B2F39E1006F15F4 /* CurrentStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentStudyView.swift; sourceTree = "<group>"; };
+		95DAD3A92B2F3B37006F15F4 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
+		95DAD3AB2B305DB1006F15F4 /* StudyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyStateView.swift; sourceTree = "<group>"; };
 		95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingPatternView.swift; sourceTree = "<group>"; };
-		95F7F1962B03942B001B5ABF /* EditPatternHapticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPatternHapticsView.swift; sourceTree = "<group>"; };
 		95FC5D422AFA4DC5002854EF /* Watch Vibration Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Vibration Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Vibration_TestApp.swift; sourceTree = "<group>"; };
 		95FC5D472AFA4DC5002854EF /* PatternList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternList.swift; sourceTree = "<group>"; };
@@ -99,7 +116,6 @@
 		95FC5D742AFBB204002854EF /* HapticPatternListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPatternListView.swift; sourceTree = "<group>"; };
 		95FC5D762AFBB537002854EF /* HapticPatternButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPatternButton.swift; sourceTree = "<group>"; };
 		95FC5D782AFBC4BA002854EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		95FC5D7A2AFBC899002854EF /* EditPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPatternView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +151,7 @@
 				95FC5D472AFA4DC5002854EF /* PatternList.swift */,
 				95A917BE2B0A9441000166F4 /* HapticList.swift */,
 				95A917C92B0BA410000166F4 /* HomeView.swift */,
+				95DAD39D2B2B415E006F15F4 /* Study */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -143,6 +160,9 @@
 			isa = PBXGroup;
 			children = (
 				95A917B02B06635C000166F4 /* WatchCommunicator.swift */,
+				95DAD3A12B2B53A6006F15F4 /* StudyEntry.swift */,
+				95DAD3A32B2B542D006F15F4 /* StudyManager.swift */,
+				95DAD3A52B2B6DE3006F15F4 /* SwiftDataStack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +170,7 @@
 		95A917AF2B0662B9000166F4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				95DAD3A92B2F3B37006F15F4 /* NavigationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -157,8 +178,10 @@
 		95A917B22B068275000166F4 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				95DAD3972B2B38C1006F15F4 /* StudyActivityManager.swift */,
 				957376092B0FC291006359C7 /* Haptics */,
 				9573760A2B0FC2B3006359C7 /* Communication.swift */,
+				95DAD3942B2B24BA006F15F4 /* CSVLogger.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -172,13 +195,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		95F7F1952B039410001B5ABF /* EditPattern */ = {
+		95DAD39D2B2B415E006F15F4 /* Study */ = {
 			isa = PBXGroup;
 			children = (
-				95FC5D7A2AFBC899002854EF /* EditPatternView.swift */,
-				95F7F1962B03942B001B5ABF /* EditPatternHapticsView.swift */,
+				95DAD39A2B2B40AE006F15F4 /* StudiesListView.swift */,
+				95DAD3A72B2F39E1006F15F4 /* CurrentStudyView.swift */,
 			);
-			path = EditPattern;
+			path = Study;
 			sourceTree = "<group>";
 		};
 		95FC5D392AFA4DC5002854EF = {
@@ -263,12 +286,12 @@
 		95FC5D6C2AFA5649002854EF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				95F7F1952B039410001B5ABF /* EditPattern */,
 				95FC5D592AFA4DC7002854EF /* PlaySingularHapticListView.swift */,
 				95FC5D742AFBB204002854EF /* HapticPatternListView.swift */,
 				95FC5D762AFBB537002854EF /* HapticPatternButton.swift */,
 				95FC5D782AFBC4BA002854EF /* HomeView.swift */,
 				95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */,
+				95DAD3AB2B305DB1006F15F4 /* StudyStateView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -383,13 +406,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DAD3AA2B2F3B37006F15F4 /* NavigationViewModel.swift in Sources */,
 				95A917B42B0683C2000166F4 /* Haptic.swift in Sources */,
 				95A917CA2B0BA410000166F4 /* HomeView.swift in Sources */,
+				95DAD39B2B2B40AE006F15F4 /* StudiesListView.swift in Sources */,
+				95DAD3A42B2B542D006F15F4 /* StudyManager.swift in Sources */,
+				95DAD3A62B2B6DE3006F15F4 /* SwiftDataStack.swift in Sources */,
 				95A917B12B06635C000166F4 /* WatchCommunicator.swift in Sources */,
 				95A917BF2B0A9441000166F4 /* HapticList.swift in Sources */,
+				95DAD3952B2B24BA006F15F4 /* CSVLogger.swift in Sources */,
+				95DAD3A82B2F39E1006F15F4 /* CurrentStudyView.swift in Sources */,
+				95DAD3A22B2B53A6006F15F4 /* StudyEntry.swift in Sources */,
 				9573760B2B0FC2B3006359C7 /* Communication.swift in Sources */,
 				95A917B72B068787000166F4 /* HapticPattern.swift in Sources */,
 				95FC5D482AFA4DC5002854EF /* PatternList.swift in Sources */,
+				95DAD3982B2B38C1006F15F4 /* StudyActivityManager.swift in Sources */,
 				95FC5D462AFA4DC5002854EF /* Watch_Vibration_TestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DAD3AC2B305DB1006F15F4 /* StudyStateView.swift in Sources */,
 				95A917B82B068787000166F4 /* HapticPattern.swift in Sources */,
 				95FC5D792AFBC4BB002854EF /* HomeView.swift in Sources */,
 				9573760C2B0FC2B3006359C7 /* Communication.swift in Sources */,
@@ -407,12 +439,12 @@
 				957376112B10CDF0006359C7 /* PatternPlayer.swift in Sources */,
 				95FC5D5A2AFA4DC7002854EF /* PlaySingularHapticListView.swift in Sources */,
 				95DAD3932B2A00F7006F15F4 /* HealthKitManager.swift in Sources */,
-				95FC5D7B2AFBC899002854EF /* EditPatternView.swift in Sources */,
 				95FC5D6B2AFA4DFF002854EF /* HapticManager.swift in Sources */,
 				95FC5D752AFBB204002854EF /* HapticPatternListView.swift in Sources */,
 				95FC5D582AFA4DC7002854EF /* Watch_Vibration_TestApp.swift in Sources */,
+				95DAD3962B2B24BA006F15F4 /* CSVLogger.swift in Sources */,
 				95DAD3912B2A00C5006F15F4 /* HeartRateSensor.swift in Sources */,
-				95F7F1972B03942B001B5ABF /* EditPatternHapticsView.swift in Sources */,
+				95DAD3992B2B38C1006F15F4 /* StudyActivityManager.swift in Sources */,
 				95FC5D772AFBB537002854EF /* HapticPatternButton.swift in Sources */,
 				9552870A2B261DDB00F15521 /* SessionManager.swift in Sources */,
 				95A917B52B0683C2000166F4 /* Haptic.swift in Sources */,

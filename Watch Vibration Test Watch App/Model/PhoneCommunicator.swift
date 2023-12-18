@@ -8,7 +8,7 @@
 import Foundation
 import WatchConnectivity
 import OSLog
-import SwiftData
+import Combine
 
 
 class PhoneCommunicator: NSObject, WCSessionDelegate {
@@ -34,6 +34,22 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
             Self.logger.error("failed to send patterns with error \(error)")
         }
     }
+    
+    private func transferStudyFiles(for dirURL: URL) {
+        let sessionDirName: String = dirURL.lastPathComponent
+        
+        let fileManager = FileManager.default
+        do {
+            let urls: [URL] = try fileManager.contentsOfDirectory(atPath: dirURL.path()).compactMap { URL(string: $0) }
+            
+            for url in urls {
+                let fileURL = dirURL.appending(path: url.path())
+                self.wcSession.transferFile(fileURL, metadata: [MessageKeys.sessionDirName.rawValue : sessionDirName])
+            }
+        } catch {
+            Self.logger.error("failed to get urls for files")
+        }
+    }
 
     //MARK: Delegate Methods
     
@@ -51,6 +67,30 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
             } else {
                 Self.logger.error("failed to decode haptic")
             }
+        }
+        if let stopStudy = message[MessageKeys.stopStudy.rawValue] as? Bool, stopStudy {
+            if let studyFolderURL = SessionManager.shared.stopStudy() {
+                self.transferStudyFiles(for: studyFolderURL)
+            }
+        }
+    }
+    
+    internal func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+        Self.logger.debug("received with reply expected: \(message)")
+        if let startStudy = message[MessageKeys.startStudy.rawValue] as? Bool, startStudy {
+            if let id = SessionManager.shared.startStudy() {
+                replyHandler([MessageKeys.startStudy.rawValue : id.uuidString])
+            } else {
+                replyHandler([MessageKeys.startStudy.rawValue : false])
+            }
+        } else if let stopStudy = message[MessageKeys.stopStudy.rawValue] as? Bool, stopStudy {
+            Self.logger.info("stopping Study")
+            if let url = SessionManager.shared.stopStudy() {
+                self.transferStudyFiles(for: url)
+            }
+            replyHandler([MessageKeys.stopStudy.rawValue : true])
+        } else {
+            replyHandler(["unknown key" : ""])
         }
     }
 }
