@@ -14,9 +14,12 @@ class StudyEntry {
     var id: UUID
     var folder: URL
     
-    init(detail: String, id: UUID, folder: URL) {
+    var startDate: Date
+    
+    init(detail: String, id: UUID, folder: URL, startDate: Date) {
         self.detail = detail
         self.id = id
         self.folder = folder
+        self.startDate = startDate
     }
 }

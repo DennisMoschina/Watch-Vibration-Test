@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum StudyActivity: CaseIterable {
+enum StudyActivity: CaseIterable, Equatable {
     static var allCases: [StudyActivity] {
-        var cases: [StudyActivity] = [.none, .baseline, .moving]
+        var cases: [StudyActivity] = [.none, .baseline, .moving, .recovery]
         cases.append(contentsOf: HapticPattern.defaults.map { StudyActivity.pattern(pattern: $0) })
         return cases
     }
@@ -18,14 +18,26 @@ enum StudyActivity: CaseIterable {
     case baseline
     case pattern(pattern: HapticPattern)
     case moving
+    case recovery
     
     var string: String {
         switch self {
         case .none: "None"
         case .baseline: "Baseline"
         case .pattern(pattern: let pattern):
-            pattern.name
+            "Pattern: \(pattern.name)"
         case .moving: "Moving"
+        case .recovery: "Recovery"
+        }
+    }
+    
+    var duration: TimeInterval? {
+        switch self {
+        case .none: nil
+        case .baseline: 1200
+        case .pattern(pattern: let pattern): pattern.automaticStop ? pattern.duration : nil
+        case .moving: 60
+        case .recovery: 60
         }
     }
 }

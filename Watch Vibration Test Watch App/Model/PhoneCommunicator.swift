@@ -89,6 +89,17 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
                 self.transferStudyFiles(for: url)
             }
             replyHandler([MessageKeys.stopStudy.rawValue : true])
+        } else if let activityString = message[MessageKeys.activity.rawValue] as? String {
+            Self.logger.debug("received new activity \(activityString)")
+            guard let activity: StudyActivity = StudyActivity.allCases.first(where: { $0.string == activityString }) else {
+                Self.logger.error("\(activityString) is not a valid activity")
+                replyHandler([MessageKeys.activity.rawValue : StudyActivityManager.shared.activity.string])
+                return
+            }
+            DispatchQueue.main.sync {
+                StudyActivityManager.shared.activity = activity
+            }
+            replyHandler([MessageKeys.activity.rawValue : StudyActivityManager.shared.activity.string])
         } else {
             replyHandler(["unknown key" : ""])
         }

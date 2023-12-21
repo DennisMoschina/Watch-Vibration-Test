@@ -13,18 +13,57 @@ struct CurrentStudyView: View {
     
     @EnvironmentObject var navigationViewModel: NavigationViewModel
     
+    @State var showTimeoutAlert: Bool = false
+    
     var body: some View {
-        Button {
-            Task {
-                if await self.studyManager.stopStudy() {
-                    self.navigationViewModel.navigation.removeLast()
+        VStack {
+            
+            
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), content: {
+                ForEach(StudyActivity.allCases, id: \.string) { activity in
+                    Button {
+                        self.activityManager.activity = activity
+                    } label: {
+                        Text(activity.string)
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100)
+                            .background {
+                                self.activityManager.activity == activity
+                                ? Color.accentColor
+                                : Color(UIColor.systemGroupedBackground)
+                            }
+                    }
+                    .buttonStyle(.plain)
                 }
+            })
+            
+            Spacer()
+            
+            Button {
+                Task {
+                    if await self.studyManager.stopStudy() {
+                        self.activityManager.activity = .none
+                        self.navigationViewModel.navigation.removeLast()
+                    } else {
+                        self.showTimeoutAlert.toggle()
+                    }
+                }
+            } label: {
+                Text("Stop Study")
+                    .padding()
+                    .frame(maxWidth: .infinity)
             }
-        } label: {
-            Text("Stop Study")
+            .buttonStyle(.borderedProminent)
+            .tint(.red)
+            .padding()
         }
-        .buttonStyle(.borderedProminent)
-        .tint(.red)
+        .alert("Connection timed out", isPresented: self.$showTimeoutAlert, actions: {
+            Button("OK") { }
+        })
+        .alert("Failed to communicate with Watch", isPresented: self.$studyManager.communicationFailed, actions: {
+            Button("OK") { }
+        })
+        .navigationTitle("Play Pattern")
+        .navigationBarBackButtonHidden()
     }
 }
 

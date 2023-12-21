@@ -35,7 +35,12 @@ struct StudiesListView: View {
                 
                 List {
                     ForEach(self.studies) { study in
-                        Text(study.detail)
+                        HStack {
+                            Text(study.detail)
+                            Spacer()
+                            Text(study.startDate.description)
+                                .foregroundStyle(.secondary)
+                        }
                     }
                     .onDelete(perform: self.deleteEntries(at:))
                 }

@@ -91,15 +91,27 @@ class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
         }
     }
     
-    func stopStudy() async -> Bool {
-        if !self.wcSession.isReachable {
-            guard await withCheckedContinuation({ continuation in
-                self.reachabilityContinuation = continuation
-            }) else {
-                return false
-            }
-        }
+    func sendActivity(_ activity: StudyActivity) async -> Bool {
+        Self.logger.debug("sending new activity")
         
+        return await withCheckedContinuation { continuation in
+            self.wcSession.sendMessage([MessageKeys.activity.rawValue : activity.string]) { reply in
+                guard let activityString = reply[MessageKeys.activity.rawValue] as? String, activityString == activity.string else {
+                    Self.logger.info("unexpected reply after activity change \(reply)")
+                    
+                    continuation.resume(returning: false)
+                    return
+                }
+                continuation.resume(returning: true)
+            } errorHandler: { error in
+                Self.logger.error("failed to send activity")
+                continuation.resume(returning: false)
+            }
+
+        }
+    }
+    
+    func stopStudy() async -> Bool {
         return await withCheckedContinuation { continuation in
             self.wcSession.sendMessage([MessageKeys.stopStudy.rawValue : true], replyHandler: { replyMessage in
                 let stop = replyMessage[MessageKeys.stopStudy.rawValue] as? Bool ?? false

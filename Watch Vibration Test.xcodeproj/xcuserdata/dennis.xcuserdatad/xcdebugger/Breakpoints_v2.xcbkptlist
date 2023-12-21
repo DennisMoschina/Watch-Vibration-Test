@@ -284,8 +284,8 @@
             filePath = "Watch Vibration Test Watch App/Model/SessionManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "startSession()"
             landmarkType = "7">
          </BreakpointContent>
@@ -380,8 +380,8 @@
             filePath = "Watch Vibration Test/Model/StudyManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "startStudy(detail:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -396,10 +396,42 @@
             filePath = "Watch Vibration Test/Model/StudyManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "createPath(uuidString:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8F6FACF0-7A4D-462C-A12A-738291E8103C - 7ca392fcb86fc1aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Watch_Vibration_Test.StudyManager.createPath(uuidString: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "Watch Vibration Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/Model/StudyManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "692">
+               </Location>
+               <Location
+                  uuid = "8F6FACF0-7A4D-462C-A12A-738291E8103C - 7ca392fcb86fc1aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Watch_Vibration_Test.StudyManager.createPath(uuidString: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "Watch Vibration Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/Model/StudyManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "1168">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -524,8 +556,8 @@
             filePath = "Watch Vibration Test/Model/WatchCommunicator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "session(_:didReceive:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -540,8 +572,8 @@
             filePath = "Watch Vibration Test/Model/StudyManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "init()"
             landmarkType = "7">
             <Locations>
@@ -574,6 +606,69 @@
                   startingLineNumber = "23"
                   endingLineNumber = "23"
                   offsetFromSymbolStart = "936">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "56D2B182-0945-4C63-BD38-9FD2222C34EE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Vibration Test/Model/StudyManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "56D2B182-0945-4C63-BD38-9FD2222C34EE - 3f5241ce2dce1a76"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; (Watch_Vibration_Test.StudyActivity) async -&gt; Swift.Bool in closure #2 (Watch_Vibration_Test.StudyActivity) -&gt; () in Watch_Vibration_Test.StudyManager.() -&gt; Watch_Vibration_Test.StudyManager.init() -&gt; Watch_Vibration_Test.StudyManager"
+                  moduleName = "Watch Vibration Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/Model/StudyManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "56D2B182-0945-4C63-BD38-9FD2222C34EE - f4abb1ba4a66072a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #2 (Watch_Vibration_Test.StudyActivity) async -&gt; Swift.Bool in implicit closure #1 (Watch_Vibration_Test.WatchCommunicator) -&gt; (Watch_Vibration_Test.StudyActivity) async -&gt; Swift.Bool in closure #1 @Sendable () async -&gt; (Watch_Vibration_Test.StudyActivity) async -&gt; Swift.Bool in closure #2 (Watch_Vibration_Test.StudyActivity) -&gt; () in Watch_Vibration_Test.StudyManager.() -&gt; Watch_Vibration_Test.StudyManager.init() -&gt; Watch_Vibration_Test.StudyManager"
+                  moduleName = "Watch Vibration Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/Model/StudyManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "56D2B182-0945-4C63-BD38-9FD2222C34EE - 69894227378aab04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for implicit closure #2 (Watch_Vibration_Test.StudyActivity) async -&gt; Swift.Bool in implicit closure #1 (Watch_Vibration_Test.WatchCommunicator) -&gt; (Watch_Vibration_Test.StudyActivity) async -&gt; Swift.Bool in closure #1 @Sendable () async -&gt; (Watch_Vibration_Test.StudyActivity) async -&gt; Swift.Bool in closure #2 (Watch_Vibration_Test.StudyActivity) -&gt; () in Watch_Vibration_Test.StudyManager.() -&gt; Watch_Vibration_Test.StudyManager.init() -&gt; Watch_Vibration_Test.StudyManager"
+                  moduleName = "Watch Vibration Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/Model/StudyManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "60">
                </Location>
             </Locations>
          </BreakpointContent>

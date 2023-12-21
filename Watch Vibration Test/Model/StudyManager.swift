@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 import OSLog
+import Combine
 
 class StudyManager: ObservableObject {
     private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.WatchVibrationTest-Watch", category: "StudyManager")
@@ -17,6 +18,9 @@ class StudyManager: ObservableObject {
     private let watchCommunicator = WatchCommunicator.shared
     
     @Published var study: StudyEntry?
+    @Published var communicationFailed: Bool = false
+    
+    private var cancellables: [AnyCancellable?] = []
     
     private init() {
         self.watchCommunicator.onFileReceive.append { [weak self] file in
@@ -35,6 +39,19 @@ class StudyManager: ObservableObject {
                 Self.logger.error("failed to move file \(error)")
             }
         }
+        
+        self.cancellables.append(
+            StudyActivityManager.shared.$activity.sink { activity in
+                Task {
+                    if !(await self.watchCommunicator.sendActivity(activity)) {
+                        Self.logger.info("notifying clients about failed activity send")
+                        DispatchQueue.main.async {
+                            self.communicationFailed.toggle()
+                        }
+                    }
+                }
+            }
+        )
     }
     
     func startStudy(detail: String = "") async -> Bool {
@@ -44,9 +61,10 @@ class StudyManager: ObservableObject {
                 return false
             }
             DispatchQueue.main.sync {
-                self.study = StudyEntry(detail: detail, id: id, folder: folderPath)
+                self.study = StudyEntry(detail: detail, id: id, folder: folderPath, startDate: Date())
             }
             SwiftDataStack.shared.modelContext.insert(self.study!)
+            FileManager.default.createFile(atPath: folderPath.appending(path: "detail.txt").path(), contents: detail.data(using: .utf8))
             return true
         } else {
             return false

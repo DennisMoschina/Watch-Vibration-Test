@@ -39,6 +39,8 @@ class SessionManager: NSObject, ObservableObject {
     
     @Published private(set) var study: Study?
     
+    var hapticManager: HapticManager?
+
     private var cancellables: [AnyCancellable?] = []
     
     private override init() { }
@@ -69,8 +71,19 @@ class SessionManager: NSObject, ObservableObject {
                 
                 self.study?.heartRateLogger.writeLine(data: [timestamp.timeIntervalSince1970, heartRate])
             },
-            StudyActivityManager.shared.$activity.sink{ activity in
+            StudyActivityManager.shared.$activity.sink { activity in
                 self.study?.activityLogger.writeLine(data: [String(format: "%f", Date().timeIntervalSince1970), activity.string])
+            },
+            StudyActivityManager.shared.$activity.sink { activity in
+                switch activity {
+                case .pattern(pattern: let pattern):
+                    self.hapticManager?.stop()
+                    self.hapticManager?.play(pattern: pattern, onEnd: { _ in
+                        StudyActivityManager.shared.activity = .none
+                    })
+                default:
+                    self.hapticManager?.stop()
+                }
             }
         ])
         
@@ -92,6 +105,8 @@ class SessionManager: NSObject, ObservableObject {
                 self.study = nil
             }
         }
+        
+        self.hapticManager?.stop()
         
         self.stopSession()
         return self.study?.folderURL

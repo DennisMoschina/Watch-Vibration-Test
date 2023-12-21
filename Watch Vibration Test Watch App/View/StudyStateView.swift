@@ -12,7 +12,9 @@ struct StudyStateView: View {
     @ObservedObject var studyStateManager = StudyActivityManager.shared
     
     init() {
-        PhoneCommunicator.shared.hapticManager = HapticManager()
+        var hapticManager = HapticManager()
+        PhoneCommunicator.shared.hapticManager = hapticManager
+        self.studyManager.hapticManager = hapticManager
     }
     
     var body: some View {
