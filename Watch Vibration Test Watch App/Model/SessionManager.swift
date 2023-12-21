@@ -10,9 +10,16 @@ import WatchKit
 import OSLog
 import Combine
 
-struct Study {
+struct StudyLogger: Hashable {
+    static func == (lhs: StudyLogger, rhs: StudyLogger) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     let id: UUID
     let folderURL: URL
+    
+    var detail: String = ""
+    var startDate: Date = Date()
     
     let heartRateLogger: CSVLogger
     let activityLogger: CSVLogger
@@ -23,12 +30,18 @@ struct Study {
         self.heartRateLogger.startRecording()
         self.activityLogger.startRecording()
         self.running = true
+        self.startDate = Date()
     }
     
     mutating func stop() {
         self.heartRateLogger.stopRecording()
         self.activityLogger.stopRecording()
         self.running = false
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+        hasher.combine(self.folderURL)
     }
 }
 
@@ -37,7 +50,7 @@ class SessionManager: NSObject, ObservableObject {
     
     public static let shared: SessionManager = SessionManager()
     
-    @Published private(set) var study: Study?
+    @Published private(set) var study: StudyLogger?
     
     var hapticManager: HapticManager?
 
@@ -45,7 +58,7 @@ class SessionManager: NSObject, ObservableObject {
     
     private override init() { }
     
-    func startStudy() -> UUID? {
+    func startStudy(detail: String = "") -> UUID? {
         //TODO: implement
         let id = UUID()
         guard let folderURL = self.createPath(uuidString: id.uuidString) else {
@@ -53,14 +66,15 @@ class SessionManager: NSObject, ObservableObject {
             return nil
         }
         
-        DispatchQueue.main.sync {
-            self.study = Study(
-                id: id,
-                folderURL: folderURL,
-                heartRateLogger: CSVLogger(folderPath: folderURL.path(), fileName: "heartRate", header: ["timestamp", "heartRate"]),
-                activityLogger: CSVLogger(folderPath: folderURL.path(), fileName: "label", header: ["timestamp", "activity"])
-            )
-        }
+        var study = StudyLogger(
+            id: id,
+            folderURL: folderURL,
+            detail: detail,
+            heartRateLogger: CSVLogger(folderPath: folderURL.path(), fileName: "heartRate", header: ["timestamp", "heartRate"]),
+            activityLogger: CSVLogger(folderPath: folderURL.path(), fileName: "label", header: ["timestamp", "activity"])
+        )
+        
+        
         
         self.cancellables.append(contentsOf: [
             HeartRateSensor.shared.$timedHeartRate.sink { timedHeartRate in
@@ -69,10 +83,10 @@ class SessionManager: NSObject, ObservableObject {
                     return
                 }
                 
-                self.study?.heartRateLogger.writeLine(data: [timestamp.timeIntervalSince1970, heartRate])
+                study.heartRateLogger.writeLine(data: [timestamp.timeIntervalSince1970, heartRate])
             },
             StudyActivityManager.shared.$activity.sink { activity in
-                self.study?.activityLogger.writeLine(data: [String(format: "%f", Date().timeIntervalSince1970), activity.string])
+                study.activityLogger.writeLine(data: [String(format: "%f", Date().timeIntervalSince1970), activity.string])
             },
             StudyActivityManager.shared.$activity.sink { activity in
                 switch activity {
@@ -86,19 +100,22 @@ class SessionManager: NSObject, ObservableObject {
                 }
             }
         ])
+        study.start()
         
         DispatchQueue.main.async {
-            self.study?.start()
+            self.study = study
         }
+        
         self.startSession()
-        return self.study!.id
+        
+        return study.id
     }
     
     /**
      * Stop the currently running study
      * returns: url to the folder of the study
      */
-    func stopStudy() -> URL? {
+    func stopStudy() -> StudyLogger? {
         defer {
             DispatchQueue.main.async {
                 self.study?.stop()
@@ -109,7 +126,7 @@ class SessionManager: NSObject, ObservableObject {
         self.hapticManager?.stop()
         
         self.stopSession()
-        return self.study?.folderURL
+        return self.study
     }
     
     func startSession() {

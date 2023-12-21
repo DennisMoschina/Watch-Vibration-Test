@@ -35,6 +35,10 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
         }
     }
     
+    func transfer(study: StudyLogger) {
+        //TODO: implement
+    }
+    
     private func transferStudyFiles(for dirURL: URL) {
         let sessionDirName: String = dirURL.lastPathComponent
         
@@ -69,7 +73,7 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
             }
         }
         if let stopStudy = message[MessageKeys.stopStudy.rawValue] as? Bool, stopStudy {
-            if let studyFolderURL = SessionManager.shared.stopStudy() {
+            if let studyFolderURL: URL = SessionManager.shared.stopStudy()?.folderURL {
                 self.transferStudyFiles(for: studyFolderURL)
             }
         }
@@ -85,7 +89,7 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
             }
         } else if let stopStudy = message[MessageKeys.stopStudy.rawValue] as? Bool, stopStudy {
             Self.logger.info("stopping Study")
-            if let url = SessionManager.shared.stopStudy() {
+            if let url: URL = SessionManager.shared.stopStudy()?.folderURL {
                 self.transferStudyFiles(for: url)
             }
             replyHandler([MessageKeys.stopStudy.rawValue : true])

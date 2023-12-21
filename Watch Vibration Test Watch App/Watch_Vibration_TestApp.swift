@@ -12,7 +12,8 @@ import SwiftData
 struct Watch_Vibration_Test_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            StudyStateView()
+            StartStudyView()
+                .environmentObject(StudyViewModel())
         }
     }
 }

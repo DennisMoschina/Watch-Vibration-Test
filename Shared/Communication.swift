@@ -18,4 +18,6 @@ enum MessageKeys: String {
     case sessionDirName = "session_dir"
     
     case activity = "activity"
+    
+    case study = "study"
 }
