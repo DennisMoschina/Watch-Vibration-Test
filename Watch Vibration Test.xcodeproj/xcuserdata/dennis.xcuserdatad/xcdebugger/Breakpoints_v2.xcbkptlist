@@ -284,8 +284,8 @@
             filePath = "Watch Vibration Test Watch App/Model/SessionManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "startSession()"
             landmarkType = "7">
          </BreakpointContent>
@@ -724,15 +724,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "58FA063E-8FCC-4809-B6CC-7DCE5932E6C9"
+            uuid = "A626399C-E5AA-4791-9DC1-5528F4356CEE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Watch Vibration Test Watch App/ViewModel/StudyViewModel.swift"
+            filePath = "Watch Vibration Test Watch App/Model/SessionManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "stopStudy()"
             landmarkType = "7">
          </BreakpointContent>

@@ -30,9 +30,8 @@ struct StartStudyView: View {
                 switch navigation {
                 case .configureStudy:
                     ConfigureStudyView()
-                        .environmentObject(self.studyViewModel)
                 case .studyRunning:
-                    CurrentStudyView(studyViewModel: self.studyViewModel)
+                    CurrentStudyView()
                 }
             }
         }

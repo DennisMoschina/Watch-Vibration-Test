@@ -91,10 +91,9 @@ class SessionManager: NSObject, ObservableObject {
             StudyActivityManager.shared.$activity.sink { activity in
                 switch activity {
                 case .pattern(pattern: let pattern):
+                    Self.logger.debug("activity changed to pattern")
                     self.hapticManager?.stop()
-                    self.hapticManager?.play(pattern: pattern, onEnd: { _ in
-                        StudyActivityManager.shared.activity = .none
-                    })
+                    self.hapticManager?.play(pattern: pattern)
                 default:
                     self.hapticManager?.stop()
                 }
@@ -135,6 +134,8 @@ class SessionManager: NSObject, ObservableObject {
     }
     
     func stopSession() {
+        Self.logger.info("stopping workout")
+        
         HeartRateSensor.shared.stop()
         HealthKitManager.shared.stopWorkout()
     }

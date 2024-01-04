@@ -68,41 +68,54 @@ struct Haptic: Identifiable, Codable {
         case icon
     }
     
+    static let none = Haptic(name: "None", hapticType: nil, icon: "speaker")
     #if os(watchOS)
-    static let defaults: [Haptic] = [
-        Haptic(name: "None", hapticType: nil, icon: "speaker"),
-        Haptic(name: "Notification", hapticType: .notification, icon: "app.badge"),
-        Haptic(name: "DirectionUp", hapticType: .directionUp, icon: "arrow.up"),
-        Haptic(name: "DirectionDown", hapticType: .directionDown, icon: "arrow.down"),
-        Haptic(name: "Success", hapticType: .success, icon: "checkmark"),
-        Haptic(name: "Failure", hapticType: .failure, icon: "xmark"),
-        Haptic(name: "Retry", hapticType: .retry, icon: "arrow.clockwise"),
-        Haptic(name: "Start", hapticType: .start, icon: "play"),
-        Haptic(name: "Stop", hapticType: .stop, icon: "stop"),
-        Haptic(name: "Click", hapticType: .click, icon: "hand.tap"),
-        Haptic(name: "NavigationGenereic", hapticType: .navigationGenericManeuver, icon: "location.north.fill"),
-        Haptic(name: "NavigationLeft", hapticType: .navigationLeftTurn, icon: "arrow.turn.up.left"),
-        Haptic(name: "NavigationRight", hapticType: .navigationRightTurn, icon: "arrow.turn.up.right"),
-        Haptic(name: "UnderwaterCritical", hapticType: .underwaterDepthCriticalPrompt, icon: "water.waves.and.arrow.down.trianglebadge.exclamationmark"),
-        Haptic(name: "Underwater", hapticType: .underwaterDepthPrompt, icon: "water.waves.and.arrow.down")
-    ]
+    static let notification = Haptic(name: "Notification", hapticType: .notification, icon: "app.badge")
+    static let directionUp = Haptic(name: "DirectionUp", hapticType: .directionUp, icon: "arrow.up")
+    static let directionDown = Haptic(name: "DirectionDown", hapticType: .directionDown, icon: "arrow.down")
+    static let success = Haptic(name: "Success", hapticType: .success, icon: "checkmark")
+    static let failure = Haptic(name: "Failure", hapticType: .failure, icon: "xmark")
+    static let retry = Haptic(name: "Retry", hapticType: .retry, icon: "arrow.clockwise")
+    static let start = Haptic(name: "Start", hapticType: .start, icon: "play")
+    static let stop = Haptic(name: "Stop", hapticType: .stop, icon: "stop")
+    static let click = Haptic(name: "Click", hapticType: .click, icon: "hand.tap")
+    static let navigationGeneric = Haptic(name: "NavigationGenereic", hapticType: .navigationGenericManeuver, icon: "location.north.fill")
+    static let navigationLeft = Haptic(name: "NavigationLeft", hapticType: .navigationLeftTurn, icon: "arrow.turn.up.left")
+    static let navigationRight = Haptic(name: "NavigationRight", hapticType: .navigationRightTurn, icon: "arrow.turn.up.right")
+    static let underwaterCritical = Haptic(name: "UnderwaterCritical", hapticType: .underwaterDepthCriticalPrompt, icon: "water.waves.and.arrow.down.trianglebadge.exclamationmark")
+    static let underwater = Haptic(name: "Underwater", hapticType: .underwaterDepthPrompt, icon: "water.waves.and.arrow.down")
     #else
-    static let defaults: [Haptic] = [
-        Haptic(name: "None", hapticType: nil, icon: "speaker"),
-        Haptic(name: "Notification", hapticType: 0, icon: "app.badge"),
-        Haptic(name: "DirectionUp", hapticType: 1, icon: "arrow.up"),
-        Haptic(name: "DirectionDown", hapticType: 2, icon: "arrow.down"),
-        Haptic(name: "Success", hapticType: 3, icon: "checkmark"),
-        Haptic(name: "Failure", hapticType: 4, icon: "xmark"),
-        Haptic(name: "Retry", hapticType: 5, icon: "arrow.clockwise"),
-        Haptic(name: "Start", hapticType: 6, icon: "play"),
-        Haptic(name: "Stop", hapticType: 7, icon: "stop"),
-        Haptic(name: "Click", hapticType: 8, icon: "hand.tap"),
-        Haptic(name: "NavigationGenereic", hapticType: 11, icon: "location.north.fill"),
-        Haptic(name: "NavigationLeft", hapticType: 9, icon: "arrow.turn.up.left"),
-        Haptic(name: "NavigationRight", hapticType: 10, icon: "arrow.turn.up.right"),
-        Haptic(name: "UnderwaterCritical", hapticType: 13, icon: "water.waves.and.arrow.down.trianglebadge.exclamationmark"),
-        Haptic(name: "Underwater", hapticType: 12, icon: "water.waves.and.arrow.down")
-    ]
+    static let notification = Haptic(name: "Notification", hapticType: 0, icon: "app.badge")
+    static let directionUp = Haptic(name: "DirectionUp", hapticType: 1, icon: "arrow.up")
+    static let directionDown = Haptic(name: "DirectionDown", hapticType: 2, icon: "arrow.down")
+    static let success = Haptic(name: "Success", hapticType: 3, icon: "checkmark")
+    static let failure = Haptic(name: "Failure", hapticType: 4, icon: "xmark")
+    static let retry = Haptic(name: "Retry", hapticType: 5, icon: "arrow.clockwise")
+    static let start = Haptic(name: "Start", hapticType: 6, icon: "play")
+    static let stop = Haptic(name: "Stop", hapticType: 7, icon: "stop")
+    static let click = Haptic(name: "Click", hapticType: 8, icon: "hand.tap")
+    static let navigationGeneric = Haptic(name: "NavigationGenereic", hapticType: 11, icon: "location.north.fill")
+    static let navigationLeft = Haptic(name: "NavigationLeft", hapticType: 9, icon: "arrow.turn.up.left")
+    static let navigationRight = Haptic(name: "NavigationRight", hapticType: 10, icon: "arrow.turn.up.right")
+    static let underwaterCritical = Haptic(name: "UnderwaterCritical", hapticType: 13, icon: "water.waves.and.arrow.down.trianglebadge.exclamationmark")
+    static let underwater = Haptic(name: "Underwater", hapticType: 12, icon: "water.waves.and.arrow.down")
     #endif
+    
+    static let defaults: [Haptic] = [
+        .none,
+        .notification,
+        .directionUp,
+        .directionDown,
+        .success,
+        .failure,
+        .retry,
+        .start,
+        .stop,
+        .click,
+        .navigationGeneric,
+        .navigationLeft,
+        .navigationRight,
+        .underwaterCritical,
+        .underwater
+    ]
 }

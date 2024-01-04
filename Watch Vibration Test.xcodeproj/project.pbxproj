@@ -15,6 +15,8 @@
 		95A186BD2B345E3C00ED5D75 /* StudyEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A12B2B53A6006F15F4 /* StudyEntry.swift */; };
 		95A186C02B346D5300ED5D75 /* ConfigureStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A186BF2B346D5300ED5D75 /* ConfigureStudyView.swift */; };
 		95A186C22B34703900ED5D75 /* CurrentStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A186C12B34703900ED5D75 /* CurrentStudyView.swift */; };
+		95A186C42B34828000ED5D75 /* ChangeActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A186C32B34828000ED5D75 /* ChangeActivityView.swift */; };
+		95A186C82B3485C000ED5D75 /* CurrentActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A186C72B3485C000ED5D75 /* CurrentActivityView.swift */; };
 		95A917B12B06635C000166F4 /* WatchCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B02B06635C000166F4 /* WatchCommunicator.swift */; };
 		95A917B42B0683C2000166F4 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B32B0683C2000166F4 /* Haptic.swift */; };
 		95A917B52B0683C2000166F4 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B32B0683C2000166F4 /* Haptic.swift */; };
@@ -84,6 +86,8 @@
 		95A186BA2B345D3D00ED5D75 /* StudyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewModel.swift; sourceTree = "<group>"; };
 		95A186BF2B346D5300ED5D75 /* ConfigureStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureStudyView.swift; sourceTree = "<group>"; };
 		95A186C12B34703900ED5D75 /* CurrentStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentStudyView.swift; sourceTree = "<group>"; };
+		95A186C32B34828000ED5D75 /* ChangeActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeActivityView.swift; sourceTree = "<group>"; };
+		95A186C72B3485C000ED5D75 /* CurrentActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentActivityView.swift; sourceTree = "<group>"; };
 		95A917B02B06635C000166F4 /* WatchCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCommunicator.swift; sourceTree = "<group>"; };
 		95A917B32B0683C2000166F4 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		95A917B62B068787000166F4 /* HapticPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPattern.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				95DAD3AB2B305DB1006F15F4 /* StartStudyView.swift */,
 				95A186BF2B346D5300ED5D75 /* ConfigureStudyView.swift */,
 				95A186C12B34703900ED5D75 /* CurrentStudyView.swift */,
+				95A186C32B34828000ED5D75 /* ChangeActivityView.swift */,
+				95A186C72B3485C000ED5D75 /* CurrentActivityView.swift */,
 			);
 			path = Study;
 			sourceTree = "<group>";
@@ -456,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95A186BD2B345E3C00ED5D75 /* StudyEntry.swift in Sources */,
+				95A186C42B34828000ED5D75 /* ChangeActivityView.swift in Sources */,
 				95DAD3AC2B305DB1006F15F4 /* StartStudyView.swift in Sources */,
 				95A917B82B068787000166F4 /* HapticPattern.swift in Sources */,
 				95FC5D792AFBC4BB002854EF /* HomeView.swift in Sources */,
@@ -476,6 +483,7 @@
 				95A186BB2B345D3D00ED5D75 /* StudyViewModel.swift in Sources */,
 				95FC5D772AFBB537002854EF /* HapticPatternButton.swift in Sources */,
 				95A186C02B346D5300ED5D75 /* ConfigureStudyView.swift in Sources */,
+				95A186C82B3485C000ED5D75 /* CurrentActivityView.swift in Sources */,
 				9552870A2B261DDB00F15521 /* SessionManager.swift in Sources */,
 				95A917B52B0683C2000166F4 /* Haptic.swift in Sources */,
 			);

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum StudyActivity: CaseIterable, Equatable {
+enum StudyActivity: CaseIterable, Equatable, Hashable {
     static var allCases: [StudyActivity] {
         var cases: [StudyActivity] = [.none, .baseline, .moving, .recovery]
         cases.append(contentsOf: HapticPattern.defaults.map { StudyActivity.pattern(pattern: $0) })
@@ -40,10 +40,51 @@ enum StudyActivity: CaseIterable, Equatable {
         case .recovery: 60
         }
     }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.string)
+    }
+}
+
+struct StudyProcess {
+    let activities: [StudyActivity]
+    
+    init(patternStartIndex: Int) {
+        let hapticPatterns = HapticPattern.defaults[patternStartIndex...] + HapticPattern.defaults[..<patternStartIndex]
+        self.activities = [.baseline, .none] + hapticPatterns.flatMap({ pattern in
+            [.moving, .recovery, .pattern(pattern: pattern), .none]
+        })
+    }
 }
 
 class StudyActivityManager: ObservableObject {
     public static let shared = StudyActivityManager()
     
-    @Published var activity: StudyActivity = .none
+    @Published var activity: StudyActivity = .none {
+        didSet {
+            if let duration = self.activity.duration {
+                self.activityEndTime = Date.now.addingTimeInterval(duration)
+            } else {
+                self.activityEndTime = nil
+            }
+        }
+    }
+    @Published var activityEndTime: Date?
+    
+    private(set) var process: StudyProcess?
+    private var processIterator: IndexingIterator<[StudyActivity]>?
+    
+    func start(process: StudyProcess) {
+        self.process = process
+        self.processIterator = process.activities.makeIterator()
+    }
+    
+    func nextActivity() -> Bool {
+        if let activity = self.processIterator?.next() {
+            self.activity = activity
+            return false
+        } else {
+            return true
+        }
+    }
 }

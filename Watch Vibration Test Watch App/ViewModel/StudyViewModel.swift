@@ -23,11 +23,15 @@ class StudyViewModel: ObservableObject {
         }
     }
     
+    @Published var remainingTime: TimeInterval = 0
+    
     private var studyManager = SessionManager.shared
     private var activityManager = StudyActivityManager.shared
     private var phoneCommunicator = PhoneCommunicator.shared
     
     private var cancellables: [AnyCancellable?] = []
+    
+    private var remainingTimeTimer: Timer?
     
     init() {
         self.studyActivity = StudyActivityManager.shared.activity
@@ -40,15 +44,45 @@ class StudyViewModel: ObservableObject {
                 }
             }),
             self.studyManager.$study.sink(receiveValue: { study in
-                self.study = study
-                if let study {
+                if self.study?.id != study?.id, study != nil {
                     self.navigation.append(Navigation.studyRunning)
+                }
+                self.study = study
+            }),
+            self.activityManager.$activityEndTime.sink(receiveValue: { date in
+                if let date {
+                    guard date > Date.now else {
+                        self.remainingTime = 0
+                        return
+                    }
+                    
+                    self.remainingTime = Date.now.distance(to: date)
+
+                    self.remainingTimeTimer?.invalidate()
+                    self.remainingTimeTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
+                        if date <= Date.now {
+                            timer.invalidate()
+                            self.remainingTime = 0
+                            switch self.studyActivity {
+                            case .pattern(pattern: _), .none:
+                                break
+                            default:
+                                HapticManager().play(haptic: .notification)
+                            }
+                        } else {
+                            self.remainingTime = Date.now.distance(to: date)
+                        }
+                    })
+                } else {
+                    self.remainingTimeTimer?.invalidate()
+                    self.remainingTime = 0
                 }
             })
         ])
     }
     
     func startStudy(detail: String) {
+        self.activityManager.start(process: StudyProcess(patternStartIndex: 0))
         _ = self.studyManager.startStudy(detail: detail)
     }
     
@@ -57,5 +91,13 @@ class StudyViewModel: ObservableObject {
             self.phoneCommunicator.transfer(study: study)
         }
         self.navigation.removeLast(self.navigation.count)
+        self.remainingTime = 0
+        self.remainingTimeTimer?.invalidate()
+    }
+    
+    func nextActivity() {
+        if self.activityManager.nextActivity() {
+            self.stopStudy()
+        }
     }
 }

@@ -30,7 +30,6 @@ class PatternPlayer {
             Self.logger.info("pattern is empty")
             return
         }
-        SessionManager.shared.startSession()
         self.timer = Timer.scheduledTimer(withTimeInterval: 60.0 / Double(pattern.frequency), repeats: true, block: { _ in
             self.hapticIndex %= self.pattern.haptics.count
             let haptic = self.pattern.haptics[self.hapticIndex]
@@ -49,7 +48,6 @@ class PatternPlayer {
     
     func stop() {
         self.timer?.invalidate()
-        SessionManager.shared.stopSession()
         self.playing = false
     }
 }

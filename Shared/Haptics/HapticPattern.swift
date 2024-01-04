@@ -34,10 +34,10 @@ final class HapticPattern: Identifiable, Equatable {
     }
     
     static var defaults: [HapticPattern] = [
-        HapticPattern(name: "Tap", haptics: [Haptic.defaults.first(where: { $0.name == "Start" })!]),
-        HapticPattern(name: "Vibration", haptics: [Haptic.defaults.first(where: { $0.name == "Failure" })!]),
-        HapticPattern(name: "Alteration", haptics: [Haptic.defaults.first(where: { $0.name == "Start" })!, Haptic.defaults.first(where: { $0.name == "Failure" })!]),
-        HapticPattern(name: "6/8 Alteration", haptics: [Haptic.defaults.first(where: { $0.name == "Start" })!, Haptic.defaults.first(where: { $0.name == "Start" })!, Haptic.defaults.first(where: { $0.name == "Failure" })!]),
-        HapticPattern(name: "6/8 Alteration 2", haptics: [Haptic.defaults.first(where: { $0.name == "Start" })!, Haptic.defaults.first(where: { $0.name == "Failure" })!, Haptic.defaults.first(where: { $0.name == "Failure" })!])
+        HapticPattern(name: "Tap", haptics: [Haptic.start], automaticStop: true),
+        HapticPattern(name: "Vibration", haptics: [Haptic.failure], automaticStop: true),
+        HapticPattern(name: "Alteration", haptics: [Haptic.start, Haptic.failure], automaticStop: true),
+        HapticPattern(name: "6/8 Alteration", haptics: [Haptic.start, Haptic.start, Haptic.failure], automaticStop: true),
+        HapticPattern(name: "6/8 Alteration 2", haptics: [Haptic.start, Haptic.failure, Haptic.failure], automaticStop: true)
     ]
 }
