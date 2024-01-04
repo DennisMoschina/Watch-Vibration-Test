@@ -48,6 +48,33 @@ class StudyManager: ObservableObject {
             } catch {
                 Self.logger.error("failed to move file \(error)")
             }
+
+            switch fileName.split(separator: ".").first ?? "" {
+            case FileNames.detail.rawValue:
+                do {
+                    let detail = try String(contentsOf: url)
+                    studyEntry.detail = detail
+                } catch {
+                    Self.logger.error("failed to read detail file \(error)")
+                }
+            case FileNames.label.rawValue:
+                do {
+                    let label = try String(contentsOf: url)
+                    let lines = label.split(separator: "\n")
+                    if let firstLine = lines.first {
+                        let columns = firstLine.split(separator: ",")
+                        if columns.count > 1 {
+                            if let startTime = Double(columns[0]) {
+                                studyEntry.startDate = Date(timeIntervalSince1970: startTime)                                
+                            }
+                        }
+                    }
+                } catch {
+                    Self.logger.error("failed to read label file \(error)")
+                }
+            default:
+                break
+            }
         }
         
         self.cancellables.append(
@@ -74,7 +101,7 @@ class StudyManager: ObservableObject {
                 self.study = StudyEntry(detail: detail, id: id, folder: folderPath, startDate: Date())
             }
             SwiftDataStack.shared.modelContext.insert(self.study!)
-            FileManager.default.createFile(atPath: folderPath.appending(path: "detail.txt").path(), contents: detail.data(using: .utf8))
+            FileManager.default.createFile(atPath: folderPath.appending(path: "\(FileNames.detail.rawValue).txt").path(), contents: detail.data(using: .utf8))
             return true
         } else {
             return false
@@ -85,9 +112,7 @@ class StudyManager: ObservableObject {
         return await self.watchCommunicator.stopStudy()
     }
     
-    private func getSessionEntry(with id: UUID) -> StudyEntry? {
-        let swiftDataContext = SwiftDataStack.shared.modelContext
-        
+    private func getSessionEntry(with id: UUID) -> StudyEntry? {        
         if let studyEntry: StudyEntry = self.getExistingSessionEntry(with: id) {
             Self.logger.debug("found study entry with id: \(id)")
             return studyEntry

@@ -59,24 +59,21 @@ class SessionManager: NSObject, ObservableObject {
     private override init() { }
     
     func startStudy(detail: String = "") -> UUID? {
-        //TODO: implement
         let id = UUID()
         guard let folderURL = self.createPath(uuidString: id.uuidString) else {
             Self.logger.error("failed to create folder from UUID \(id)")
             return nil
         }
         
-        FileManager.default.createFile(atPath: folderURL.appending(path: "detail.txt").path(), contents: detail.data(using: .utf8))
+        FileManager.default.createFile(atPath: folderURL.appending(path: "\(FileNames.detail.rawValue).txt").path(), contents: detail.data(using: .utf8))
         
         var study = StudyLogger(
             id: id,
             folderURL: folderURL,
             detail: detail,
-            heartRateLogger: CSVLogger(folderPath: folderURL.path(), fileName: "heartRate", header: ["timestamp", "heartRate"]),
-            activityLogger: CSVLogger(folderPath: folderURL.path(), fileName: "label", header: ["timestamp", "activity"])
+            heartRateLogger: CSVLogger(folderPath: folderURL.path(), fileName: FileNames.heartRate.rawValue, header: ["timestamp", "heartRate"]),
+            activityLogger: CSVLogger(folderPath: folderURL.path(), fileName: FileNames.label.rawValue, header: ["timestamp", "activity"])
         )
-        
-        
         
         self.cancellables.append(contentsOf: [
             HeartRateSensor.shared.$timedHeartRate.sink { timedHeartRate in

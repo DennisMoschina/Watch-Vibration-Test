@@ -21,3 +21,9 @@ enum MessageKeys: String {
     
     case study = "study"
 }
+
+enum FileNames: String {
+    case heartRate = "heartRate"
+    case detail = "detail"
+    case label = "label"
+}
