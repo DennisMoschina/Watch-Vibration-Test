@@ -140,8 +140,8 @@
             filePath = "Watch Vibration Test Watch App/Model/PhoneCommunicator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "session(_:activationDidCompleteWith:error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -156,8 +156,8 @@
             filePath = "Watch Vibration Test Watch App/Model/PhoneCommunicator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "session(_:didReceiveMessage:)"
             landmarkType = "7">
             <Locations>
@@ -284,8 +284,8 @@
             filePath = "Watch Vibration Test Watch App/Model/SessionManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "startSession()"
             landmarkType = "7">
          </BreakpointContent>
@@ -380,8 +380,8 @@
             filePath = "Watch Vibration Test/Model/StudyManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "startStudy(detail:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -396,8 +396,8 @@
             filePath = "Watch Vibration Test/Model/StudyManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "createPath(uuidString:)"
             landmarkType = "7">
             <Locations>
@@ -429,6 +429,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "87"
                   endingLineNumber = "87"
+                  offsetFromSymbolStart = "1168">
+               </Location>
+               <Location
+                  uuid = "8F6FACF0-7A4D-462C-A12A-738291E8103C - 7ca392fcb86fdcc0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Watch_Vibration_Test.StudyManager.createPath(uuidString: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "Watch Vibration Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/Model/StudyManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
                   offsetFromSymbolStart = "1168">
                </Location>
             </Locations>
@@ -508,8 +523,8 @@
             filePath = "Watch Vibration Test Watch App/Model/PhoneCommunicator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "transferStudyFiles(for:)"
             landmarkType = "7">
             <Locations>
@@ -620,8 +635,8 @@
             filePath = "Watch Vibration Test/Model/StudyManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "init()"
             landmarkType = "7">
             <Locations>
@@ -731,8 +746,8 @@
             filePath = "Watch Vibration Test Watch App/Model/SessionManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "stopStudy()"
             landmarkType = "7">
          </BreakpointContent>

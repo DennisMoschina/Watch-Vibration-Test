@@ -24,12 +24,22 @@ class StudyManager: ObservableObject {
     
     private init() {
         self.watchCommunicator.onFileReceive.append { [weak self] file in
-            guard let dirName = file.metadata?[MessageKeys.sessionDirName.rawValue] as? String else {
-                Self.logger.error("failed to get dir from metadata")
+            guard let uuidString = file.metadata?[MessageKeys.sessionUUID.rawValue] as? String else {
+                Self.logger.error("failed to uuid string from metadata")
+                return
+            }
+            guard let sessionUUID = UUID(uuidString: uuidString) else {
+                Self.logger.error("\(uuidString) is not a valid uuid")
                 return
             }
             let fileName: String = file.fileURL.lastPathComponent
-            guard let url = self?.getBaseURL().appending(path: dirName).appending(path: fileName) else {
+            
+            guard let studyEntry: StudyEntry = self?.getSessionEntry(with: sessionUUID) else {
+                Self.logger.error("failed to get study entry")
+                return
+            }
+            
+            guard let url = self?.getBaseURL().appending(path: "session_\(studyEntry.id.uuidString)").appending(path: fileName) else {
                 Self.logger.error("failed to create url to save file")
                 return
             }
@@ -73,6 +83,38 @@ class StudyManager: ObservableObject {
     
     func stopStudy() async -> Bool {
         return await self.watchCommunicator.stopStudy()
+    }
+    
+    private func getSessionEntry(with id: UUID) -> StudyEntry? {
+        let swiftDataContext = SwiftDataStack.shared.modelContext
+        
+        if let studyEntry: StudyEntry = self.getExistingSessionEntry(with: id) {
+            Self.logger.debug("found study entry with id: \(id)")
+            return studyEntry
+        }
+        
+        guard let folderURL = self.createPath(uuidString: id.uuidString) else {
+            Self.logger.error("failed to create folder")
+            return nil
+        }
+        
+        let study = StudyEntry(detail: "", id: id, folder: folderURL, startDate: Date())
+        SwiftDataStack.shared.modelContext.insert(study)
+        return study
+    }
+    
+    private func getExistingSessionEntry(with id: UUID) -> StudyEntry? {
+        let predicate = #Predicate<StudyEntry> { entry in
+            entry.id == id
+        }
+        let fetchDescriptor: FetchDescriptor<StudyEntry> = FetchDescriptor(predicate: predicate)
+        do {
+            let entries: [StudyEntry] = try SwiftDataStack.shared.modelContext.fetch(fetchDescriptor)
+            return entries.first
+        } catch {
+            Self.logger.error("failed to fetch entries with error \(error)")
+            return nil
+        }
     }
     
     private func createPath(uuidString: String) -> URL? {

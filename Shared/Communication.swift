@@ -15,7 +15,7 @@ enum MessageKeys: String {
     
     case patterns = "haptic_patterns"
     
-    case sessionDirName = "session_dir"
+    case sessionUUID = "session_id"
     
     case activity = "activity"
     

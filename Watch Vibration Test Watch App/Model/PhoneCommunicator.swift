@@ -36,24 +36,41 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
     }
     
     func transfer(study: StudyLogger) {
-        //TODO: implement
+        self.transferStudyFiles(for: study.folderURL)
     }
     
     private func transferStudyFiles(for dirURL: URL) {
-        let sessionDirName: String = dirURL.lastPathComponent
+        let sessionID: UUID = self.findUUID(in: dirURL.lastPathComponent) ?? UUID()
         
         let fileManager = FileManager.default
         do {
             let urls: [URL] = try fileManager.contentsOfDirectory(atPath: dirURL.path()).compactMap { URL(string: $0) }
             
             for url in urls {
+                Self.logger.debug("sending file \(url) to phone")
                 let fileURL = dirURL.appending(path: url.path())
-                self.wcSession.transferFile(fileURL, metadata: [MessageKeys.sessionDirName.rawValue : sessionDirName])
+                self.wcSession.transferFile(fileURL, metadata: [MessageKeys.sessionUUID.rawValue : sessionID.uuidString])
             }
         } catch {
             Self.logger.error("failed to get urls for files")
         }
     }
+    
+    private func findUUID(in string: String) -> UUID? {
+        let pattern = "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+        let regex = try? NSRegularExpression(pattern: pattern, options: [])
+        
+        let nsString = string as NSString
+        let matches = regex?.matches(in: string, options: [], range: NSRange(location: 0, length: nsString.length))
+        
+        guard let uuidString = matches?.first.map({ nsString.substring(with: $0.range) }) else {
+            Self.logger.error("failed to find uuid in \(string)")
+            return nil
+        }
+        
+        return UUID(uuidString: uuidString)
+    }
+
 
     //MARK: Delegate Methods
     

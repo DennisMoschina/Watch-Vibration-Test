@@ -33,11 +33,11 @@
 		95DAD3992B2B38C1006F15F4 /* StudyActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3972B2B38C1006F15F4 /* StudyActivityManager.swift */; };
 		95DAD39B2B2B40AE006F15F4 /* StudiesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD39A2B2B40AE006F15F4 /* StudiesListView.swift */; };
 		95DAD3A22B2B53A6006F15F4 /* StudyEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A12B2B53A6006F15F4 /* StudyEntry.swift */; };
-		95DAD3A42B2B542D006F15F4 /* StudyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A32B2B542D006F15F4 /* StudyManager.swift */; };
 		95DAD3A62B2B6DE3006F15F4 /* SwiftDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A52B2B6DE3006F15F4 /* SwiftDataStack.swift */; };
 		95DAD3A82B2F39E1006F15F4 /* CurrentStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A72B2F39E1006F15F4 /* CurrentStudyView.swift */; };
 		95DAD3AA2B2F3B37006F15F4 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A92B2F3B37006F15F4 /* NavigationViewModel.swift */; };
 		95DAD3AC2B305DB1006F15F4 /* StartStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3AB2B305DB1006F15F4 /* StartStudyView.swift */; };
+		95E4F8ED2B4702E900D5CD49 /* StudyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A32B2B542D006F15F4 /* StudyManager.swift */; };
 		95F7F1942B0243DF001B5ABF /* PlayingPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */; };
 		95FC5D462AFA4DC5002854EF /* Watch_Vibration_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */; };
 		95FC5D482AFA4DC5002854EF /* PatternList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D472AFA4DC5002854EF /* PatternList.swift */; };
@@ -191,8 +191,8 @@
 		95A917AE2B0662AF000166F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				95A917B02B06635C000166F4 /* WatchCommunicator.swift */,
 				95DAD3A32B2B542D006F15F4 /* StudyManager.swift */,
+				95A917B02B06635C000166F4 /* WatchCommunicator.swift */,
 				95DAD3A52B2B6DE3006F15F4 /* SwiftDataStack.swift */,
 			);
 			path = Model;
@@ -439,10 +439,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				95DAD3AA2B2F3B37006F15F4 /* NavigationViewModel.swift in Sources */,
+				95E4F8ED2B4702E900D5CD49 /* StudyManager.swift in Sources */,
 				95A917B42B0683C2000166F4 /* Haptic.swift in Sources */,
 				95A917CA2B0BA410000166F4 /* HomeView.swift in Sources */,
 				95DAD39B2B2B40AE006F15F4 /* StudiesListView.swift in Sources */,
-				95DAD3A42B2B542D006F15F4 /* StudyManager.swift in Sources */,
 				95DAD3A62B2B6DE3006F15F4 /* SwiftDataStack.swift in Sources */,
 				95A917B12B06635C000166F4 /* WatchCommunicator.swift in Sources */,
 				95A917BF2B0A9441000166F4 /* HapticList.swift in Sources */,

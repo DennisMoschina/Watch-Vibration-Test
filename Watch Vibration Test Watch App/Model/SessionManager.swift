@@ -66,6 +66,8 @@ class SessionManager: NSObject, ObservableObject {
             return nil
         }
         
+        FileManager.default.createFile(atPath: folderURL.appending(path: "detail.txt").path(), contents: detail.data(using: .utf8))
+        
         var study = StudyLogger(
             id: id,
             folderURL: folderURL,
