@@ -17,9 +17,14 @@ struct CurrentActivityView: View {
     
     var body: some View {
         ZStack {
-            Text(self.studyViewModel.studyActivity.string)
-                .font(.title2)
-                .scenePadding(.horizontal)
+            VStack {
+                Text(self.studyViewModel.studyActivity.string)
+                    .font(.title2)
+                    .scenePadding(.horizontal)
+                
+                TimeDisplayView(timeInterval: self.studyViewModel.remainingTime)
+                    .foregroundStyle(.secondary)
+            }
             
             Rectangle()
                 .foregroundStyle(Color.clear)
@@ -38,7 +43,6 @@ struct CurrentActivityView: View {
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 Text("")
-
                 
                 Button {
                     if self.studyViewModel.remainingTime > 0 {

@@ -38,6 +38,7 @@
 		95DAD3AA2B2F3B37006F15F4 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A92B2F3B37006F15F4 /* NavigationViewModel.swift */; };
 		95DAD3AC2B305DB1006F15F4 /* StartStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3AB2B305DB1006F15F4 /* StartStudyView.swift */; };
 		95E4F8ED2B4702E900D5CD49 /* StudyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A32B2B542D006F15F4 /* StudyManager.swift */; };
+		95E4F8EF2B494DBC00D5CD49 /* TimeDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4F8EE2B494DBC00D5CD49 /* TimeDisplayView.swift */; };
 		95F7F1942B0243DF001B5ABF /* PlayingPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */; };
 		95FC5D462AFA4DC5002854EF /* Watch_Vibration_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */; };
 		95FC5D482AFA4DC5002854EF /* PatternList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D472AFA4DC5002854EF /* PatternList.swift */; };
@@ -111,6 +112,7 @@
 		95DAD3A72B2F39E1006F15F4 /* CurrentStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentStudyView.swift; sourceTree = "<group>"; };
 		95DAD3A92B2F3B37006F15F4 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		95DAD3AB2B305DB1006F15F4 /* StartStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStudyView.swift; sourceTree = "<group>"; };
+		95E4F8EE2B494DBC00D5CD49 /* TimeDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDisplayView.swift; sourceTree = "<group>"; };
 		95F7F1932B0243DF001B5ABF /* PlayingPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingPatternView.swift; sourceTree = "<group>"; };
 		95FC5D422AFA4DC5002854EF /* Watch Vibration Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Vibration Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Vibration_TestApp.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				95A186C12B34703900ED5D75 /* CurrentStudyView.swift */,
 				95A186C32B34828000ED5D75 /* ChangeActivityView.swift */,
 				95A186C72B3485C000ED5D75 /* CurrentActivityView.swift */,
+				95E4F8EE2B494DBC00D5CD49 /* TimeDisplayView.swift */,
 			);
 			path = Study;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 			files = (
 				95A186BD2B345E3C00ED5D75 /* StudyEntry.swift in Sources */,
 				95A186C42B34828000ED5D75 /* ChangeActivityView.swift in Sources */,
+				95E4F8EF2B494DBC00D5CD49 /* TimeDisplayView.swift in Sources */,
 				95DAD3AC2B305DB1006F15F4 /* StartStudyView.swift in Sources */,
 				95A917B82B068787000166F4 /* HapticPattern.swift in Sources */,
 				95FC5D792AFBC4BB002854EF /* HomeView.swift in Sources */,
