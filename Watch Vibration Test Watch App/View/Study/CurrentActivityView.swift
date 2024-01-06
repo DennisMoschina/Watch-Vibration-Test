@@ -36,19 +36,8 @@ struct CurrentActivityView: View {
         }
         .ignoresSafeArea(edges: .vertical)
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    
-                } label: {
-                    Image(systemName: "list.bullet")
-                }
-            }
             ToolbarItemGroup(placement: .bottomBar) {
-                Button(role: .destructive) {
-                    self.showConfirmStopAlert.toggle()
-                } label: {
-                    Image(systemName: "xmark")
-                }
+                Text("")
 
                 
                 Button {

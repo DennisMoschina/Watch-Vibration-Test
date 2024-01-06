@@ -13,21 +13,38 @@ struct CurrentStudyView: View {
     
     @State var tab: Int = 1
     
+    @State var showActivitiesSheet: Bool = false
+    
     var body: some View {
         TabView(selection: self.$tab) {
-            Button {
-                self.showEndStudyAlert.toggle()
-            } label: {
-                Text("End Study")
-            }
-            .tint(.red)
-            .tag(0)
-            .alert("End Study", isPresented: self.$showEndStudyAlert) {
-                Button("Cancel", role: .cancel) { }
-                Button("End Study", role: .destructive) {
-                    self.studyViewModel.stopStudy()
+            HStack {
+                Button {
+                    self.showEndStudyAlert.toggle()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.title)
                 }
+                .tint(.red)
+                .alert("End Study", isPresented: self.$showEndStudyAlert) {
+                    Button("Cancel", role: .cancel) { }
+                    Button("End Study", role: .destructive) {
+                        self.studyViewModel.stopStudy()
+                    }
+                }
+                
+                Button {
+                    self.showActivitiesSheet.toggle()
+                } label: {
+                    Image(systemName: "list.bullet")
+                        .font(.title)
+                }
+                .sheet(isPresented: self.$showActivitiesSheet, onDismiss: {
+                    self.tab = 1
+                }, content: {
+                    ChangeActivityView()
+                })
             }
+            .tag(0)
             
             CurrentActivityView()
                 .tag(1)
@@ -37,6 +54,10 @@ struct CurrentStudyView: View {
 }
 
 #Preview {
-    CurrentStudyView()
-        .environmentObject(StudyViewModel())
+    StudyActivityManager.shared.start(process: StudyProcess(patternStartIndex: 0))
+    
+    return NavigationStack {
+        CurrentStudyView()
+            .environmentObject(StudyViewModel())
+    }
 }

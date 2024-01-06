@@ -87,4 +87,21 @@ class StudyActivityManager: ObservableObject {
             return true
         }
     }
+    
+    func activity(at index: Int) {
+        guard var iterator = self.process?.activities.makeIterator() else {
+            return //TODO: throw error
+        }
+        
+        var activity: StudyActivity?
+        for i in 0..<(index + 1) {
+            activity = iterator.next()
+        }
+        if let activity {
+            self.activity = activity
+            self.processIterator = iterator
+        } else {
+            //TODO: throw error
+        }
+    }
 }
