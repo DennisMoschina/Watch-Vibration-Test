@@ -268,8 +268,8 @@
             filePath = "Watch Vibration Test Watch App/Model/HeartRateSensor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "process(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -300,8 +300,8 @@
             filePath = "Watch Vibration Test Watch App/Model/HeartRateSensor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "start()"
             landmarkType = "7">
          </BreakpointContent>
@@ -316,8 +316,8 @@
             filePath = "Watch Vibration Test Watch App/Model/HeartRateSensor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "start()"
             landmarkType = "7">
          </BreakpointContent>

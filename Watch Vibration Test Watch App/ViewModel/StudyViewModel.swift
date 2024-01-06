@@ -82,7 +82,11 @@ class StudyViewModel: ObservableObject {
     }
     
     func startStudy(detail: String) {
-        self.activityManager.start(process: StudyProcess(patternStartIndex: 0))
+        let process = StudyProcess(patternStartIndex: 0, patterns: HapticPattern.defaults.map({ pattern in
+            pattern.clock = HeartRateClock(heartRateSensor: HeartRateSensor.shared)
+            return pattern
+        }))
+        self.activityManager.start(process: process)
         _ = self.studyManager.startStudy(detail: detail)
     }
     

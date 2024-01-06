@@ -17,11 +17,44 @@ class HeartRateSensor: ObservableObject {
     @Published var heartRate: Double = 0
     @Published var timedHeartRate: (heartRate: Double, timestamp: Date)?
     
+    private var healthKitManager: HealthKitManager = HealthKitManager.shared
+    
     private var heartRateQuery: HKAnchoredObjectQuery?
+    private var isQueryRunning = false
     
     private init() { }
     
+    func getAverage(for timeInterval: TimeInterval) async -> Double {
+        guard let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate) else {
+            Self.logger.error("failed to get quantityType for heartRate")
+            return -1
+        }
+
+        let endDate = Date()
+        let startDate = endDate.addingTimeInterval(-timeInterval)
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
+
+        return await withCheckedContinuation { continuation in
+            let query = HKStatisticsQuery(quantityType: heartRateType, quantitySamplePredicate: predicate, options: .discreteAverage) { _, result, _ in
+                guard let result = result, let averageQuantity = result.averageQuantity() else {
+                    Self.logger.error("failed to get average")
+                    continuation.resume(returning: -1)
+                    return
+                }
+                let averageHeartRate = averageQuantity.doubleValue(for: HKUnit(from: "count/min"))
+                continuation.resume(returning: averageHeartRate)
+            }
+
+            self.healthKitManager.execute(query)
+        }
+    }
+    
     func start() {
+        guard !self.isQueryRunning else {
+            Self.logger.debug("query already running")
+            return
+        }
+        
         guard let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate) else {
             Self.logger.error("failed to get `HKObjectType` for heartRate")
             return
@@ -51,13 +84,15 @@ class HeartRateSensor: ObservableObject {
         }
         
         if let query = self.heartRateQuery {
-            HealthKitManager.shared.execute(query)
+            self.healthKitManager.execute(query)
+            self.isQueryRunning = true
         }
     }
     
     func stop() {
         if let query = self.heartRateQuery {
-            HealthKitManager.shared.stop(query: query)
+            self.healthKitManager.stop(query: query)
+            self.isQueryRunning = false
         }
     }
     

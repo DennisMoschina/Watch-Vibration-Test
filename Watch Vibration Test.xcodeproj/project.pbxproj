@@ -40,6 +40,7 @@
 		95E4F8F22B49521900D5CD49 /* HapticClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4F8F02B49521800D5CD49 /* HapticClock.swift */; };
 		95E4F8F42B49528800D5CD49 /* FrequencyClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4F8F32B49528800D5CD49 /* FrequencyClock.swift */; };
 		95E4F8F52B49528800D5CD49 /* FrequencyClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4F8F32B49528800D5CD49 /* FrequencyClock.swift */; };
+		95E4F8F72B49590000D5CD49 /* HeartRateClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4F8F62B49590000D5CD49 /* HeartRateClock.swift */; };
 		95FC5D462AFA4DC5002854EF /* Watch_Vibration_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */; };
 		95FC5D4A2AFA4DC7002854EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D492AFA4DC7002854EF /* Assets.xcassets */; };
 		95FC5D4D2AFA4DC7002854EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D4C2AFA4DC7002854EF /* Preview Assets.xcassets */; };
@@ -106,6 +107,7 @@
 		95E4F8EE2B494DBC00D5CD49 /* TimeDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDisplayView.swift; sourceTree = "<group>"; };
 		95E4F8F02B49521800D5CD49 /* HapticClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticClock.swift; sourceTree = "<group>"; };
 		95E4F8F32B49528800D5CD49 /* FrequencyClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyClock.swift; sourceTree = "<group>"; };
+		95E4F8F62B49590000D5CD49 /* HeartRateClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateClock.swift; sourceTree = "<group>"; };
 		95FC5D422AFA4DC5002854EF /* Watch Vibration Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Vibration Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Vibration_TestApp.swift; sourceTree = "<group>"; };
 		95FC5D492AFA4DC7002854EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				955287092B261DDB00F15521 /* SessionManager.swift */,
 				95DAD3902B2A00C5006F15F4 /* HeartRateSensor.swift */,
 				95DAD3922B2A00F7006F15F4 /* HealthKitManager.swift */,
+				95E4F8F62B49590000D5CD49 /* HeartRateClock.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				95DAD3992B2B38C1006F15F4 /* StudyActivityManager.swift in Sources */,
 				95A186BB2B345D3D00ED5D75 /* StudyViewModel.swift in Sources */,
 				95A186C02B346D5300ED5D75 /* ConfigureStudyView.swift in Sources */,
+				95E4F8F72B49590000D5CD49 /* HeartRateClock.swift in Sources */,
 				95A186C82B3485C000ED5D75 /* CurrentActivityView.swift in Sources */,
 				9552870A2B261DDB00F15521 /* SessionManager.swift in Sources */,
 				95A917B52B0683C2000166F4 /* Haptic.swift in Sources */,

@@ -49,8 +49,8 @@ enum StudyActivity: CaseIterable, Equatable, Hashable {
 struct StudyProcess {
     let activities: [StudyActivity]
     
-    init(patternStartIndex: Int) {
-        let hapticPatterns = HapticPattern.defaults[patternStartIndex...] + HapticPattern.defaults[..<patternStartIndex]
+    init(patternStartIndex: Int, patterns: [HapticPattern] = HapticPattern.defaults) {
+        let hapticPatterns = patterns[patternStartIndex...] + patterns[..<patternStartIndex]
         self.activities = [.baseline, .none] + hapticPatterns.flatMap({ pattern in
             [.moving, .recovery, .pattern(pattern: pattern), .none]
         })
