@@ -14,7 +14,6 @@ class PatternPlayer {
     
     private let pattern: HapticPattern
     
-    private var timer: Timer?
     private var turnOffTimer: Timer?
     
     private var hapticIndex: Int = 0
@@ -30,14 +29,15 @@ class PatternPlayer {
             Self.logger.info("pattern is empty")
             return
         }
-        self.timer = Timer.scheduledTimer(withTimeInterval: 60.0 / Double(pattern.frequency), repeats: true, block: { _ in
+        self.pattern.clock.onFire = {
             self.hapticIndex %= self.pattern.haptics.count
             let haptic = self.pattern.haptics[self.hapticIndex]
             if let hapticType = haptic.hapticType {
                 WKInterfaceDevice.current().play(hapticType)
             }
             self.hapticIndex += 1
-        })
+        }
+        self.pattern.clock.start()
         if self.pattern.automaticStop {
             self.turnOffTimer = Timer.scheduledTimer(withTimeInterval: self.pattern.duration, repeats: false, block: { _ in
                 self.stop()
@@ -47,7 +47,7 @@ class PatternPlayer {
     }
     
     func stop() {
-        self.timer?.invalidate()
+        self.pattern.clock.stop()
         self.playing = false
     }
 }

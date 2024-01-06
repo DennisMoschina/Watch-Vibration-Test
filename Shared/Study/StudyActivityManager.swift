@@ -94,7 +94,7 @@ class StudyActivityManager: ObservableObject {
         }
         
         var activity: StudyActivity?
-        for i in 0..<(index + 1) {
+        for _ in 0..<(index + 1) {
             activity = iterator.next()
         }
         if let activity {

@@ -17,18 +17,18 @@ final class HapticPattern: Identifiable, Equatable {
     
     var name: String = ""
     var haptics: [Haptic] = []
-    var frequency: Int = 60
+    var clock: HapticClock = FrequencyClock(frequency: 60)
     var duration: TimeInterval = 300
     var automaticStop: Bool = false
     
-    init(name: String? = nil, haptics: [Haptic] = [], frequency: Int = 60, duration: TimeInterval = 300, automaticStop: Bool = false) {
+    init(name: String? = nil, haptics: [Haptic] = [], clock: HapticClock = FrequencyClock(frequency: 60), duration: TimeInterval = 300, automaticStop: Bool = false) {
         if let name { self.name = name }
         else {
             self.name = "Pattern \(Self.patternCount)"
             Self.patternCount += 1
         }
         self.haptics = haptics
-        self.frequency = frequency
+        self.clock = clock
         self.duration = duration
         self.automaticStop = automaticStop
     }

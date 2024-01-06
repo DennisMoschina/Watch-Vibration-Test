@@ -19,20 +19,11 @@ struct StudiesListView: View {
     @State var showStudyDetailAlert: Bool = false
     
     var body: some View {
-//        ScrollView {
-            VStack {
-                Button(action: {
-                    self.showStudyDetailAlert.toggle()
-                }, label: {
-                    Image(systemName: "plus")
-                        .font(.title)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                })
-                .buttonStyle(.bordered)
-                .tint(.blue)
-                .padding()
-                
+        Group {
+            if self.studies.isEmpty {
+                Text("No Studies recorded")
+                    .font(.title)
+            } else {
                 List {
                     ForEach(self.studies) { study in
                         HStack {
@@ -44,7 +35,7 @@ struct StudiesListView: View {
                     }
                     .onDelete(perform: self.deleteEntries(at:))
                 }
-//            }
+            }
         }
         .navigationTitle("Studies")
         .alert("Study detail", isPresented: self.$showStudyDetailAlert) {
@@ -62,13 +53,6 @@ struct StudiesListView: View {
             Button("Cancel", role: .cancel) { }
         } message: {
             Text("Please enter details about this session.")
-        }
-        .navigationDestination(for: Navigation.self) { nav in
-            switch nav {
-            case .studyRunning:
-                CurrentStudyView()
-                    .environmentObject(self.navigationViewModel)
-            }
         }
     }
     
