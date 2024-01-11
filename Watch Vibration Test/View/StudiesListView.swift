@@ -29,7 +29,7 @@ struct StudiesListView: View {
                         HStack {
                             Text(study.detail)
                             Spacer()
-                            Text(study.startDate.description)
+                            Text(study.startDate.formatted())
                                 .foregroundStyle(.secondary)
                         }
                     }

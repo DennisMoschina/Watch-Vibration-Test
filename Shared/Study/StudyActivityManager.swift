@@ -9,12 +9,13 @@ import Foundation
 
 enum StudyActivity: CaseIterable, Equatable, Hashable {
     static var allCases: [StudyActivity] {
-        var cases: [StudyActivity] = [.none, .baseline, .moving, .recovery]
+        var cases: [StudyActivity] = [.none, .questionaire, .baseline, .moving, .recovery]
         cases.append(contentsOf: HapticPattern.defaults.map { StudyActivity.pattern(pattern: $0) })
         return cases
     }
     
     case none
+    case questionaire
     case baseline
     case pattern(pattern: HapticPattern)
     case moving
@@ -23,6 +24,7 @@ enum StudyActivity: CaseIterable, Equatable, Hashable {
     var string: String {
         switch self {
         case .none: "None"
+        case .questionaire: "Questionaire"
         case .baseline: "Baseline"
         case .pattern(pattern: let pattern):
             "Pattern: \(pattern.name)"
@@ -34,7 +36,8 @@ enum StudyActivity: CaseIterable, Equatable, Hashable {
     var duration: TimeInterval? {
         switch self {
         case .none: nil
-        case .baseline: 1200
+        case .questionaire: nil
+        case .baseline: 600
         case .pattern(pattern: let pattern): pattern.automaticStop ? pattern.duration : nil
         case .moving: 60
         case .recovery: 60
@@ -51,8 +54,8 @@ struct StudyProcess {
     
     init(patternStartIndex: Int, patterns: [HapticPattern] = HapticPattern.defaults) {
         let hapticPatterns = patterns[patternStartIndex...] + patterns[..<patternStartIndex]
-        self.activities = [.baseline, .none] + hapticPatterns.flatMap({ pattern in
-            [.moving, .recovery, .pattern(pattern: pattern), .none]
+        self.activities = [.baseline, .questionaire] + hapticPatterns.flatMap({ pattern in
+            [.moving, .recovery, .pattern(pattern: pattern), .questionaire]
         })
     }
 }

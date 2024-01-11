@@ -24,6 +24,7 @@ struct StartStudyView: View {
                 self.studyViewModel.navigation.append(Navigation.configureStudy)
             } label: {
                 Text("Start Study")
+                    .font(.title3)
             }
             .tint(.green)
             .navigationDestination(for: Navigation.self) { navigation in
