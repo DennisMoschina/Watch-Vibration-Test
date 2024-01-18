@@ -64,8 +64,10 @@ class StudyViewModel: ObservableObject {
                             timer.invalidate()
                             self.remainingTime = 0
                             switch self.studyActivity {
-                            case .pattern(pattern: _), .none:
+                            case .none:
                                 break
+                            case .pattern(pattern: _):
+                                self.nextActivity()
                             default:
                                 HapticManager().play(haptic: .notification)
                             }

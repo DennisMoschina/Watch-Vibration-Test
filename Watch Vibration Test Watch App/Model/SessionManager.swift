@@ -23,12 +23,14 @@ struct StudyLogger: Hashable {
     
     let heartRateLogger: CSVLogger
     let activityLogger: CSVLogger
+    let clockRateLogger: CSVLogger
     
     var running: Bool = false
     
     mutating func start() {
         self.heartRateLogger.startRecording()
         self.activityLogger.startRecording()
+        self.clockRateLogger.startRecording()
         self.running = true
         self.startDate = Date()
     }
@@ -61,43 +63,25 @@ class SessionManager: NSObject, ObservableObject {
     func startStudy(detail: String = "") -> UUID? {
         let id = UUID()
         guard let folderURL = self.createPath(uuidString: id.uuidString) else {
-            Self.logger.error("failed to create folder from UUID \(id)")
+            Self.logger.error("Failed to create folder from UUID \(id)")
             return nil
         }
         
-        FileManager.default.createFile(atPath: folderURL.appending(path: "\(FileNames.detail.rawValue).txt").path(), contents: detail.data(using: .utf8))
+        let detailFilePath = folderURL.appendingPathComponent("\(FileNames.detail.rawValue).txt")
+        FileManager.default.createFile(atPath: detailFilePath.path, contents: detail.data(using: .utf8))
         
         var study = StudyLogger(
             id: id,
             folderURL: folderURL,
             detail: detail,
-            heartRateLogger: CSVLogger(folderPath: folderURL.path(), fileName: FileNames.heartRate.rawValue, header: ["timestamp", "heartRate"]),
-            activityLogger: CSVLogger(folderPath: folderURL.path(), fileName: FileNames.label.rawValue, header: ["timestamp", "activity"])
+            heartRateLogger: CSVLogger(folderPath: folderURL.path, fileName: FileNames.heartRate.rawValue, header: ["timestamp", "heartRate"]),
+            activityLogger: CSVLogger(folderPath: folderURL.path, fileName: FileNames.label.rawValue, header: ["timestamp", "activity"]),
+            clockRateLogger: CSVLogger(folderPath: folderURL.path, fileName: FileNames.clockRate.rawValue, header: ["timestamp", "clockRate"])
         )
         
-        self.cancellables.append(contentsOf: [
-            HeartRateSensor.shared.$timedHeartRate.sink { timedHeartRate in
-                guard let timestamp = timedHeartRate?.timestamp, let heartRate = timedHeartRate?.heartRate else {
-                    Self.logger.info("timed heart rate is nil")
-                    return
-                }
-                
-                study.heartRateLogger.writeLine(data: [timestamp.timeIntervalSince1970, heartRate])
-            },
-            StudyActivityManager.shared.$activity.sink { activity in
-                study.activityLogger.writeLine(data: [String(format: "%f", Date().timeIntervalSince1970), activity.string])
-            },
-            StudyActivityManager.shared.$activity.sink { activity in
-                switch activity {
-                case .pattern(pattern: let pattern):
-                    Self.logger.debug("activity changed to pattern")
-                    self.hapticManager?.stop()
-                    self.hapticManager?.play(pattern: pattern)
-                default:
-                    self.hapticManager?.stop()
-                }
-            }
-        ])
+        setupHeartRateLogging(for: study)
+        setupActivityLogging(for: study)
+        setupClockRateLogging(for: study)
         study.start()
         
         DispatchQueue.main.async {
@@ -107,6 +91,50 @@ class SessionManager: NSObject, ObservableObject {
         self.startSession()
         
         return study.id
+    }
+
+    private func setupHeartRateLogging(for study: StudyLogger) {
+        let heartRateSink = HeartRateSensor.shared.$timedHeartRate.sink { timedHeartRate in
+            guard let timestamp = timedHeartRate?.timestamp, let heartRate = timedHeartRate?.heartRate else {
+                Self.logger.info("Timed heart rate is nil")
+                return
+            }
+            study.heartRateLogger.writeLine(data: [timestamp.timeIntervalSince1970, heartRate])
+        }
+        self.cancellables.append(heartRateSink)
+    }
+
+    private func setupActivityLogging(for study: StudyLogger) {
+        let activitySink = StudyActivityManager.shared.$activity.sink { activity in
+            study.activityLogger.writeLine(data: [String(format: "%f", Date().timeIntervalSince1970), activity.string])
+            
+            switch activity {
+            case .pattern(pattern: let pattern):
+                Self.logger.debug("Activity changed to pattern")
+                self.hapticManager?.stop()
+                self.hapticManager?.play(pattern: pattern)
+            default:
+                self.hapticManager?.stop()
+            }
+        }
+        self.cancellables.append(activitySink)
+    }
+
+    private func setupClockRateLogging(for study: StudyLogger) {
+        let patterns = StudyActivityManager.shared.process?.activities.compactMap { activity -> HapticPattern? in
+            if case .pattern(pattern: let hapticPattern) = activity {
+                return hapticPattern
+            }
+            return nil
+        }
+        
+        let clockRateSinks = patterns?.map { pattern in
+            pattern.clock._clockRate.sink { clockRate in
+                self.study?.clockRateLogger.writeLine(data: [Date().timeIntervalSince1970, clockRate])
+            }
+        } ?? []
+        
+        self.cancellables.append(contentsOf: clockRateSinks)
     }
     
     /**

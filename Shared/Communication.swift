@@ -26,4 +26,5 @@ enum FileNames: String {
     case heartRate = "heartRate"
     case detail = "detail"
     case label = "label"
+    case clockRate = "clockRate"
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class FrequencyClock: HapticClock {
     var frequency: Int
@@ -13,6 +14,8 @@ class FrequencyClock: HapticClock {
     private var timer: Timer?
     
     var onFire: () -> Void
+    
+    var _clockRate: CurrentValueSubject<Double, Never> = CurrentValueSubject(0)
     
     init(frequency: Int = 60, onFire: @escaping () -> Void = { }) {
         self.frequency = frequency
@@ -24,9 +27,11 @@ class FrequencyClock: HapticClock {
         self.timer = Timer.scheduledTimer(withTimeInterval: 60.0 / Double(self.frequency), repeats: true, block: { _ in
             self.onFire()
         })
+        self._clockRate.value = Double(self.frequency)
     }
     
     func stop() {
         self.timer?.invalidate()
+        self._clockRate.value = 0
     }
 }

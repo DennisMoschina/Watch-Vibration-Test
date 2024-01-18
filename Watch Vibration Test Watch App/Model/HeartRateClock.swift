@@ -13,6 +13,7 @@ class HeartRateClock: HapticClock {
     private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.Watch-Vibration-Test.watchkitapp", category: "HeartRateClock")
 
     var onFire: () -> ()
+    var _clockRate: CurrentValueSubject<Double, Never> = CurrentValueSubject(0)
     
     private var heartRateSensor: HeartRateSensor
     
@@ -48,6 +49,7 @@ class HeartRateClock: HapticClock {
     func stop() {
         self.updateTimer?.invalidate()
         self.hapticTimer?.invalidate()
+        self._clockRate.value = 0
     }
     
     private func updateAverage() {
@@ -58,8 +60,10 @@ class HeartRateClock: HapticClock {
                 Self.logger.error("\(average) bpm is not a valid heart rate")
                 return
             }
-            self.updatedTimerInterval = 60.0 / (average * self.heartRateFactor)
-            Self.logger.debug("new hapticInterval is \(self.updatedTimerInterval ?? 1) s")
+            let targetHeartRate = average * heartRateFactor
+            self.updatedTimerInterval = 60.0 / targetHeartRate
+            self._clockRate.value = targetHeartRate
+            Self.logger.debug("new clockRate is \(self.clockRate) bpm")
         }
     }
     
@@ -72,5 +76,6 @@ class HeartRateClock: HapticClock {
                 self.scheduleHapticTimer()
             }
         })
+        self.updatedTimerInterval = nil
     }
 }

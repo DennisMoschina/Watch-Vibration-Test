@@ -22,8 +22,14 @@ struct CurrentActivityView: View {
                     .font(.title2)
                     .scenePadding(.horizontal)
                 
-                TimeDisplayView(timeInterval: self.studyViewModel.remainingTime)
-                    .foregroundStyle(.secondary)
+                Group {
+                    if self.studyViewModel.studyActivity.duration != nil {
+                        TimeDisplayView(timeInterval: self.studyViewModel.remainingTime)
+                    } else {
+                        Text("Take your time")
+                    }
+                }
+                .foregroundStyle(.secondary)
             }
             
             Rectangle()
@@ -38,6 +44,12 @@ struct CurrentActivityView: View {
                 .onChange(of: self.studyViewModel.remainingTime) { oldValue, newValue in
                     self.previousDuration = newValue
                 }
+            
+            if self.studyViewModel.studyActivity.duration != nil {
+                Circle()
+                    .stroke(Color.orange.opacity(0.3), style: StrokeStyle(lineWidth: 3))
+                    .scenePadding(.horizontal)
+            }
         }
         .ignoresSafeArea(edges: .vertical)
         .toolbar {
