@@ -88,8 +88,8 @@ class StudyViewModel: ObservableObject {
             pattern.clock = HeartRateClock(heartRateSensor: HeartRateSensor.shared)
             return pattern
         }))
-        self.activityManager.start(process: process)
         _ = self.studyManager.startStudy(detail: detail)
+        self.activityManager.start(process: process)
     }
     
     func stopStudy() {

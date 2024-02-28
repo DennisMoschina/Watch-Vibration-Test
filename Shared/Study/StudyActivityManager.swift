@@ -80,6 +80,7 @@ class StudyActivityManager: ObservableObject {
     func start(process: StudyProcess) {
         self.process = process
         self.processIterator = process.activities.makeIterator()
+        self.activity = .none
     }
     
     func nextActivity() -> Bool {

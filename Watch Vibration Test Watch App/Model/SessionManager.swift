@@ -56,7 +56,9 @@ class SessionManager: NSObject, ObservableObject {
     
     var hapticManager: HapticManager?
 
-    private var cancellables: [AnyCancellable?] = []
+    private var activityCancellable: AnyCancellable?
+    private var heartRateCancellable: AnyCancellable?
+    private var clockRateCancellables: [AnyCancellable?] = []
     
     private override init() { }
     
@@ -94,18 +96,19 @@ class SessionManager: NSObject, ObservableObject {
     }
 
     private func setupHeartRateLogging(for study: StudyLogger) {
-        let heartRateSink = HeartRateSensor.shared.$timedHeartRate.sink { timedHeartRate in
+        self.heartRateCancellable?.cancel()
+        self.heartRateCancellable = HeartRateSensor.shared.$timedHeartRate.sink { timedHeartRate in
             guard let timestamp = timedHeartRate?.timestamp, let heartRate = timedHeartRate?.heartRate else {
                 Self.logger.info("Timed heart rate is nil")
                 return
             }
             study.heartRateLogger.writeLine(data: [timestamp.timeIntervalSince1970, heartRate])
         }
-        self.cancellables.append(heartRateSink)
     }
 
     private func setupActivityLogging(for study: StudyLogger) {
-        let activitySink = StudyActivityManager.shared.$activity.sink { activity in
+        self.activityCancellable?.cancel()
+        self.activityCancellable = StudyActivityManager.shared.$activity.sink { activity in
             study.activityLogger.writeLine(data: [String(format: "%f", Date().timeIntervalSince1970), activity.string])
             
             switch activity {
@@ -117,10 +120,11 @@ class SessionManager: NSObject, ObservableObject {
                 self.hapticManager?.stop()
             }
         }
-        self.cancellables.append(activitySink)
     }
 
     private func setupClockRateLogging(for study: StudyLogger) {
+        self.clockRateCancellables.forEach { $0?.cancel() }
+        
         let patterns = StudyActivityManager.shared.process?.activities.compactMap { activity -> HapticPattern? in
             if case .pattern(pattern: let hapticPattern) = activity {
                 return hapticPattern
@@ -128,13 +132,11 @@ class SessionManager: NSObject, ObservableObject {
             return nil
         }
         
-        let clockRateSinks = patterns?.map { pattern in
+        self.clockRateCancellables = patterns?.map { pattern in
             pattern.clock._clockRate.sink { clockRate in
                 self.study?.clockRateLogger.writeLine(data: [Date().timeIntervalSince1970, clockRate])
             }
         } ?? []
-        
-        self.cancellables.append(contentsOf: clockRateSinks)
     }
     
     /**
@@ -152,6 +154,11 @@ class SessionManager: NSObject, ObservableObject {
         self.hapticManager?.stop()
         
         self.stopSession()
+        
+        self.activityCancellable?.cancel()
+        self.heartRateCancellable?.cancel()
+        self.clockRateCancellables.forEach { $0?.cancel() }
+        
         return self.study
     }
     
