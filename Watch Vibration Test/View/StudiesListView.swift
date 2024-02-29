@@ -12,7 +12,6 @@ struct StudiesListView: View {
     @Environment(\.modelContext) var modelContext
     @Query var studies: [StudyEntry]
     
-    @EnvironmentObject var navigationViewModel: NavigationViewModel
     @ObservedObject var studyManager: StudyManager = StudyManager.shared
     
     @State var studyDetail: String = ""
@@ -35,25 +34,12 @@ struct StudiesListView: View {
                     }
                     .onDelete(perform: self.deleteEntries(at:))
                 }
+                .refreshable {
+                    self.studyManager.refreshSessions()
+                }
             }
         }
         .navigationTitle("Studies")
-        .alert("Study detail", isPresented: self.$showStudyDetailAlert) {
-            TextField("Study detail", text: self.$studyDetail)
-            Button("Start Study") {
-                Task {
-                    if await self.studyManager.startStudy(detail: self.studyDetail) {
-                        DispatchQueue.main.async {
-                            self.navigationViewModel.navigation.append(Navigation.studyRunning)
-                        }
-                    }
-                }
-            }
-            
-            Button("Cancel", role: .cancel) { }
-        } message: {
-            Text("Please enter details about this session.")
-        }
     }
     
     func deleteEntries(at offsets: IndexSet) {
@@ -76,14 +62,14 @@ struct StudiesListView: View {
         
         do {
             try fileManager.removeItem(at: dir)
-        }
-        catch {
+        } catch {
             print("Error deleting file: \(error)")
         }
     }
 }
 
 #Preview {
-    StudiesListView()
-        .environmentObject(NavigationViewModel())
+    NavigationStack {
+        StudiesListView()
+    }
 }

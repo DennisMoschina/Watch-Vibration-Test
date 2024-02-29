@@ -11,6 +11,8 @@ import OSLog
 import Combine
 
 class StudyManager: ObservableObject {
+    private static let STUDY_DIR_PREFIX: String = "session_"
+    
     private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.WatchVibrationTest-Watch", category: "StudyManager")
 
     public static let shared: StudyManager = .init()
@@ -39,7 +41,7 @@ class StudyManager: ObservableObject {
                 return
             }
             
-            guard let url = self?.getBaseURL().appending(path: "session_\(studyEntry.id.uuidString)").appending(path: fileName) else {
+            guard let url = self?.getBaseURL().appending(path: "\(Self.STUDY_DIR_PREFIX)\(studyEntry.id.uuidString)").appending(path: fileName) else {
                 Self.logger.error("failed to create url to save file")
                 return
             }
@@ -49,32 +51,7 @@ class StudyManager: ObservableObject {
                 Self.logger.error("failed to move file \(error)")
             }
 
-            switch fileName.split(separator: ".").first ?? "" {
-            case FileNames.detail.rawValue:
-                do {
-                    let detail = try String(contentsOf: url)
-                    studyEntry.detail = detail
-                } catch {
-                    Self.logger.error("failed to read detail file \(error)")
-                }
-            case FileNames.label.rawValue:
-                do {
-                    let label = try String(contentsOf: url)
-                    let lines = label.split(separator: "\n")
-                    if let firstLine = lines.first {
-                        let columns = firstLine.split(separator: ",")
-                        if columns.count > 1 {
-                            if let startTime = Double(columns[0]) {
-                                studyEntry.startDate = Date(timeIntervalSince1970: startTime)                                
-                            }
-                        }
-                    }
-                } catch {
-                    Self.logger.error("failed to read label file \(error)")
-                }
-            default:
-                break
-            }
+            self?.handleStudyFile(fileName: fileName, url: url, studyEntry: studyEntry)
         }
         
         self.cancellables.append(
@@ -110,6 +87,83 @@ class StudyManager: ObservableObject {
     
     func stopStudy() async -> Bool {
         return await self.watchCommunicator.stopStudy()
+    }
+    
+    func refreshSessions() {
+        let baseURL: URL = self.getBaseURL()
+        let fileManager: FileManager = FileManager.default
+        
+        guard let directories: [URL] = {
+            do {
+                let contents = try fileManager.contentsOfDirectory(at: baseURL, includingPropertiesForKeys: [.isDirectoryKey], options: .skipsHiddenFiles)
+                
+                return contents.filter { url in
+                    let resourceValues = try? url.resourceValues(forKeys: [.isDirectoryKey])
+                    return resourceValues?.isDirectory ?? false
+                }
+            } catch {
+                Self.logger.error("\(error)")
+            }
+            return nil
+        }() else {
+            return
+        }
+        
+        for directory in directories {
+            if let entry = self.createStudyEntry(from: directory) {
+                SwiftDataStack.shared.modelContext.insert(entry)
+            }
+        }
+    }
+    
+    private func createStudyEntry(from directory: URL) -> StudyEntry? {
+        let directoryName: String = directory.lastPathComponent
+        guard directoryName.hasPrefix(Self.STUDY_DIR_PREFIX) else { return nil }
+        
+        let uuidString = String(directoryName.dropFirst(Self.STUDY_DIR_PREFIX.count))
+            
+        guard let uuid = UUID(uuidString: uuidString) else { return nil }
+        guard let studyEntry = self.getSessionEntry(with: uuid) else {
+            return nil
+        }
+        
+        do {
+            let contents: [URL] = try FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: [.isRegularFileKey], options: .skipsHiddenFiles)
+            contents.filter(\.isFileURL).forEach { self.handleStudyFile(fileName: $0.lastPathComponent, url: $0, studyEntry: studyEntry) }
+        } catch {
+            Self.logger.error("\(error)")
+        }
+        
+        return studyEntry
+    }
+    
+    private func handleStudyFile(fileName: String, url: URL, studyEntry: StudyEntry) {
+        switch fileName.split(separator: ".").first ?? "" {
+        case FileNames.detail.rawValue:
+            do {
+                let detail = try String(contentsOf: url)
+                studyEntry.detail = detail
+            } catch {
+                Self.logger.error("failed to read detail file \(error)")
+            }
+        case FileNames.label.rawValue:
+            do {
+                let label = try String(contentsOf: url)
+                let lines = label.split(separator: "\n")
+                if let firstLine = lines.first {
+                    let columns = firstLine.split(separator: ",")
+                    if columns.count > 1 {
+                        if let startTime = Double(columns[0]) {
+                            studyEntry.startDate = Date(timeIntervalSince1970: startTime)
+                        }
+                    }
+                }
+            } catch {
+                Self.logger.error("failed to read label file \(error)")
+            }
+        default:
+            break
+        }
     }
     
     private func getSessionEntry(with id: UUID) -> StudyEntry? {        
