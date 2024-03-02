@@ -50,7 +50,7 @@
 		95FC5D462AFA4DC5002854EF /* Watch_Vibration_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */; };
 		95FC5D4A2AFA4DC7002854EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D492AFA4DC7002854EF /* Assets.xcassets */; };
 		95FC5D4D2AFA4DC7002854EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D4C2AFA4DC7002854EF /* Preview Assets.xcassets */; };
-		95FC5D532AFA4DC7002854EF /* Watch Vibration Test Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 95FC5D522AFA4DC7002854EF /* Watch Vibration Test Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		95FC5D532AFA4DC7002854EF /* RhythmSleep Study Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 95FC5D522AFA4DC7002854EF /* RhythmSleep Study Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		95FC5D582AFA4DC7002854EF /* Watch_Vibration_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FC5D572AFA4DC7002854EF /* Watch_Vibration_TestApp.swift */; };
 		95FC5D5C2AFA4DC8002854EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D5B2AFA4DC8002854EF /* Assets.xcassets */; };
 		95FC5D5F2AFA4DC8002854EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC5D5E2AFA4DC8002854EF /* Preview Assets.xcassets */; };
@@ -74,7 +74,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				95FC5D532AFA4DC7002854EF /* Watch Vibration Test Watch App.app in Embed Watch Content */,
+				95FC5D532AFA4DC7002854EF /* RhythmSleep Study Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,11 +119,11 @@
 		95E4F8F02B49521800D5CD49 /* HapticClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticClock.swift; sourceTree = "<group>"; };
 		95E4F8F32B49528800D5CD49 /* FrequencyClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyClock.swift; sourceTree = "<group>"; };
 		95E4F8F62B49590000D5CD49 /* HeartRateClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateClock.swift; sourceTree = "<group>"; };
-		95FC5D422AFA4DC5002854EF /* Watch Vibration Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Vibration Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95FC5D422AFA4DC5002854EF /* RhythmSleep Study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RhythmSleep Study.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FC5D452AFA4DC5002854EF /* Watch_Vibration_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Vibration_TestApp.swift; sourceTree = "<group>"; };
 		95FC5D492AFA4DC7002854EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95FC5D4C2AFA4DC7002854EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		95FC5D522AFA4DC7002854EF /* Watch Vibration Test Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Vibration Test Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95FC5D522AFA4DC7002854EF /* RhythmSleep Study Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RhythmSleep Study Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FC5D572AFA4DC7002854EF /* Watch_Vibration_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Vibration_TestApp.swift; sourceTree = "<group>"; };
 		95FC5D5B2AFA4DC8002854EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95FC5D5E2AFA4DC8002854EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -233,8 +233,8 @@
 		95FC5D432AFA4DC5002854EF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				95FC5D422AFA4DC5002854EF /* Watch Vibration Test.app */,
-				95FC5D522AFA4DC7002854EF /* Watch Vibration Test Watch App.app */,
+				95FC5D422AFA4DC5002854EF /* RhythmSleep Study.app */,
+				95FC5D522AFA4DC7002854EF /* RhythmSleep Study Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,9 +323,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		95FC5D412AFA4DC5002854EF /* Watch Vibration Test */ = {
+		95FC5D412AFA4DC5002854EF /* RhythmSleep Study */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95FC5D662AFA4DC8002854EF /* Build configuration list for PBXNativeTarget "Watch Vibration Test" */;
+			buildConfigurationList = 95FC5D662AFA4DC8002854EF /* Build configuration list for PBXNativeTarget "RhythmSleep Study" */;
 			buildPhases = (
 				95FC5D3E2AFA4DC5002854EF /* Sources */,
 				95FC5D3F2AFA4DC5002854EF /* Frameworks */,
@@ -337,14 +337,14 @@
 			dependencies = (
 				95FC5D552AFA4DC7002854EF /* PBXTargetDependency */,
 			);
-			name = "Watch Vibration Test";
+			name = "RhythmSleep Study";
 			productName = "Watch Vibration Test";
-			productReference = 95FC5D422AFA4DC5002854EF /* Watch Vibration Test.app */;
+			productReference = 95FC5D422AFA4DC5002854EF /* RhythmSleep Study.app */;
 			productType = "com.apple.product-type.application";
 		};
-		95FC5D512AFA4DC7002854EF /* Watch Vibration Test Watch App */ = {
+		95FC5D512AFA4DC7002854EF /* RhythmSleep Study Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95FC5D622AFA4DC8002854EF /* Build configuration list for PBXNativeTarget "Watch Vibration Test Watch App" */;
+			buildConfigurationList = 95FC5D622AFA4DC8002854EF /* Build configuration list for PBXNativeTarget "RhythmSleep Study Watch App" */;
 			buildPhases = (
 				95FC5D4E2AFA4DC7002854EF /* Sources */,
 				95FC5D4F2AFA4DC7002854EF /* Frameworks */,
@@ -354,9 +354,9 @@
 			);
 			dependencies = (
 			);
-			name = "Watch Vibration Test Watch App";
+			name = "RhythmSleep Study Watch App";
 			productName = "Watch Vibration Test Watch App";
-			productReference = 95FC5D522AFA4DC7002854EF /* Watch Vibration Test Watch App.app */;
+			productReference = 95FC5D522AFA4DC7002854EF /* RhythmSleep Study Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -377,7 +377,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 95FC5D3D2AFA4DC5002854EF /* Build configuration list for PBXProject "Watch Vibration Test" */;
+			buildConfigurationList = 95FC5D3D2AFA4DC5002854EF /* Build configuration list for PBXProject "RhythmSleep Study" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -390,8 +390,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				95FC5D412AFA4DC5002854EF /* Watch Vibration Test */,
-				95FC5D512AFA4DC7002854EF /* Watch Vibration Test Watch App */,
+				95FC5D412AFA4DC5002854EF /* RhythmSleep Study */,
+				95FC5D512AFA4DC7002854EF /* RhythmSleep Study Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -480,7 +480,7 @@
 /* Begin PBXTargetDependency section */
 		95FC5D552AFA4DC7002854EF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 95FC5D512AFA4DC7002854EF /* Watch Vibration Test Watch App */;
+			target = 95FC5D512AFA4DC7002854EF /* RhythmSleep Study Watch App */;
 			targetProxy = 95FC5D542AFA4DC7002854EF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -614,14 +614,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Watch-Vibration-Test-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Watch Vibration Test";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "HeartRate is measured to execute study";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HeartRate is measured to log study data and update vibration frequency";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "edu.teco.moschina.Watch-Vibration-Test";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "edu.teco.moschina.RhythmSleep-Study";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.teco.moschina.Watch-Vibration-Test.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.teco.moschina.RhythmSleep-Study.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -646,14 +648,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Watch-Vibration-Test-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Watch Vibration Test";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "HeartRate is measured to execute study";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HeartRate is measured to log study data and update vibration frequency";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "edu.teco.moschina.Watch-Vibration-Test";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "edu.teco.moschina.RhythmSleep-Study";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.teco.moschina.Watch-Vibration-Test.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.teco.moschina.RhythmSleep-Study.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -679,7 +683,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Watch-Vibration-Test-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Watch Vibration Test";
+				INFOPLIST_KEY_CFBundleDisplayName = "RhythmSleep Study";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to start Apple Watch App";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HeartRate is measured to log study data and update vibration frequency";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -692,7 +699,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.teco.moschina.Watch-Vibration-Test";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.teco.moschina.RhythmSleep-Study";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -718,7 +725,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Watch-Vibration-Test-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Watch Vibration Test";
+				INFOPLIST_KEY_CFBundleDisplayName = "RhythmSleep Study";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to start Apple Watch App";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HeartRate is measured to log study data and update vibration frequency";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -731,7 +741,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.teco.moschina.Watch-Vibration-Test";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.teco.moschina.RhythmSleep-Study";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -747,7 +757,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		95FC5D3D2AFA4DC5002854EF /* Build configuration list for PBXProject "Watch Vibration Test" */ = {
+		95FC5D3D2AFA4DC5002854EF /* Build configuration list for PBXProject "RhythmSleep Study" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95FC5D602AFA4DC8002854EF /* Debug */,
@@ -756,7 +766,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95FC5D622AFA4DC8002854EF /* Build configuration list for PBXNativeTarget "Watch Vibration Test Watch App" */ = {
+		95FC5D622AFA4DC8002854EF /* Build configuration list for PBXNativeTarget "RhythmSleep Study Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95FC5D632AFA4DC8002854EF /* Debug */,
@@ -765,7 +775,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95FC5D662AFA4DC8002854EF /* Build configuration list for PBXNativeTarget "Watch Vibration Test" */ = {
+		95FC5D662AFA4DC8002854EF /* Build configuration list for PBXNativeTarget "RhythmSleep Study" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95FC5D672AFA4DC8002854EF /* Debug */,
