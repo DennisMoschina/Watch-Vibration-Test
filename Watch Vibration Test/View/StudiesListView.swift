@@ -14,9 +14,6 @@ struct StudiesListView: View {
     
     @ObservedObject var studyManager: StudyManager = StudyManager.shared
     
-    @State var studyDetail: String = ""
-    @State var showStudyDetailAlert: Bool = false
-    
     var body: some View {
         Group {
             if self.studies.isEmpty {
@@ -24,18 +21,20 @@ struct StudiesListView: View {
                     .font(.title)
             } else {
                 List {
-                    ForEach(self.studies) { study in
-                        HStack {
-                            Text(study.detail)
-                            Spacer()
-                            Text(study.startDate.formatted())
-                                .foregroundStyle(.secondary)
+                    Section {
+                        ForEach(self.studies) { study in
+                            HStack {
+                                Text(study.detail)
+                                Spacer()
+                                Text(study.startDate.formatted())
+                                    .foregroundStyle(.secondary)
+                            }
                         }
+                    } footer: {
+                        Text("\(self.studies.count) Studies")
+                            .font(.body)
+                            .frame(minWidth: 0, maxWidth: .infinity)
                     }
-                    .onDelete(perform: self.deleteEntries(at:))
-                }
-                .refreshable {
-                    self.studyManager.refreshSessions()
                 }
             }
         }
