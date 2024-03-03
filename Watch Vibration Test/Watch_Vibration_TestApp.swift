@@ -11,10 +11,8 @@ import SwiftUI
 struct Watch_Vibration_TestApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                StudiesListView()
-            }
-            .modelContainer(SwiftDataStack.shared.modelContainer)
+            HomeView()
+                .modelContainer(SwiftDataStack.shared.modelContainer)
         }
     }
 }

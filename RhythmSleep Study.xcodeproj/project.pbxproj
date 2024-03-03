@@ -23,6 +23,7 @@
 		95A917B72B068787000166F4 /* HapticPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B62B068787000166F4 /* HapticPattern.swift */; };
 		95A917B82B068787000166F4 /* HapticPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B62B068787000166F4 /* HapticPattern.swift */; };
 		95A917C12B0A9542000166F4 /* PhoneCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917C02B0A9542000166F4 /* PhoneCommunicator.swift */; };
+		95C50F3C2B9346D600A795E5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C50F3B2B9346D600A795E5 /* HomeView.swift */; };
 		95D3D0EA2B8F69360054B1F0 /* ConfigureStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3D0E92B8F69360054B1F0 /* ConfigureStudyView.swift */; };
 		95D3D0EC2B8F69A00054B1F0 /* StudyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3D0EB2B8F69A00054B1F0 /* StudyType.swift */; };
 		95D3D0ED2B8F69A00054B1F0 /* StudyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3D0EB2B8F69A00054B1F0 /* StudyType.swift */; };
@@ -100,6 +101,7 @@
 		95A917C02B0A9542000166F4 /* PhoneCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCommunicator.swift; sourceTree = "<group>"; };
 		95A917C52B0BA3DD000166F4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		95A917C72B0BA3EB000166F4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		95C50F3B2B9346D600A795E5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		95D3D0E92B8F69360054B1F0 /* ConfigureStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureStudyView.swift; sourceTree = "<group>"; };
 		95D3D0EB2B8F69A00054B1F0 /* StudyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyType.swift; sourceTree = "<group>"; };
 		95D3D0EE2B8F70770054B1F0 /* StartStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStudyView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				95DAD39A2B2B40AE006F15F4 /* StudiesListView.swift */,
+				95C50F3B2B9346D600A795E5 /* HomeView.swift */,
 				95E024E62B8F5C62009952ED /* TappingTaskView.swift */,
 				95D3D0E92B8F69360054B1F0 /* ConfigureStudyView.swift */,
 				95D3D0EE2B8F70770054B1F0 /* StartStudyView.swift */,
@@ -435,6 +438,7 @@
 				95E4F8F42B49528800D5CD49 /* FrequencyClock.swift in Sources */,
 				95A917B12B06635C000166F4 /* WatchCommunicator.swift in Sources */,
 				95DAD3952B2B24BA006F15F4 /* CSVLogger.swift in Sources */,
+				95C50F3C2B9346D600A795E5 /* HomeView.swift in Sources */,
 				95DAD3A22B2B53A6006F15F4 /* StudyEntry.swift in Sources */,
 				9573760B2B0FC2B3006359C7 /* Communication.swift in Sources */,
 				95A917B72B068787000166F4 /* HapticPattern.swift in Sources */,

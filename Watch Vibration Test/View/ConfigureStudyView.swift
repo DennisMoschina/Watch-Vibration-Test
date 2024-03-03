@@ -12,21 +12,36 @@ struct ConfigureStudyView: View {
     @State var studyType: StudyType = .none
     
     var body: some View {
-        List {
-            TextField("Study ID", text: self.$studyID)
-            
-            Picker(selection: self.$studyType) {
-                ForEach(StudyType.allCases) { type in
-                    Text(type.name)
+        ZStack(alignment: .bottom) {
+            Form {
+                Section {
+                    TextField("Study ID", text: self.$studyID)
+                    
+                    Picker(selection: self.$studyType) {
+                        ForEach(StudyType.allCases) { type in
+                            Text(type.name)
+                        }
+                    } label: {
+                        Text("Study Type")
+                    }
                 }
-            } label: {
-                Text("Study Type")
             }
-
+            .scrollDisabled(true)
+            
+            Button {
+                
+            } label: {
+                Text("Start Study")
+                    .padding()
+            }
+            .buttonStyle(.borderedProminent)
         }
+        .navigationTitle("Configure Study")
     }
 }
 
 #Preview {
-    ConfigureStudyView()
+    NavigationStack {
+        ConfigureStudyView()
+    }
 }

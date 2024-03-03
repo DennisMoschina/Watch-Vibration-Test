@@ -68,7 +68,8 @@ struct StudiesListView: View {
 }
 
 #Preview {
-    NavigationStack {
+    return NavigationStack {
         StudiesListView()
+            .environment(\.modelContext, SwiftDataStack.preview.modelContext)
     }
 }
