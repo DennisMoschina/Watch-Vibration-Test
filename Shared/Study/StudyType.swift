@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum StudyType: String, CaseIterable, Identifiable {
+enum StudyType: String, CaseIterable, Identifiable, Codable {
     var id: String { self.rawValue }
     
     case none = "None"

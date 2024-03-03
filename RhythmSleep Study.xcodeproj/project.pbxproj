@@ -24,6 +24,8 @@
 		95A917B82B068787000166F4 /* HapticPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917B62B068787000166F4 /* HapticPattern.swift */; };
 		95A917C12B0A9542000166F4 /* PhoneCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A917C02B0A9542000166F4 /* PhoneCommunicator.swift */; };
 		95C50F3C2B9346D600A795E5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C50F3B2B9346D600A795E5 /* HomeView.swift */; };
+		95C50F3E2B946A1800A795E5 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C50F3D2B946A1800A795E5 /* FileHandler.swift */; };
+		95C50F402B946CCE00A795E5 /* StudyEntriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C50F3F2B946CCE00A795E5 /* StudyEntriesManager.swift */; };
 		95D3D0EA2B8F69360054B1F0 /* ConfigureStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3D0E92B8F69360054B1F0 /* ConfigureStudyView.swift */; };
 		95D3D0EC2B8F69A00054B1F0 /* StudyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3D0EB2B8F69A00054B1F0 /* StudyType.swift */; };
 		95D3D0ED2B8F69A00054B1F0 /* StudyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3D0EB2B8F69A00054B1F0 /* StudyType.swift */; };
@@ -102,6 +104,8 @@
 		95A917C52B0BA3DD000166F4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		95A917C72B0BA3EB000166F4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		95C50F3B2B9346D600A795E5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		95C50F3D2B946A1800A795E5 /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
+		95C50F3F2B946CCE00A795E5 /* StudyEntriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyEntriesManager.swift; sourceTree = "<group>"; };
 		95D3D0E92B8F69360054B1F0 /* ConfigureStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureStudyView.swift; sourceTree = "<group>"; };
 		95D3D0EB2B8F69A00054B1F0 /* StudyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyType.swift; sourceTree = "<group>"; };
 		95D3D0EE2B8F70770054B1F0 /* StartStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStudyView.swift; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				95DAD3A32B2B542D006F15F4 /* StudyManager.swift */,
+				95C50F3F2B946CCE00A795E5 /* StudyEntriesManager.swift */,
+				95C50F3D2B946A1800A795E5 /* FileHandler.swift */,
 				95A917B02B06635C000166F4 /* WatchCommunicator.swift */,
 				95DAD3A52B2B6DE3006F15F4 /* SwiftDataStack.swift */,
 			);
@@ -370,7 +376,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					95FC5D412AFA4DC5002854EF = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -425,9 +431,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95C50F402B946CCE00A795E5 /* StudyEntriesManager.swift in Sources */,
 				95DAD3AA2B2F3B37006F15F4 /* NavigationViewModel.swift in Sources */,
 				95E024E72B8F5C62009952ED /* TappingTaskView.swift in Sources */,
 				95D3D0EF2B8F70770054B1F0 /* StartStudyView.swift in Sources */,
+				95C50F3E2B946A1800A795E5 /* FileHandler.swift in Sources */,
 				95E4F8ED2B4702E900D5CD49 /* StudyManager.swift in Sources */,
 				95A917B42B0683C2000166F4 /* Haptic.swift in Sources */,
 				95E024E92B8F5E71009952ED /* StudyViewModel.swift in Sources */,
@@ -524,6 +532,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -585,6 +594,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

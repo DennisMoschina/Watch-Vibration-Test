@@ -16,11 +16,14 @@ class StudyEntry: Codable {
     
     var startDate: Date
     
-    init(detail: String, id: UUID, folder: URL, startDate: Date) {
+    var studyType: StudyType
+    
+    init(detail: String, id: UUID, folder: URL, startDate: Date, studyType: StudyType) {
         self.detail = detail
         self.id = id
         self.folder = folder
         self.startDate = startDate
+        self.studyType = studyType
     }
     
     required init(from decoder: Decoder) throws {
@@ -29,6 +32,7 @@ class StudyEntry: Codable {
         self.id = try container.decode(UUID.self, forKey: .id)
         self.folder = try container.decode(URL.self, forKey: .folder)
         self.startDate = try container.decode(Date.self, forKey: .startDate)
+        self.studyType = try container.decode(StudyType.self, forKey: .studyType)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -37,6 +41,7 @@ class StudyEntry: Codable {
         try container.encode(self.id, forKey: .id)
         try container.encode(self.folder, forKey: .folder)
         try container.encode(self.startDate, forKey: .startDate)
+        try container.encode(self.studyType, forKey: .studyType)
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -44,5 +49,6 @@ class StudyEntry: Codable {
         case id
         case folder
         case startDate
+        case studyType
     }
 }
