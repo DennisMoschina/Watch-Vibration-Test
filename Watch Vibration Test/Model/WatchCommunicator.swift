@@ -9,6 +9,7 @@ import Foundation
 import WatchConnectivity
 import OSLog
 import HealthKit
+import Combine
 
 class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
     private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.WatchVibrationTest-Watch", category: "WatchCommunicator")
@@ -16,7 +17,8 @@ class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
     
     private let wcSession: WCSession
     
-    var onFileReceive: [(WCSessionFile) -> ()] = []
+    let receivedStopSubject: PassthroughSubject<Void, Never> = PassthroughSubject()
+    let fileReceiveSubject: PassthroughSubject<WCSessionFile, Never> = PassthroughSubject()
     
     @Published var availablePatterns: [HapticPattern] = []
     @Published var availableHaptics: [Haptic] = []
@@ -131,6 +133,12 @@ class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
         self.reachabilityContinuation = nil
     }
     
+    internal func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        if let stop = message[MessageKeys.stopStudy.rawValue] as? Bool, stop {
+            self.receivedStopSubject.send()
+        }
+    }
+    
     internal func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         Self.logger.debug("received application context: \(applicationContext)")
     }
@@ -138,6 +146,6 @@ class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
     internal func session(_ session: WCSession, didReceive file: WCSessionFile) {
         Self.logger.info("received file \(file)")
         
-        self.onFileReceive.forEach { $0(file) }
+        self.fileReceiveSubject.send(file)
     }
 }

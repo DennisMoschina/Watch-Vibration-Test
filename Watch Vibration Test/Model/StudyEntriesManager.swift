@@ -8,6 +8,7 @@
 import Foundation
 import OSLog
 import SwiftData
+import Combine
 
 class StudyEntriesManager {
     private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.WatchVibrationTest-Watch", category: "StudyEntriesManager")
@@ -17,9 +18,10 @@ class StudyEntriesManager {
     private let watchCommunicator: WatchCommunicator = WatchCommunicator.shared
     
     private let fileHandler: FileHandler = FileHandler.default
+    private var cancellables: [AnyCancellable] = []
     
     private init() {
-        self.watchCommunicator.onFileReceive.append { [weak self] file in
+        self.watchCommunicator.fileReceiveSubject.sink { [weak self] file in
             guard let uuidString = file.metadata?[MessageKeys.sessionUUID.rawValue] as? String else {
                 Self.logger.error("failed to uuid string from metadata")
                 return
@@ -46,7 +48,7 @@ class StudyEntriesManager {
             }
 
             self?.handleStudyFile(fileName: fileName, url: url, studyEntry: studyEntry)
-        }
+        }.store(in: &self.cancellables)
     }
     
     func refreshSessions() {

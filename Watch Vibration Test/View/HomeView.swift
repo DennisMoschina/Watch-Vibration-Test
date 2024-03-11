@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var showStudyConfiguration: Bool = false
     @EnvironmentObject var navigationViewModel: NavigationViewModel
     
     var body: some View {
@@ -17,7 +16,7 @@ struct HomeView: View {
                 StudiesListView()
                 
                 Button {
-                    self.showStudyConfiguration.toggle()
+                    self.navigationViewModel.navigation.append(Navigation.configureStudy)
                 } label: {
                     Image(systemName: "plus")
                         .font(.title)
@@ -27,15 +26,12 @@ struct HomeView: View {
                 .buttonBorderShape(.circle)
                 .shadow(radius: 10)
             }
-            .sheet(isPresented: self.$showStudyConfiguration, content: {
-                NavigationStack {
-                    ConfigureStudyView()
-                }
-            })
             .navigationDestination(for: Navigation.self) { navigation in
                 switch navigation {
                 case .studyRunning:
                     StudyView()
+                case .configureStudy:
+                    ConfigureStudyView()
                 }
             }
         }

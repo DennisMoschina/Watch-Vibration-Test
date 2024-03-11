@@ -94,7 +94,7 @@ class StudyViewModel: ObservableObject {
     
     func stopStudy() {
         if let study = self.studyManager.stopStudy() {
-            self.phoneCommunicator.transfer(study: study)
+            self.phoneCommunicator.stop(study: study)
         }
         self.navigation.removeLast(self.navigation.count)
         self.remainingTime = 0

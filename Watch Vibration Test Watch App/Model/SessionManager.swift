@@ -82,9 +82,9 @@ class SessionManager: NSObject, ObservableObject {
             clockRateLogger: CSVLogger(folderPath: folderURL.path, fileName: FileNames.clockRate.rawValue, header: ["timestamp", "clockRate"])
         )
         
-        setupHeartRateLogging(for: study)
-        setupActivityLogging(for: study)
-        setupClockRateLogging(for: study)
+        self.setupHeartRateLogging(for: study)
+        self.setupActivityLogging(for: study)
+        self.setupClockRateLogging(for: study)
         study.start()
         
         DispatchQueue.main.async {
@@ -135,7 +135,7 @@ class SessionManager: NSObject, ObservableObject {
         
         self.clockRateCancellables = patterns?.map { pattern in
             pattern.clock._clockRate.sink { clockRate in
-                self.study?.clockRateLogger.writeLine(data: [Date().timeIntervalSince1970, clockRate])
+                study.clockRateLogger.writeLine(data: [Date().timeIntervalSince1970, clockRate])
             }
         } ?? []
     }

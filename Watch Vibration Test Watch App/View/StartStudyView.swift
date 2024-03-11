@@ -20,13 +20,7 @@ struct StartStudyView: View {
     
     var body: some View {
         NavigationStack(path: self.$studyViewModel.navigation) {
-            Button {
-                self.studyViewModel.navigation.append(Navigation.configureStudy)
-            } label: {
-                Text("Start Study")
-                    .font(.title3)
-            }
-            .tint(.green)
+            Text("Configure and start the study on your iPhone")
             .navigationDestination(for: Navigation.self) { navigation in
                 switch navigation {
                 case .configureStudy:

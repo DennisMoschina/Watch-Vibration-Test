@@ -31,6 +31,11 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
         self.transferStudyFiles(for: study.folderURL)
     }
     
+    func stop(study: StudyLogger) {
+        self.transfer(study: study)
+        self.wcSession.sendMessage([MessageKeys.stopStudy.rawValue : true], replyHandler: nil)
+    }
+    
     private func transferStudyFiles(for dirURL: URL) {
         let sessionID: UUID = self.findUUID(in: dirURL.lastPathComponent) ?? UUID()
         
@@ -93,7 +98,7 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
                     case .constantRhythm:
                         HapticPattern(name: "Constant", haptics: [.start, .start, .failure], clock: FrequencyClock(frequency: 60), duration: 60 * 20)
                     }
-                    StudyActivityManager.shared.start(process: StudyProcess(activities: [.none, .baseline, .questionaire, .pattern(pattern: pattern)]))
+                    StudyActivityManager.shared.start(process: StudyProcess(activities: [.baseline, .questionaire, .pattern(pattern: pattern), .questionaire]))
                 }
                 replyHandler([MessageKeys.startStudy.rawValue : id.uuidString])
             } else {

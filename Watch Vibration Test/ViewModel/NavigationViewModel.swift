@@ -7,21 +7,30 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 enum Navigation: Hashable {
+    case configureStudy
     case studyRunning
 }
 
 class NavigationViewModel: ObservableObject {
     @Published var navigation: NavigationPath = NavigationPath()
     
+    private var cancellables: [AnyCancellable] = []
+    
     init() {
-        StudyManager.shared.onStudyStarted.append { [weak self] in
+        StudyManager.shared.studyStartedSubject.receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
+            //TODO: implement
+        }, receiveValue: { [weak self] in
             self?.navigation.append(Navigation.studyRunning)
-        }
+        }).store(in: &self.cancellables)
         
-        StudyManager.shared.onStudyStopped.append { [weak self] in
-            self?.navigation.removeLast()
-        }
+        StudyManager.shared.studyStoppedSubject.receive(on: DispatchQueue.main).sink(receiveCompletion: { completion in
+            //TODO: implement
+        }, receiveValue: { [weak self] _ in
+            guard let self else { return }
+            self.navigation.removeLast(self.navigation.count)
+        }).store(in: &self.cancellables)
     }
 }
