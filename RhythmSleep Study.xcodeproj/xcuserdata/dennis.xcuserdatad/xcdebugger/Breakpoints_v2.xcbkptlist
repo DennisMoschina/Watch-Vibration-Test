@@ -366,8 +366,8 @@
             filePath = "Watch Vibration Test/Model/StudyManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "startStudy(detail:type:)"
             landmarkType = "7">
          </BreakpointContent>

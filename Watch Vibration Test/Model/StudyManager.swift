@@ -25,7 +25,10 @@ class StudyManager {
     private let watchCommunicator = WatchCommunicator.shared
     
     var study: StudyEntry?
+    //TODO: use communicationFailed
     var communicationFailed: Bool = false
+    
+    private var tappingTaskLogger: CSVLogger?
     
     private var cancellables: [AnyCancellable] = []
     
@@ -61,6 +64,8 @@ class StudyManager {
             self.study = StudyEntry(detail: detail, id: id, folder: folderPath, startDate: Date(), studyType: type)
             SwiftDataStack.shared.modelContext.insert(self.study!)
             self.fileHandler.createFile(in: folderPath, fileName: "\(FileNames.detail.rawValue).txt", content: detail)
+            self.tappingTaskLogger = CSVLogger(folderPath: folderPath.path(), fileName: "TappingTask", header: ["timestamp", "x", "y"])
+            self.tappingTaskLogger?.startRecording()
             return true
         } else {
             self.studyStartedSubject.send(completion: Subscribers.Completion.failure(StudyError.communicationError))
@@ -79,16 +84,19 @@ class StudyManager {
     }
     
     private func tearDownStudy() {
-        //TODO: implement
-        
         guard let study else { return }
         self.studyStoppedSubject.send(study)
         
+        self.tappingTaskLogger?.stopRecording()
+        
         self.study = nil
+        self.tappingTaskLogger = nil
     }
     
     func registerTappingTaskTap(at point: CGPoint) {
-        //TODO: implement
-        print(point)
+        guard self.study != nil else { return }
+        if let tappingTaskLogger {
+            tappingTaskLogger.writeLine(data: [Date().timeIntervalSince1970, point.x, point.y])
+        }
     }
 }
