@@ -30,22 +30,7 @@ class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
         self.wcSession.activate()
     }
     
-    func play(haptic: Haptic) {
-        guard self.wcSession.isReachable, self.wcSession.activationState == .activated else {
-            Self.logger.error("Watch is not reachable or not activated")
-            return
-        }
-        Self.logger.debug("send command to play haptic: \(haptic.name)")
-        let encoder = JSONEncoder()
-        guard let encodedHaptic = try? encoder.encode(haptic) else {
-            Self.logger.error("failed to encode haptic")
-            return
-        }
-        Self.logger.debug("encoded: \(encodedHaptic)")
-        self.wcSession.sendMessage([MessageKeys.playHaptic.rawValue : encodedHaptic], replyHandler: nil)
-    }
-    
-    func startStudy() async -> UUID? {
+    func startStudy(type: StudyType) async -> UUID? {
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = .mindAndBody
         configuration.locationType = .indoor
@@ -68,7 +53,8 @@ class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
         }
         
         return await withCheckedContinuation { continuation in
-            self.wcSession.sendMessage([MessageKeys.startStudy.rawValue : true], replyHandler: { replyMessage in
+            //TODO: use `updateApplicationContext()` instead
+            self.wcSession.sendMessage([MessageKeys.startStudy.rawValue : true, MessageKeys.type.rawValue : type.rawValue], replyHandler: { replyMessage in
                 Self.logger.debug("received \(replyMessage) as a reply from `startStudy`")
                 
                 if let idString = replyMessage[MessageKeys.startStudy.rawValue] as? String {
@@ -147,11 +133,6 @@ class WatchCommunicator: NSObject, WCSessionDelegate, ObservableObject {
     
     internal func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         Self.logger.debug("received application context: \(applicationContext)")
-        
-        if let patterns: [HapticPattern] = applicationContext[MessageKeys.patterns.rawValue] as? [HapticPattern] {
-            Self.logger.debug("got patterns: \(patterns)")
-            self.availablePatterns = patterns
-        }
     }
     
     internal func session(_ session: WCSession, didReceive file: WCSessionFile) {

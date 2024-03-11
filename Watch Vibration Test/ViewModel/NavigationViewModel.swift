@@ -14,4 +14,14 @@ enum Navigation: Hashable {
 
 class NavigationViewModel: ObservableObject {
     @Published var navigation: NavigationPath = NavigationPath()
+    
+    init() {
+        StudyManager.shared.onStudyStarted.append { [weak self] in
+            self?.navigation.append(Navigation.studyRunning)
+        }
+        
+        StudyManager.shared.onStudyStopped.append { [weak self] in
+            self?.navigation.removeLast()
+        }
+    }
 }

@@ -18,116 +18,6 @@
             endingLineNumber = "34"
             landmarkName = "play(pattern:onEnd:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8360AC6B-B110-47CC-9B1A-1E53041B2E0C - a4a14f2f1dc51b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test_Watch_App.HapticManager.play(pattern: Watch_Vibration_Test_Watch_App.HapticPattern, for: Swift.Optional&lt;Swift.Double&gt;) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/Model/HapticManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "132">
-               </Location>
-               <Location
-                  uuid = "8360AC6B-B110-47CC-9B1A-1E53041B2E0C - a4a14f2f1dc51b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test_Watch_App.HapticManager.play(pattern: Watch_Vibration_Test_Watch_App.HapticPattern, for: Swift.Optional&lt;Swift.Double&gt;) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/Model/HapticManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "128">
-               </Location>
-               <Location
-                  uuid = "8360AC6B-B110-47CC-9B1A-1E53041B2E0C - 4bc688931014f18f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (__C.NSTimer) -&gt; () in Watch_Vibration_Test_Watch_App.HapticManager.play(pattern: Watch_Vibration_Test_Watch_App.HapticPattern, for: Swift.Optional&lt;Swift.Double&gt;) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/Model/HapticManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "144">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E647D3AA-813F-4894-A0F3-AADF0DC90435"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Watch Vibration Test/Model/WatchCommunicator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "play(haptic:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E647D3AA-813F-4894-A0F3-AADF0DC90435 - cfdaf4d9a646338e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test.WatchCommunicator.session(_: __C.WCSession, activationDidCompleteWith: __C.WCSessionActivationState, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "Watch Vibration Test"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/Model/WatchCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "320">
-               </Location>
-               <Location
-                  uuid = "E647D3AA-813F-4894-A0F3-AADF0DC90435 - 340ad43abe411f84"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test.WatchCommunicator.play(haptic: Watch_Vibration_Test.Haptic) -&gt; ()"
-                  moduleName = "Watch Vibration Test"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/Model/WatchCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "2248">
-               </Location>
-               <Location
-                  uuid = "E647D3AA-813F-4894-A0F3-AADF0DC90435 - 896cc89c5fba3bda"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; () in Watch_Vibration_Test.WatchCommunicator.play(haptic: Watch_Vibration_Test.Haptic) -&gt; ()"
-                  moduleName = "Watch Vibration Test"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/Model/WatchCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "224">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -140,8 +30,8 @@
             filePath = "Watch Vibration Test Watch App/Model/PhoneCommunicator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "session(_:activationDidCompleteWith:error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -156,42 +46,10 @@
             filePath = "Watch Vibration Test Watch App/Model/PhoneCommunicator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "session(_:didReceiveMessage:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7DAA5D04-A0F9-491B-AB6C-67ADCD1EDFE0 - a66d5cd91afae381"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test_Watch_App.PhoneCommunicator.session(_: __C.WCSession, didReceiveMessage: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/Model/PhoneCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "192">
-               </Location>
-               <Location
-                  uuid = "7DAA5D04-A0F9-491B-AB6C-67ADCD1EDFE0 - a66d5cd91afae381"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test_Watch_App.PhoneCommunicator.session(_: __C.WCSession, didReceiveMessage: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/Model/PhoneCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "196">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -208,38 +66,6 @@
             endingLineNumber = "33"
             landmarkName = "play(pattern:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F46ECF52-3049-4D8E-B7CA-4334517B2EE1 - 982a68e0cb6ad426"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Watch_Vibration_Test_Watch_App.HapticPattern) -&gt; () in Watch_Vibration_Test_Watch_App.HapticViewModel.play(pattern: Watch_Vibration_Test_Watch_App.HapticPattern) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/ViewModel/HapticViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "F46ECF52-3049-4D8E-B7CA-4334517B2EE1 - 982a68e0cb6ad405"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Watch_Vibration_Test_Watch_App.HapticPattern) -&gt; () in Watch_Vibration_Test_Watch_App.HapticViewModel.play(pattern: Watch_Vibration_Test_Watch_App.HapticPattern) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/ViewModel/HapticViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "116">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -284,8 +110,8 @@
             filePath = "Watch Vibration Test Watch App/Model/SessionManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "startSession()"
             landmarkType = "7">
          </BreakpointContent>
@@ -364,42 +190,10 @@
             filePath = "Watch Vibration Test Watch App/Model/PhoneCommunicator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "transferStudyFiles(for:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F4220884-4881-4EF7-B88E-D9C69E5ADB5D - dc72dd61d4c56648"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test_Watch_App.PhoneCommunicator.transferStudyFiles(for: Foundation.URL) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/Model/PhoneCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "652">
-               </Location>
-               <Location
-                  uuid = "F4220884-4881-4EF7-B88E-D9C69E5ADB5D - 4d207b5931199812"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt; in Watch_Vibration_Test_Watch_App.PhoneCommunicator.transferStudyFiles(for: Foundation.URL) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/Model/PhoneCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "72">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -412,42 +206,10 @@
             filePath = "Watch Vibration Test Watch App/Model/PhoneCommunicator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "transferStudyFiles(for:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EFAAEF8A-B7C6-46E6-96F6-8C330F7B8BAA - dc72dd61d4c56782"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test_Watch_App.PhoneCommunicator.transferStudyFiles(for: Foundation.URL) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/Model/PhoneCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "1320">
-               </Location>
-               <Location
-                  uuid = "EFAAEF8A-B7C6-46E6-96F6-8C330F7B8BAA - dc72dd61d4c56782"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test_Watch_App.PhoneCommunicator.transferStudyFiles(for: Foundation.URL) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/Model/PhoneCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "1492">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -460,42 +222,10 @@
             filePath = "Watch Vibration Test Watch App/Model/PhoneCommunicator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "transferStudyFiles(for:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3B2FCE00-BCC6-4D59-AB99-2276C28D9538 - dc72dd61d4c567e7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test_Watch_App.PhoneCommunicator.transferStudyFiles(for: Foundation.URL) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/Model/PhoneCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "1384">
-               </Location>
-               <Location
-                  uuid = "3B2FCE00-BCC6-4D59-AB99-2276C28D9538 - dc72dd61d4c567c4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test_Watch_App.PhoneCommunicator.transferStudyFiles(for: Foundation.URL) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/Model/PhoneCommunicator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "1736">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -508,8 +238,8 @@
             filePath = "Watch Vibration Test/Model/WatchCommunicator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "session(_:didReceive:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -524,8 +254,8 @@
             filePath = "Watch Vibration Test Watch App/Model/SessionManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "stopStudy()"
             landmarkType = "7">
          </BreakpointContent>
@@ -540,25 +270,9 @@
             filePath = "Watch Vibration Test Watch App/Model/SessionManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "setupClockRateLogging(for:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A2D6C494-2875-4593-839B-E1F14E6FD15E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Watch Vibration Test Watch App/Model/SessionManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "startStudy(detail:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -576,38 +290,6 @@
             endingLineNumber = "87"
             landmarkName = "startStudy(detail:patternStartIndex:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A47696B6-756A-4B52-A9D9-023002FA1908 - 594ce0e7ae92cd39"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Watch_Vibration_Test_Watch_App.StudyViewModel.startStudy(detail: Swift.String, patternStartIndex: Swift.Int) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/ViewModel/StudyViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "144">
-               </Location>
-               <Location
-                  uuid = "A47696B6-756A-4B52-A9D9-023002FA1908 - 288f43ceaca30a08"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Watch_Vibration_Test_Watch_App.HapticPattern) -&gt; Watch_Vibration_Test_Watch_App.HapticPattern in Watch_Vibration_Test_Watch_App.StudyViewModel.startStudy(detail: Swift.String, patternStartIndex: Swift.Int) -&gt; ()"
-                  moduleName = "Watch Vibration Test Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test%20Watch%20App/ViewModel/StudyViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -624,6 +306,146 @@
             endingLineNumber = "91"
             landmarkName = "startStudy(detail:patternStartIndex:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E96F85A-AE3F-4B30-B8A0-BCE5C93EA2F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Vibration Test/View/StudiesListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "deleteSessionData(dir:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C506E63-AC6A-4D46-9014-736857EDD004"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Vibration Test Watch App/ViewModel/StudyViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "stopStudy()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95EE8ACF-BF79-40DB-AE8B-D3FDE3E43ADC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Vibration Test/Model/WatchCommunicator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "session(_:didReceive:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63496FAC-DBA3-4571-A64F-DD534852E6A1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Vibration Test/ViewModel/NavigationViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0FB9E914-9FC8-43CD-874D-C608C08261BE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Vibration Test/Model/StudyManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "startStudy(detail:type:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EABAA435-AFA5-4F37-87BB-56CB21FE0798"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Vibration Test/ViewModel/StudyViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "stopStudy()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EABAA435-AFA5-4F37-87BB-56CB21FE0798 - 33944b31454c6058"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RhythmSleep_Study.StudyViewModel.stopStudy() -&gt; ()"
+                  moduleName = "RhythmSleep Study"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/ViewModel/StudyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46">
+               </Location>
+               <Location
+                  uuid = "EABAA435-AFA5-4F37-87BB-56CB21FE0798 - 27cafd25f6588c78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in RhythmSleep_Study.StudyViewModel.stopStudy() -&gt; ()"
+                  moduleName = "RhythmSleep Study"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/ViewModel/StudyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46">
+               </Location>
+               <Location
+                  uuid = "EABAA435-AFA5-4F37-87BB-56CB21FE0798 - aabb44c753c7ac5e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RhythmSleep_Study.StudyViewModel.stopStudy() -&gt; ()"
+                  moduleName = "RhythmSleep Study"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dennis/CloudStation/Development/Swift/Watch%20Vibration%20Test/Watch%20Vibration%20Test/ViewModel/StudyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

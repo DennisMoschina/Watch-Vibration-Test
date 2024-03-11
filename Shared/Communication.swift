@@ -8,18 +8,14 @@
 import Foundation
 
 enum MessageKeys: String {
-    case playHaptic = "play_haptic"
-    case playPattern = "play_pattern"
     case startStudy = "start_study"
     case stopStudy = "stop_study"
-    
-    case patterns = "haptic_patterns"
     
     case sessionUUID = "session_id"
     
     case activity = "activity"
     
-    case study = "study"
+    case type = "type"
 }
 
 enum FileNames: String {

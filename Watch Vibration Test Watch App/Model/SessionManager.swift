@@ -62,20 +62,21 @@ class SessionManager: NSObject, ObservableObject {
     
     private override init() { }
     
-    func startStudy(detail: String = "") -> UUID? {
-        let id = UUID()
-        guard let folderURL = self.createPath(uuidString: id.uuidString) else {
-            Self.logger.error("Failed to create folder from UUID \(id)")
+    func startStudy(detail: String? = nil, uuid: UUID = UUID()) -> UUID? {
+        guard let folderURL = self.createPath(uuidString: uuid.uuidString) else {
+            Self.logger.error("Failed to create folder from UUID \(uuid)")
             return nil
         }
         
-        let detailFilePath = folderURL.appendingPathComponent("\(FileNames.detail.rawValue).txt")
-        FileManager.default.createFile(atPath: detailFilePath.path, contents: detail.data(using: .utf8))
+        if let detail {
+            let detailFilePath = folderURL.appendingPathComponent("\(FileNames.detail.rawValue).txt")
+            FileManager.default.createFile(atPath: detailFilePath.path, contents: detail.data(using: .utf8))
+        }
         
         var study = StudyLogger(
-            id: id,
+            id: uuid,
             folderURL: folderURL,
-            detail: detail,
+            detail: detail ?? "",
             heartRateLogger: CSVLogger(folderPath: folderURL.path, fileName: FileNames.heartRate.rawValue, header: ["timestamp", "heartRate"]),
             activityLogger: CSVLogger(folderPath: folderURL.path, fileName: FileNames.label.rawValue, header: ["timestamp", "activity"]),
             clockRateLogger: CSVLogger(folderPath: folderURL.path, fileName: FileNames.clockRate.rawValue, header: ["timestamp", "clockRate"])

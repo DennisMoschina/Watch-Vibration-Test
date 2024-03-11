@@ -9,9 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     @State var showStudyConfiguration: Bool = false
+    @EnvironmentObject var navigationViewModel: NavigationViewModel
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: self.$navigationViewModel.navigation) {
             ZStack(alignment: .bottom) {
                 StudiesListView()
                 
@@ -31,11 +32,19 @@ struct HomeView: View {
                     ConfigureStudyView()
                 }
             })
+            .navigationDestination(for: Navigation.self) { navigation in
+                switch navigation {
+                case .studyRunning:
+                    StudyView()
+                }
+            }
         }
+        .environmentObject(StudyViewModel())
     }
 }
 
 #Preview {
     HomeView()
         .environment(\.modelContext, SwiftDataStack.preview.modelContext)
+        .environmentObject(NavigationViewModel())
 }

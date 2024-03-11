@@ -11,6 +11,8 @@ struct ConfigureStudyView: View {
     @State var studyID: String = ""
     @State var studyType: StudyType = .none
     
+    @EnvironmentObject var studyViewModel: StudyViewModel
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             Form {
@@ -20,6 +22,7 @@ struct ConfigureStudyView: View {
                     Picker(selection: self.$studyType) {
                         ForEach(StudyType.allCases) { type in
                             Text(type.name)
+                                .tag(type)
                         }
                     } label: {
                         Text("Study Type")
@@ -29,11 +32,17 @@ struct ConfigureStudyView: View {
             .scrollDisabled(true)
             
             Button {
-                
+                self.studyViewModel.startStudy(detail: self.studyID, type: self.studyType)
             } label: {
-                Text("Start Study")
-                    .padding()
+                ZStack {
+                    if self.studyViewModel.processing {
+                        ProgressView()
+                    }
+                    Text("Start Study")
+                        .padding()
+                }
             }
+            .disabled(self.studyViewModel.processing)
             .buttonStyle(.borderedProminent)
         }
         .navigationTitle("Configure Study")
@@ -43,5 +52,6 @@ struct ConfigureStudyView: View {
 #Preview {
     NavigationStack {
         ConfigureStudyView()
+            .environmentObject(StudyViewModel())
     }
 }

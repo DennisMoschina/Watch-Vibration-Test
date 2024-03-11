@@ -10,7 +10,7 @@ import SwiftData
 import OSLog
 import Combine
 
-class StudyManager: ObservableObject {
+class StudyManager {
     private static let STUDY_DIR_PREFIX: String = "session_"
     
     private static let logger: Logger = Logger(subsystem: "edu.teco.moschina.WatchVibrationTest-Watch", category: "StudyManager")
@@ -19,12 +19,15 @@ class StudyManager: ObservableObject {
     
     private let watchCommunicator = WatchCommunicator.shared
     
-    @Published var study: StudyEntry?
-    @Published var communicationFailed: Bool = false
+    var study: StudyEntry?
+    var communicationFailed: Bool = false
     
     private var cancellables: [AnyCancellable?] = []
     
     private var fileHandler: FileHandler = FileHandler.default
+    
+    var onStudyStarted: [() -> ()] = []
+    var onStudyStopped: [() -> ()] = []
     
     private init() {
         self.cancellables.append(
@@ -42,14 +45,13 @@ class StudyManager: ObservableObject {
     }
     
     func startStudy(detail: String, type: StudyType = .none) async -> Bool {
-        if let id = await self.watchCommunicator.startStudy() {
+        if let id = await self.watchCommunicator.startStudy(type: type) {
             guard let folderPath = self.fileHandler.createPath(uuidString: id.uuidString) else {
                 Self.logger.error("failed to create folderPath")
                 return false
             }
-            DispatchQueue.main.sync {
-                self.study = StudyEntry(detail: detail, id: id, folder: folderPath, startDate: Date(), studyType: type)
-            }
+            defer { self.onStudyStarted.forEach { $0() } }
+            self.study = StudyEntry(detail: detail, id: id, folder: folderPath, startDate: Date(), studyType: type)
             SwiftDataStack.shared.modelContext.insert(self.study!)
             self.fileHandler.createFile(in: folderPath, fileName: "\(FileNames.detail.rawValue).txt", content: detail)
             return true
@@ -59,6 +61,13 @@ class StudyManager: ObservableObject {
     }
     
     func stopStudy() async -> Bool {
-        return await self.watchCommunicator.stopStudy()
+        let stopped = await self.watchCommunicator.stopStudy()
+        if stopped { self.onStudyStopped.forEach { $0() } }
+        return stopped
+    }
+    
+    func registerTappingTaskTap(at point: CGPoint) {
+        //TODO: implement
+        print(point)
     }
 }

@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct Watch_Vibration_TestApp: App {
+    init() {
+        _ = WatchCommunicator.shared
+        _ = StudyEntriesManager.shared
+        _ = StudyManager.shared
+    }
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environmentObject(NavigationViewModel())
                 .modelContainer(SwiftDataStack.shared.modelContainer)
         }
     }

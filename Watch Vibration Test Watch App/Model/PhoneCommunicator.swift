@@ -26,14 +26,6 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
         self.wcSession.delegate = self
         self.wcSession.activate()
     }
-
-    func send(patterns: [HapticPattern]) {
-        do {
-            try self.wcSession.updateApplicationContext([MessageKeys.patterns.rawValue : patterns])
-        } catch {
-            Self.logger.error("failed to send patterns with error \(error)")
-        }
-    }
     
     func transfer(study: StudyLogger) {
         self.transferStudyFiles(for: study.folderURL)
@@ -81,14 +73,6 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
     
     internal func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         Self.logger.debug("received: \(message)")
-        if let hapticData = message[MessageKeys.playHaptic.rawValue] as? Data {
-            let decoder = JSONDecoder()
-            if let haptic: Haptic = try? decoder.decode(Haptic.self, from: hapticData) {
-                self.hapticManager?.play(haptic: haptic)
-            } else {
-                Self.logger.error("failed to decode haptic")
-            }
-        }
         if let stopStudy = message[MessageKeys.stopStudy.rawValue] as? Bool, stopStudy {
             if let studyFolderURL: URL = SessionManager.shared.stopStudy()?.folderURL {
                 self.transferStudyFiles(for: studyFolderURL)
@@ -100,6 +84,17 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
         Self.logger.debug("received with reply expected: \(message)")
         if let startStudy = message[MessageKeys.startStudy.rawValue] as? Bool, startStudy {
             if let id = SessionManager.shared.startStudy() {
+                if let studyType: StudyType = (message[MessageKeys.type.rawValue] as? String).flatMap({ StudyType(rawValue: $0) }) {
+                    let pattern: HapticPattern = switch studyType {
+                    case .none:
+                        HapticPattern(name: "Silence", duration: 60 * 20)
+                    case .regulatedRhythm:
+                        HapticPattern(name: "Regulated", haptics: [.start, .start, .failure], clock: HeartRateClock(heartRateSensor: HeartRateSensor.shared), duration: 60 * 20)
+                    case .constantRhythm:
+                        HapticPattern(name: "Constant", haptics: [.start, .start, .failure], clock: FrequencyClock(frequency: 60), duration: 60 * 20)
+                    }
+                    StudyActivityManager.shared.start(process: StudyProcess(activities: [.none, .baseline, .questionaire, .pattern(pattern: pattern)]))
+                }
                 replyHandler([MessageKeys.startStudy.rawValue : id.uuidString])
             } else {
                 replyHandler([MessageKeys.startStudy.rawValue : false])
@@ -126,3 +121,4 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
         }
     }
 }
+                        

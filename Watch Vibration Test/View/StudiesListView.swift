@@ -12,31 +12,26 @@ struct StudiesListView: View {
     @Environment(\.modelContext) var modelContext
     @Query var studies: [StudyEntry]
     
-    @ObservedObject var studyManager: StudyManager = StudyManager.shared
-    
     var body: some View {
-        Group {
-            if self.studies.isEmpty {
-                Text("No Studies recorded")
-                    .font(.title)
-            } else {
-                List {
-                    Section {
-                        ForEach(self.studies) { study in
-                            HStack {
-                                Text(study.detail)
-                                Spacer()
-                                Text(study.startDate.formatted())
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                    } footer: {
-                        Text("\(self.studies.count) Studies")
-                            .font(.body)
-                            .frame(minWidth: 0, maxWidth: .infinity)
+        List {
+            Section {
+                ForEach(self.studies) { study in
+                    HStack {
+                        Text(study.detail)
+                        Spacer()
+                        Text(study.startDate.formatted())
+                            .foregroundStyle(.secondary)
                     }
                 }
+                .onDelete(perform: deleteEntries(at:))
+            } footer: {
+                Text("\(self.studies.count) Studies")
+                    .font(.body)
+                    .frame(minWidth: 0, maxWidth: .infinity)
             }
+        }
+        .refreshable {
+            StudyEntriesManager.shared.refreshSessions()
         }
         .navigationTitle("Studies")
     }

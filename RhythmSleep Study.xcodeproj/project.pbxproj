@@ -26,10 +26,11 @@
 		95C50F3C2B9346D600A795E5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C50F3B2B9346D600A795E5 /* HomeView.swift */; };
 		95C50F3E2B946A1800A795E5 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C50F3D2B946A1800A795E5 /* FileHandler.swift */; };
 		95C50F402B946CCE00A795E5 /* StudyEntriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C50F3F2B946CCE00A795E5 /* StudyEntriesManager.swift */; };
+		95C50F422B94811500A795E5 /* StudyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C50F412B94811500A795E5 /* StudyViewModel.swift */; };
 		95D3D0EA2B8F69360054B1F0 /* ConfigureStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3D0E92B8F69360054B1F0 /* ConfigureStudyView.swift */; };
 		95D3D0EC2B8F69A00054B1F0 /* StudyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3D0EB2B8F69A00054B1F0 /* StudyType.swift */; };
 		95D3D0ED2B8F69A00054B1F0 /* StudyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3D0EB2B8F69A00054B1F0 /* StudyType.swift */; };
-		95D3D0EF2B8F70770054B1F0 /* StartStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3D0EE2B8F70770054B1F0 /* StartStudyView.swift */; };
+		95D3D0EF2B8F70770054B1F0 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3D0EE2B8F70770054B1F0 /* StudyView.swift */; };
 		95DAD3912B2A00C5006F15F4 /* HeartRateSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3902B2A00C5006F15F4 /* HeartRateSensor.swift */; };
 		95DAD3932B2A00F7006F15F4 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3922B2A00F7006F15F4 /* HealthKitManager.swift */; };
 		95DAD3952B2B24BA006F15F4 /* CSVLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3942B2B24BA006F15F4 /* CSVLogger.swift */; };
@@ -42,7 +43,6 @@
 		95DAD3AA2B2F3B37006F15F4 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A92B2F3B37006F15F4 /* NavigationViewModel.swift */; };
 		95DAD3AC2B305DB1006F15F4 /* StartStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3AB2B305DB1006F15F4 /* StartStudyView.swift */; };
 		95E024E72B8F5C62009952ED /* TappingTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E024E62B8F5C62009952ED /* TappingTaskView.swift */; };
-		95E024E92B8F5E71009952ED /* StudyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E024E82B8F5E71009952ED /* StudyViewModel.swift */; };
 		95E4F8ED2B4702E900D5CD49 /* StudyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DAD3A32B2B542D006F15F4 /* StudyManager.swift */; };
 		95E4F8EF2B494DBC00D5CD49 /* TimeDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4F8EE2B494DBC00D5CD49 /* TimeDisplayView.swift */; };
 		95E4F8F12B49521900D5CD49 /* HapticClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4F8F02B49521800D5CD49 /* HapticClock.swift */; };
@@ -106,9 +106,10 @@
 		95C50F3B2B9346D600A795E5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		95C50F3D2B946A1800A795E5 /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
 		95C50F3F2B946CCE00A795E5 /* StudyEntriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyEntriesManager.swift; sourceTree = "<group>"; };
+		95C50F412B94811500A795E5 /* StudyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewModel.swift; sourceTree = "<group>"; };
 		95D3D0E92B8F69360054B1F0 /* ConfigureStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureStudyView.swift; sourceTree = "<group>"; };
 		95D3D0EB2B8F69A00054B1F0 /* StudyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyType.swift; sourceTree = "<group>"; };
-		95D3D0EE2B8F70770054B1F0 /* StartStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStudyView.swift; sourceTree = "<group>"; };
+		95D3D0EE2B8F70770054B1F0 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
 		95DAD3902B2A00C5006F15F4 /* HeartRateSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateSensor.swift; sourceTree = "<group>"; };
 		95DAD3922B2A00F7006F15F4 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		95DAD3942B2B24BA006F15F4 /* CSVLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVLogger.swift; sourceTree = "<group>"; };
@@ -120,7 +121,6 @@
 		95DAD3A92B2F3B37006F15F4 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		95DAD3AB2B305DB1006F15F4 /* StartStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStudyView.swift; sourceTree = "<group>"; };
 		95E024E62B8F5C62009952ED /* TappingTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappingTaskView.swift; sourceTree = "<group>"; };
-		95E024E82B8F5E71009952ED /* StudyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewModel.swift; sourceTree = "<group>"; };
 		95E4F8EE2B494DBC00D5CD49 /* TimeDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDisplayView.swift; sourceTree = "<group>"; };
 		95E4F8F02B49521800D5CD49 /* HapticClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticClock.swift; sourceTree = "<group>"; };
 		95E4F8F32B49528800D5CD49 /* FrequencyClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyClock.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 				95C50F3B2B9346D600A795E5 /* HomeView.swift */,
 				95E024E62B8F5C62009952ED /* TappingTaskView.swift */,
 				95D3D0E92B8F69360054B1F0 /* ConfigureStudyView.swift */,
-				95D3D0EE2B8F70770054B1F0 /* StartStudyView.swift */,
+				95D3D0EE2B8F70770054B1F0 /* StudyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				95DAD3A92B2F3B37006F15F4 /* NavigationViewModel.swift */,
-				95E024E82B8F5E71009952ED /* StudyViewModel.swift */,
+				95C50F412B94811500A795E5 /* StudyViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -434,11 +434,11 @@
 				95C50F402B946CCE00A795E5 /* StudyEntriesManager.swift in Sources */,
 				95DAD3AA2B2F3B37006F15F4 /* NavigationViewModel.swift in Sources */,
 				95E024E72B8F5C62009952ED /* TappingTaskView.swift in Sources */,
-				95D3D0EF2B8F70770054B1F0 /* StartStudyView.swift in Sources */,
+				95D3D0EF2B8F70770054B1F0 /* StudyView.swift in Sources */,
 				95C50F3E2B946A1800A795E5 /* FileHandler.swift in Sources */,
 				95E4F8ED2B4702E900D5CD49 /* StudyManager.swift in Sources */,
+				95C50F422B94811500A795E5 /* StudyViewModel.swift in Sources */,
 				95A917B42B0683C2000166F4 /* Haptic.swift in Sources */,
-				95E024E92B8F5E71009952ED /* StudyViewModel.swift in Sources */,
 				95D3D0EC2B8F69A00054B1F0 /* StudyType.swift in Sources */,
 				95E4F8F12B49521900D5CD49 /* HapticClock.swift in Sources */,
 				95DAD39B2B2B40AE006F15F4 /* StudiesListView.swift in Sources */,
@@ -627,7 +627,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Watch-Vibration-Test-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Watch Vibration Test";
+				INFOPLIST_KEY_CFBundleDisplayName = "RhythmSleep Study";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "HeartRate is measured to execute study";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HeartRate is measured to log study data and update vibration frequency";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -661,7 +661,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Watch-Vibration-Test-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Watch Vibration Test";
+				INFOPLIST_KEY_CFBundleDisplayName = "RhythmSleep Study";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "HeartRate is measured to execute study";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HeartRate is measured to log study data and update vibration frequency";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

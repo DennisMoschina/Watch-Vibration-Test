@@ -58,6 +58,10 @@ struct StudyProcess {
             [.moving, .recovery, .pattern(pattern: pattern), .questionaire]
         })
     }
+    
+    init(activities: [StudyActivity]) {
+        self.activities = activities
+    }
 }
 
 class StudyActivityManager: ObservableObject {
