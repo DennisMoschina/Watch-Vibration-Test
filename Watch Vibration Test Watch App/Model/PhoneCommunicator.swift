@@ -88,21 +88,21 @@ class PhoneCommunicator: NSObject, WCSessionDelegate {
     internal func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         Self.logger.debug("received with reply expected: \(message)")
         if let startStudy = message[MessageKeys.startStudy.rawValue] as? Bool, startStudy {
-            if let id = SessionManager.shared.startStudy() {
-                if let studyType: StudyType = (message[MessageKeys.type.rawValue] as? String).flatMap({ StudyType(rawValue: $0) }) {
-                    let pattern: HapticPattern = switch studyType {
-                    case .none:
-                        HapticPattern(name: "Silence", duration: 60 * 20)
-                    case .regulatedRhythm:
-                        HapticPattern(name: "Regulated", haptics: [.start, .start, .failure], clock: HeartRateClock(heartRateSensor: HeartRateSensor.shared), duration: 60 * 20)
-                    case .constantRhythm:
-                        HapticPattern(name: "Constant", haptics: [.start, .start, .failure], clock: FrequencyClock(frequency: 60), duration: 60 * 20)
-                    }
-                    StudyActivityManager.shared.start(process: StudyProcess(activities: [.baseline, .questionaire, .pattern(pattern: pattern), .questionaire]))
+            if let studyType: StudyType = (message[MessageKeys.type.rawValue] as? String).flatMap({ StudyType(rawValue: $0) }) {
+                let pattern: HapticPattern = switch studyType {
+                case .none:
+                    HapticPattern(name: "Silence", duration: 60 * 20)
+                case .regulatedRhythm:
+                    HapticPattern(name: "Regulated", haptics: [.start, .start, .failure], clock: HeartRateClock(heartRateSensor: HeartRateSensor.shared), duration: 60 * 20)
+                case .constantRhythm:
+                    HapticPattern(name: "Constant", haptics: [.start, .start, .failure], clock: FrequencyClock(frequency: 60), duration: 60 * 20)
                 }
-                replyHandler([MessageKeys.startStudy.rawValue : id.uuidString])
-            } else {
-                replyHandler([MessageKeys.startStudy.rawValue : false])
+                StudyActivityManager.shared.start(process: StudyProcess(activities: [.baseline, .questionaire, .pattern(pattern: pattern), .questionaire]))
+                if let id = SessionManager.shared.startStudy() {
+                    replyHandler([MessageKeys.startStudy.rawValue : id.uuidString])
+                } else {
+                    replyHandler([MessageKeys.startStudy.rawValue : false])
+                }
             }
         } else if let stopStudy = message[MessageKeys.stopStudy.rawValue] as? Bool, stopStudy {
             Self.logger.info("stopping Study")
