@@ -9,6 +9,7 @@ import Foundation
 import SwiftData
 import OSLog
 import Combine
+import UIKit
 
 enum StudyError: Error {
     case fileError
@@ -49,7 +50,9 @@ class StudyManager {
             }
         }.store(in: &self.cancellables)
         self.watchCommunicator.receivedStopSubject.sink { _ in
-            self.tearDownStudy()
+            Task {
+                await self.tearDownStudy()
+            }
         }.store(in: &self.cancellables)
     }
     
@@ -66,6 +69,9 @@ class StudyManager {
             self.fileHandler.createFile(in: folderPath, fileName: "\(FileNames.detail.rawValue).txt", content: detail)
             self.tappingTaskLogger = CSVLogger(folderPath: folderPath.path(), fileName: "TappingTask", header: ["timestamp", "x", "y"])
             self.tappingTaskLogger?.startRecording()
+            await MainActor.run {
+                UIApplication.shared.isIdleTimerDisabled = true
+            }
             return true
         } else {
             self.studyStartedSubject.send(completion: Subscribers.Completion.failure(StudyError.communicationError))
@@ -76,18 +82,21 @@ class StudyManager {
     func stopStudy() async -> Bool {
         let stopped = await self.watchCommunicator.stopStudy()
         if stopped {
-            self.tearDownStudy()
+            await self.tearDownStudy()
         } else {
             self.studyStoppedSubject.send(completion: Subscribers.Completion.failure(StudyError.communicationError))
         }
         return stopped
     }
     
-    private func tearDownStudy() {
+    private func tearDownStudy() async {
         guard let study else { return }
         self.studyStoppedSubject.send(study)
         
         self.tappingTaskLogger?.stopRecording()
+        await MainActor.run {
+            UIApplication.shared.isIdleTimerDisabled = false
+        }
         
         self.study = nil
         self.tappingTaskLogger = nil
